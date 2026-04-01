@@ -1,0 +1,32 @@
+/* NexusFlow Brand Colors — generated from BRAND.md */
+/* Usage: import this file and use var(--nxs-*) custom properties */
+
+:root {
+  /* Shared Neutrals */
+  --nxs-graphite: #1C1C1C;
+  --nxs-gray: #6B6B6B;
+  --nxs-border: #E5E5E0;
+  --nxs-white: #FFFFFF;
+
+  /* nexflow.it */
+  --nxs-nexflow-primary: #B9FF66;
+  --nxs-nexflow-primary-dark: #84CC16;
+  --nxs-nexflow-tint: #F5FFE6;
+  --nxs-nexflow-bg: #FFFFFF;
+
+  /* manufakt.io */
+  --nxs-manufakt-primary: #1C1C1C;
+  --nxs-manufakt-bg: #FAF9F7;
+
+  /* NexusFlow BP */
+  --nxs-bp-accent: #F59E0B;
+  --nxs-bp-bg: #FFFFFF;
+
+  /* Amplify Overtone */
+  --nxs-overtone-accent: #A78BFA;
+  --nxs-overtone-bg: #FFFFFF;
+
+  /* NexusFlow Parent */
+  --nxs-parent-accent: #B9FF66;
+  --nxs-parent-bg: #FFFFFF;
+}

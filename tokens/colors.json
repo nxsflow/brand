@@ -1,0 +1,30 @@
+{
+  "shared": {
+    "graphite": "#1C1C1C",
+    "gray": "#6B6B6B",
+    "border": "#E5E5E0",
+    "white": "#FFFFFF"
+  },
+  "nexflow": {
+    "primary": "#B9FF66",
+    "primaryDark": "#84CC16",
+    "tint": "#F5FFE6",
+    "background": "#FFFFFF"
+  },
+  "manufakt": {
+    "primary": "#1C1C1C",
+    "background": "#FAF9F7"
+  },
+  "bp": {
+    "accent": "#F59E0B",
+    "background": "#FFFFFF"
+  },
+  "overtone": {
+    "accent": "#A78BFA",
+    "background": "#FFFFFF"
+  },
+  "parent": {
+    "accent": "#B9FF66",
+    "background": "#FFFFFF"
+  }
+}
