@@ -1,0 +1,45 @@
+/* NexusFlow Typography — generated from BRAND.md */
+/* Usage: import this file for font loading and type scale custom properties */
+
+/* Google Fonts imports */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Merriweather+Sans:wght@300;400;700&family=Nunito:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Font families */
+  --nxs-font-heading: 'Merriweather', Georgia, serif;
+  --nxs-font-body: 'Merriweather Sans', system-ui, sans-serif;
+  --nxs-font-body-nexflow: 'Nunito', system-ui, sans-serif;
+  --nxs-font-mono: 'JetBrains Mono', monospace;
+
+  /* Default type scale (1.25 — parent, manufakt.io, Overtone) */
+  --nxs-text-xs: 12px;
+  --nxs-text-sm: 14px;
+  --nxs-text-base: 16px;
+  --nxs-text-lg: 20px;
+  --nxs-text-xl: 25px;
+  --nxs-text-2xl: 31px;
+  --nxs-text-3xl: 39px;
+}
+
+/* nexflow.it type scale override (1.333) */
+[data-brand="nexflow"] {
+  --nxs-text-xs: 13px;
+  --nxs-text-sm: 15px;
+  --nxs-text-base: 18px;
+  --nxs-text-lg: 24px;
+  --nxs-text-xl: 32px;
+  --nxs-text-2xl: 42px;
+  --nxs-text-3xl: 56px;
+  --nxs-font-body: 'Nunito', system-ui, sans-serif;
+}
+
+/* NexusFlow BP type scale override (1.2) */
+[data-brand="bp"] {
+  --nxs-text-xs: 11px;
+  --nxs-text-sm: 13px;
+  --nxs-text-base: 15px;
+  --nxs-text-lg: 18px;
+  --nxs-text-xl: 22px;
+  --nxs-text-2xl: 26px;
+  --nxs-text-3xl: 31px;
+}
