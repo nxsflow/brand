@@ -75,7 +75,7 @@ When building UI, use the design token variable names:
 --nxs-parent-accent
 ```
 
-Import from `tokens/colors.css` or use `tokens/colors.json` for Tailwind/framework configs.
+These tokens live in the `nxsflow/logos` repo under `tokens/colors.css` and `tokens/colors.json`. Copy them into your project or reference them via a shared path.
 
 ## Typography
 
