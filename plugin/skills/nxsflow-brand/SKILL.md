@@ -16,13 +16,13 @@ This skill provides the complete brand system for NexusFlow and all its products
 
 ## Brand Hierarchy
 
-| Brand            | Type        | Domain               | Accent Color                          |
-| ---------------- | ----------- | -------------------- | ------------------------------------- |
-| NexusFlow        | Parent      | nxsflow.com          | Lime #B9FF66                          |
-| nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                          |
+| Brand            | Type        | Domain               | Accent Color                         |
+| ---------------- | ----------- | -------------------- | ------------------------------------ |
+| NexusFlow        | Parent      | nxsflow.com          | Lime #B9FF66                         |
+| nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                         |
 | manufakt.io      | Flagship    | manufakt.io          | Graphite #1C1C1C + Warm Mist #FAF9F7 |
-| NexusFlow BP     | Product     | bp.nxsflow.com       | Amber #F59E0B                         |
-| Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA                      |
+| NexusFlow BP     | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
+| Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA                     |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
@@ -115,9 +115,9 @@ Use `[data-brand="nexflow"]` or `[data-brand="bp"]` on a parent element to activ
 
 ### Other Brands
 
-- **NexusFlow:** Merriweather Bold wordmark + connection-node icon. Lime accent.
-- **NexusFlow BP:** Wordmark ("NexusFlow" bold, "BP" light) + icon. Amber accent.
-- **Amplify Overtone:** Wordmark ("Amplify" bold, "Overtone" gradient) + wave icon. Lavender accent.
+- **NexusFlow:** Organic mesh icon — asymmetric nodes connected by hand-drawn curves. Lime (#B9FF66) fills, graphite outlines. Full variant (5 nodes) for wordmark pairing, simplified variant (3 nodes) for favicons.
+- **NexusFlow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
+- **Amplify Overtone:** Hand-drawn tuning fork icon — bold prongs with U-bend, handle, and resonance waves. Lavender (#A78BFA). Full variant (with waves) for large sizes, simplified variant (no waves) for favicons.
 
 ### Logo Rules
 

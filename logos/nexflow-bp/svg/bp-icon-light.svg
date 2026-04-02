@@ -1,0 +1,20 @@
+<svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- NexusFlow BP — compass icon (light, for dark backgrounds) -->
+  <!-- Outer ring — draft stroke (light pencil sketch underneath, offset and slightly scaled) -->
+  <g transform="translate(130,132) scale(1.02,0.95)">
+    <path d="M2,-105 C30,-106 60,-96 80,-78 C100,-60 110,-32 108,-2 C106,28 94,58 74,76 C54,94 26,104 -4,102 C-30,100 -60,90 -80,70 C-100,50 -110,22 -108,-6 C-106,-32 -96,-60 -76,-80 C-56,-100 -30,-103 2,-105Z" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" opacity="0.2"/>
+  </g>
+  <g transform="translate(130, 130)">
+    <!-- Outer ring — final stroke -->
+    <path d="M0,-102 C28,-104 58,-94 78,-76 C98,-58 108,-30 106,0 C104,30 92,60 72,78 C52,96 24,106 -2,104 C-28,102 -58,92 -78,72 C-98,52 -108,24 -106,-4 C-104,-30 -94,-58 -74,-78 C-54,-98 -28,-100 0,-102Z" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round"/>
+
+    <!-- North needle — solid white, slightly asymmetric hand-drawn feel -->
+    <path d="M0,-88 C-5,-60 -12,-18 -14,-4 C-8,-10 -2,-13 0,-14 C2,-13 8,-10 14,-4 C12,-18 5,-60 0,-88Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- South needle — outline only, faded -->
+    <path d="M0,88 C-5,60 -12,18 -14,4 C-8,10 -2,13 0,14 C2,13 8,10 14,4 C12,18 5,60 0,88Z" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" opacity="0.4"/>
+
+    <!-- Center dot — slightly off-circle, hand-drawn -->
+    <path d="M0,-8 C4,-9 9,-5 9,0 C9,5 5,9 0,8 C-5,9 -9,4 -9,0 C-9,-5 -4,-9 0,-8Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+</svg>

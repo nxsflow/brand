@@ -1,4 +1,6 @@
 .DS_Store
 .superpowers/
+docs/superpowers/
 node_modules
 scripts
+package*.json

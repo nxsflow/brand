@@ -85,9 +85,9 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
 ### Other Brands
 
-- **NexusFlow:** Merriweather Bold wordmark + connection-node icon. Lime accent.
-- **NexusFlow BP:** Wordmark ("NexusFlow" bold, "BP" light) + icon. Amber accent.
-- **Amplify Overtone:** Wordmark ("Amplify" bold, "Overtone" gradient) + wave icon. Lavender accent.
+- **NexusFlow:** Organic mesh icon — asymmetric nodes connected by hand-drawn curves. Lime (#B9FF66) fills, graphite outlines. Full variant (5 nodes) for wordmark pairing, simplified variant (3 nodes) for favicons.
+- **NexusFlow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
+- **Amplify Overtone:** Hand-drawn tuning fork icon — bold prongs with U-bend, handle, and resonance waves. Lavender (#A78BFA). Full variant (with waves) for large sizes, simplified variant (no waves) for favicons.
 
 ### Logo Rules
 
@@ -167,9 +167,7 @@ Install the brand skill so it's available in any NexusFlow repo.
 
 ```json
 {
-  "plugins": [
-    "/path/to/nxsflow/logos/plugin"
-  ]
+  "plugins": ["/path/to/nxsflow/logos/plugin"]
 }
 ```
 
@@ -177,9 +175,7 @@ Install the brand skill so it's available in any NexusFlow repo.
 
 ```json
 {
-  "plugins": [
-    "/path/to/nxsflow/logos/plugin"
-  ]
+  "plugins": ["/path/to/nxsflow/logos/plugin"]
 }
 ```
 
@@ -191,5 +187,6 @@ Add to any product repo's `CLAUDE.md`:
 
 ```markdown
 ## Brand
+
 Follow the NexusFlow brand guideline at /path/to/nxsflow/logos/BRAND.md
 ```

@@ -4,13 +4,17 @@ Brand guideline, design tokens, and logos for NexusFlow and its products.
 
 ## What's in this repo
 
-| Path                 | Description                                      |
-| -------------------- | ------------------------------------------------ |
-| `BRAND.md`           | The brand guideline — single source of truth     |
-| `tokens/`            | Design tokens (CSS custom properties + JSON)     |
-| `logos/nexflow-it/`  | nexflow.it "nf" monogram (SVG, PNG, favicon)     |
-| `logos/manufakt-io/` | manufakt.io "mf" monogram (SVG, PNG, favicon)    |
-| `plugin/`            | Claude Code plugin for brand-aware AI assistance |
+| Path                      | Description                                      |
+| ------------------------- | ------------------------------------------------ |
+| `BRAND.md`                | The brand guideline — single source of truth     |
+| `tokens/`                 | Design tokens (CSS custom properties + JSON)     |
+| `logos/nexflow-it/`       | nexflow.it "nf" monogram (SVG, PNG, favicon)     |
+| `logos/manufakt-io/`      | manufakt.io "mf" monogram (SVG, PNG, favicon)    |
+| `logos/nexflow-parent/`   | NexusFlow organic mesh icon (SVG, PNG, favicon)  |
+| `logos/nexflow-bp/`       | NexusFlow BP compass icon (SVG, PNG, favicon)    |
+| `logos/amplify-overtone/` | Amplify Overtone tuning fork (SVG, PNG, favicon) |
+| `scripts/`                | PNG and ICO export scripts                       |
+| `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 
 ## Brand Guideline
 

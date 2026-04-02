@@ -1,0 +1,37 @@
+<svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- Amplify Overtone — tuning fork icon (dark, for light backgrounds) -->
+  <defs>
+    <clipPath id="remove-bump1">
+      <rect x="-42" y="8" width="32" height="26" />
+    </clipPath>
+    <clipPath id="remove-bump2">
+      <rect x="-38" y="20" width="55" height="38" />
+    </clipPath>
+    <clipPath id="remove-bump3">
+      <rect x="15" y="8" width="30" height="48" />
+    </clipPath>
+  </defs>
+  <!-- U-bend with clip paths to remove bump -->
+  <g transform="translate(130, 130)">
+    <path clip-path="url(#remove-bump1)" d="M-27,12 C-27,24 -22,38 -6,42 C6,45 22,40 28,26 C30,18 28,12 28,12" stroke="#A78BFA" stroke-width="28" fill="none" stroke-linecap="round"/>
+    <path clip-path="url(#remove-bump2)" d="M-27,12 C-27,24 -22,38 -6,42 C6,45 22,40 28,26 C30,18 28,12 28,12" stroke="#A78BFA" stroke-width="28" fill="none" stroke-linecap="round"/>
+    <path clip-path="url(#remove-bump3)" d="M-27,12 C-27,24 -22,38 -6,42 C6,45 22,40 28,26 C30,18 28,12 28,12" stroke="#A78BFA" stroke-width="28" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Right prong (offset 1px) -->
+  <g transform="translate(131, 130)">
+    <path d="M27,-90 C28,-72 27,-50 28,-28 C29,-12 28,3 28,12" stroke="#A78BFA" stroke-width="28" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- Left prong + handle -->
+  <g transform="translate(130, 130)">
+    <path d="M-27,-91 C-28,-70 -29,-48 -27,-28 C-26,-14 -27,2 -27,12" stroke="#A78BFA" stroke-width="28" stroke-linecap="round" fill="none"/>
+    <path d="M0,43 C1,60 -1,74 0,82 C1,90 0,100 0,102" stroke="#A78BFA" stroke-width="28" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- Resonance wave — left -->
+  <g transform="translate(120,130)">
+    <path d="M-42,-76 C-56,-60 -62,-40 -56,-18 C-52,-5 -44,2 -42,1" stroke="#A78BFA" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  </g>
+  <!-- Resonance wave — right -->
+  <g transform="translate(140,130)">
+    <path d="M42,-76 C56,-58 62,-38 56,-16 C52,-4 44,3 42,2" stroke="#A78BFA" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  </g>
+</svg>
