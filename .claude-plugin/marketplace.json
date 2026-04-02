@@ -1,0 +1,14 @@
+{
+  "name": "nxsflow-brand",
+  "description": "NexusFlow brand guidelines and design tokens for Claude Code",
+  "owner": {
+    "name": "NexusFlow"
+  },
+  "plugins": [
+    {
+      "name": "nxsflow-brand",
+      "description": "NexusFlow brand guideline skill for Claude Code",
+      "source": "./plugin"
+    }
+  ]
+}
