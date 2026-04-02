@@ -1,0 +1,6 @@
+{
+  "name": "nxsflow-brand",
+  "version": "1.0.0",
+  "description": "NexusFlow brand guideline skill for Claude Code",
+  "claude-plugin": true
+}

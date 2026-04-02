@@ -1,21 +1,28 @@
+---
+name: nxsflow-brand
+description: NexusFlow brand guideline — colors, typography, tone of voice, logo rules, and per-product design language for all NexusFlow products (nexflow.it, manufakt.io, NexusFlow BP, Amplify Overtone). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any NexusFlow product. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on a NexusFlow product and making visual or tone choices, this skill applies.
+---
+
 # NexusFlow Brand Guideline
+
+This skill provides the complete brand system for NexusFlow and all its products. Follow these rules when making any design, styling, or tone-of-voice decision.
 
 ## Company
 
-- **Legal name:** NexusFlow UG (haftungsbeschränkt)
+- **Legal name:** NexusFlow UG (haftungsbeschrankt)
 - **Short name:** NexusFlow
 - **Domain:** nxsflow.com
 - **Positioning:** Precise tools for technical professionals
 
 ## Brand Hierarchy
 
-| Brand            | Type        | Domain               | Accent Color                         |
-| ---------------- | ----------- | -------------------- | ------------------------------------ |
-| NexusFlow        | Parent      | nxsflow.com          | Lime #B9FF66                         |
-| nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                         |
+| Brand            | Type        | Domain               | Accent Color                          |
+| ---------------- | ----------- | -------------------- | ------------------------------------- |
+| NexusFlow        | Parent      | nxsflow.com          | Lime #B9FF66                          |
+| nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                          |
 | manufakt.io      | Flagship    | manufakt.io          | Graphite #1C1C1C + Warm Mist #FAF9F7 |
-| NexusFlow BP     | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
-| Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA                     |
+| NexusFlow BP     | Product     | bp.nxsflow.com       | Amber #F59E0B                         |
+| Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA                      |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
@@ -56,6 +63,20 @@ nexflow.it is the core product. The parent brand shares its lime accent to reinf
 - Accent: `#B9FF66` (lime, shared with nexflow.it)
 - Background: `#FFFFFF`
 
+### CSS Custom Properties
+
+When building UI, use the design token variable names:
+
+```
+--nxs-graphite, --nxs-gray, --nxs-border, --nxs-white
+--nxs-nexflow-primary, --nxs-nexflow-primary-dark, --nxs-nexflow-tint
+--nxs-manufakt-primary, --nxs-manufakt-bg
+--nxs-bp-accent, --nxs-overtone-accent
+--nxs-parent-accent
+```
+
+Import from `tokens/colors.css` or use `tokens/colors.json` for Tailwind/framework configs.
+
 ## Typography
 
 ### Fonts
@@ -75,6 +96,15 @@ xs: 13px, sm: 15px, base: 18px, lg: 24px, xl: 32px, 2xl: 42px, 3xl: 56px
 
 **NexusFlow BP — 1.2 ratio:**
 xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
+
+### CSS Custom Properties
+
+```
+--nxs-font-heading, --nxs-font-body, --nxs-font-body-nexflow, --nxs-font-mono
+--nxs-text-xs through --nxs-text-3xl
+```
+
+Use `[data-brand="nexflow"]` or `[data-brand="bp"]` on a parent element to activate product-specific type scales.
 
 ## Logo System
 
@@ -102,7 +132,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
 - Hand-drawn SVG lines for borders, dividers, buttons
 - Intentionally imperfect lines — slightly wobbly, never straight
-- Subtle rotation on tags/badges (0.3–0.5deg)
+- Subtle rotation on tags/badges (0.3-0.5deg)
 - Rounded corners matching Nunito's character
 - Generous spacing
 - Communicates: in progress, learning, personal, human
@@ -157,39 +187,13 @@ Encouraging, action-oriented. "Your idea deserves a plan." Progressive, optimist
 
 Inclusive, technical, community-minded. "We" not "I." Documentation voice. Welcoming to all levels.
 
-## Using This Guideline
+## How to Apply
 
-### As a Claude Code Plugin
+When working on a NexusFlow product:
 
-Install the brand skill so it's available in any NexusFlow repo.
-
-**User-wide (all projects)** — add to `~/.claude/settings.json`:
-
-```json
-{
-  "plugins": [
-    "/path/to/nxsflow/logos/plugin"
-  ]
-}
-```
-
-**Per-project** — add to your project's `.claude/settings.json`:
-
-```json
-{
-  "plugins": [
-    "/path/to/nxsflow/logos/plugin"
-  ]
-}
-```
-
-Then invoke with: `/nxsflow-brand`
-
-### As a CLAUDE.md Reference
-
-Add to any product repo's `CLAUDE.md`:
-
-```markdown
-## Brand
-Follow the NexusFlow brand guideline at /path/to/nxsflow/logos/BRAND.md
-```
+1. **Identify which product** you're working on from the brand hierarchy
+2. **Use that product's colors** — never mix colors between products
+3. **Use that product's type scale** — set `data-brand` attribute if using CSS tokens
+4. **Follow that product's design language** — nexflow.it is hand-drawn and playful, manufakt.io is minimal and precise
+5. **Match that product's tone of voice** — especially in UI copy, error messages, onboarding text
+6. **Use CSS custom properties** from the design tokens rather than hardcoding hex values
