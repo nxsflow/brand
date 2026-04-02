@@ -22,7 +22,7 @@ This skill provides the complete brand system for NexusFlow and all its products
 | nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                         |
 | manufakt.io      | Flagship    | manufakt.io          | Graphite #1C1C1C + Warm Mist #FAF9F7 |
 | NexusFlow BP     | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
-| Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA                     |
+| Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA + Rose #F472B6       |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
@@ -56,6 +56,8 @@ nexflow.it is the core product. The parent brand shares its lime accent to reinf
 ### Amplify Overtone
 
 - Accent: `#A78BFA` (lavender)
+- Accent secondary: `#F472B6` (rose)
+- Gradient: `linear-gradient(135deg, #A78BFA, #F472B6)`
 - Background: `#FFFFFF`
 
 ### NexusFlow (parent)
@@ -71,7 +73,7 @@ When building UI, use the design token variable names:
 --nxs-graphite, --nxs-gray, --nxs-border, --nxs-white
 --nxs-nexflow-primary, --nxs-nexflow-primary-dark, --nxs-nexflow-tint
 --nxs-manufakt-primary, --nxs-manufakt-bg
---nxs-bp-accent, --nxs-overtone-accent
+--nxs-bp-accent, --nxs-overtone-accent, --nxs-overtone-accent-secondary
 --nxs-parent-accent
 ```
 
@@ -88,8 +90,11 @@ These tokens live in the `nxsflow/logos` repo under `tokens/colors.css` and `tok
 
 ### Type Scales
 
-**Default (parent, manufakt.io, Overtone) — 1.25 ratio:**
+**Default (parent, manufakt.io) — 1.25 ratio:**
 xs: 12px, sm: 14px, base: 16px, lg: 20px, xl: 25px, 2xl: 31px, 3xl: 39px
+
+**Amplify Overtone — 1.4 ratio:**
+xs: 12px, sm: 14px, base: 16px, lg: 22px, xl: 31px, 2xl: 44px, 3xl: 61px
 
 **nexflow.it — 1.333 ratio:**
 xs: 13px, sm: 15px, base: 18px, lg: 24px, xl: 32px, 2xl: 42px, 3xl: 56px
@@ -104,7 +109,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 --nxs-text-xs through --nxs-text-3xl
 ```
 
-Use `[data-brand="nexflow"]` or `[data-brand="bp"]` on a parent element to activate product-specific type scales.
+Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` on a parent element to activate product-specific type scales.
 
 ## Logo System
 

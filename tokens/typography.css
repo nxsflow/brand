@@ -11,7 +11,7 @@
   --nxs-font-body-nexflow: 'Nunito', system-ui, sans-serif;
   --nxs-font-mono: 'JetBrains Mono', monospace;
 
-  /* Default type scale (1.25 — parent, manufakt.io, Overtone) */
+  /* Default type scale (1.25 — parent, manufakt.io) */
   --nxs-text-xs: 12px;
   --nxs-text-sm: 14px;
   --nxs-text-base: 16px;
@@ -19,6 +19,17 @@
   --nxs-text-xl: 25px;
   --nxs-text-2xl: 31px;
   --nxs-text-3xl: 39px;
+}
+
+/* Amplify Overtone type scale override (1.4) */
+[data-brand="overtone"] {
+  --nxs-text-xs: 12px;
+  --nxs-text-sm: 14px;
+  --nxs-text-base: 16px;
+  --nxs-text-lg: 22px;
+  --nxs-text-xl: 31px;
+  --nxs-text-2xl: 44px;
+  --nxs-text-3xl: 61px;
 }
 
 /* nexflow.it type scale override (1.333) */

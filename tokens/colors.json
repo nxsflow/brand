@@ -21,6 +21,7 @@
   },
   "overtone": {
     "accent": "#A78BFA",
+    "accentSecondary": "#F472B6",
     "background": "#FFFFFF"
   },
   "parent": {
