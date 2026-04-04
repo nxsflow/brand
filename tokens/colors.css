@@ -1,4 +1,4 @@
-/* NexusFlow Brand Colors — generated from BRAND.md */
+/* nxsflow Brand Colors — generated from BRAND.md */
 /* Usage: import this file and use var(--nxs-*) custom properties */
 
 :root {
@@ -18,7 +18,7 @@
   --nxs-manufakt-primary: #1C1C1C;
   --nxs-manufakt-bg: #FAF9F7;
 
-  /* NexusFlow BP */
+  /* nxsflow BP */
   --nxs-bp-accent: #F59E0B;
   --nxs-bp-bg: #FFFFFF;
 
@@ -27,7 +27,7 @@
   --nxs-overtone-accent-secondary: #F472B6;
   --nxs-overtone-bg: #FFFFFF;
 
-  /* NexusFlow Parent */
+  /* nxsflow (parent) */
   --nxs-parent-accent: #B9FF66;
   --nxs-parent-bg: #FFFFFF;
 }

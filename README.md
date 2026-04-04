@@ -1,6 +1,6 @@
-# NexusFlow Brand Assets
+# nxsflow Brand Assets
 
-Brand guideline, design tokens, and logos for NexusFlow and its products.
+Brand guideline, design tokens, and logos for nxsflow and its products.
 
 ## What's in this repo
 
@@ -10,24 +10,24 @@ Brand guideline, design tokens, and logos for NexusFlow and its products.
 | `tokens/`                 | Design tokens (CSS custom properties + JSON)     |
 | `logos/nexflow-it/`       | nexflow.it "nf" monogram (SVG, PNG, favicon)     |
 | `logos/manufakt-io/`      | manufakt.io "mf" monogram (SVG, PNG, favicon)    |
-| `logos/nexflow-parent/`   | NexusFlow organic mesh icon (SVG, PNG, favicon)  |
-| `logos/nexflow-bp/`       | NexusFlow BP compass icon (SVG, PNG, favicon)    |
+| `logos/nexflow-parent/`   | nxsflow organic mesh icon (SVG, PNG, favicon)    |
+| `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      |
 | `logos/amplify-overtone/` | Amplify Overtone tuning fork (SVG, PNG, favicon) |
 | `scripts/`                | PNG and ICO export scripts                       |
 | `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 
 ## Brand Guideline
 
-See [BRAND.md](BRAND.md) for the full guideline covering colors, typography, logo rules, design language, and tone of voice for all NexusFlow products.
+See [BRAND.md](BRAND.md) for the full guideline covering colors, typography, logo rules, design language, and tone of voice for all nxsflow products.
 
 ## Products
 
 | Brand                  | Domain               | Accent                                   |
 | ---------------------- | -------------------- | ---------------------------------------- |
-| **NexusFlow** (parent) | nxsflow.com          | Lime `#B9FF66`                           |
+| **nxsflow** (parent)   | nxsflow.com          | Lime `#B9FF66`                           |
 | **nexflow.it**         | nexflow.it           | Lime `#B9FF66`                           |
 | **manufakt.io**        | manufakt.io          | Graphite `#1C1C1C` + Warm Mist `#FAF9F7` |
-| **NexusFlow BP**       | bp.nxsflow.com       | Amber `#F59E0B`                          |
+| **nxsflow BP**         | bp.nxsflow.com       | Amber `#F59E0B`                          |
 | **Amplify Overtone**   | overtone.nxsflow.com | Lavender `#A78BFA`                       |
 
 ## Using the Design Tokens
@@ -47,7 +47,7 @@ const colors = require("path/to/tokens/colors.json");
 
 ## Claude Code Plugin
 
-Install the brand skill so Claude follows the guideline in any NexusFlow repo.
+Install the brand skill so Claude follows the guideline in any nxsflow repo.
 
 Add to `~/.claude/settings.json` (user-wide) or `.claude/settings.json` (per-project):
 

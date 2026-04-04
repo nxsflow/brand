@@ -1,4 +1,4 @@
-/* NexusFlow Typography — generated from BRAND.md */
+/* nxsflow Typography — generated from BRAND.md */
 /* Usage: import this file for font loading and type scale custom properties */
 
 /* Google Fonts imports */
@@ -44,7 +44,7 @@
   --nxs-font-body: 'Nunito', system-ui, sans-serif;
 }
 
-/* NexusFlow BP type scale override (1.2) */
+/* nxsflow BP type scale override (1.2) */
 [data-brand="bp"] {
   --nxs-text-xs: 11px;
   --nxs-text-sm: 13px;
