@@ -1,20 +1,28 @@
-# NexusFlow Brand Guideline
+# nxsflow Brand Guideline
 
 ## Company
 
 - **Legal name:** NexusFlow UG (haftungsbeschränkt)
-- **Short name:** NexusFlow
+- **Brand name:** nxsflow
 - **Domain:** nxsflow.com
 - **Positioning:** Precise tools for technical professionals
+
+## Brand Name
+
+The brand name is **nxsflow**, always lowercase. The legal company name remains NexusFlow UG (haftungsbeschränkt) for legal and contractual contexts only — everywhere else, use nxsflow.
+
+### The F-highlight
+
+When the nxsflow logotype is displayed, the letter "F" may be set in the brand lime (`#B9FF66` on dark backgrounds, `#84CC16` on light backgrounds) to visually connect the parent brand to its products. The "F" is the shared letter across nxsflow, nexflow.it, and manufakt.io — highlighting it reinforces the "flow" concept that runs through the brand family. This treatment is optional and should only be used where legibility is maintained.
 
 ## Brand Hierarchy
 
 | Brand            | Type        | Domain               | Accent Color                         |
 | ---------------- | ----------- | -------------------- | ------------------------------------ |
-| NexusFlow        | Parent      | nxsflow.com          | Lime #B9FF66                         |
+| nxsflow          | Parent      | nxsflow.com          | Lime #B9FF66                         |
 | nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                         |
 | manufakt.io      | Flagship    | manufakt.io          | Graphite #1C1C1C + Warm Mist #FAF9F7 |
-| NexusFlow BP     | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
+| nxsflow BP       | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
 | Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA + Rose #F472B6       |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
@@ -41,7 +49,7 @@ nexflow.it is the core product. The parent brand shares its lime accent to reinf
 - Background: `#FAF9F7` (warm mist)
 - Two colors only. No accent. The user's creation is the color.
 
-### NexusFlow BP
+### nxsflow BP
 
 - Accent: `#F59E0B` (amber)
 - Background: `#FFFFFF`
@@ -53,7 +61,7 @@ nexflow.it is the core product. The parent brand shares its lime accent to reinf
 - Gradient: `linear-gradient(135deg, #A78BFA, #F472B6)`
 - Background: `#FFFFFF`
 
-### NexusFlow (parent)
+### nxsflow (parent)
 
 - Accent: `#B9FF66` (lime, shared with nexflow.it)
 - Background: `#FFFFFF`
@@ -78,7 +86,7 @@ xs: 12px, sm: 14px, base: 16px, lg: 22px, xl: 31px, 2xl: 44px, 3xl: 61px
 **nexflow.it — 1.333 ratio:**
 xs: 13px, sm: 15px, base: 18px, lg: 24px, xl: 32px, 2xl: 42px, 3xl: 56px
 
-**NexusFlow BP — 1.2 ratio:**
+**nxsflow BP — 1.2 ratio:**
 xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
 ## Logo System
@@ -90,8 +98,8 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
 ### Other Brands
 
-- **NexusFlow:** Organic mesh icon — asymmetric nodes connected by hand-drawn curves. Lime (#B9FF66) fills, graphite outlines. Full variant (5 nodes) for wordmark pairing, simplified variant (3 nodes) for favicons.
-- **NexusFlow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
+- **nxsflow:** Organic mesh icon — asymmetric nodes connected by hand-drawn curves. Lime (#B9FF66) fills, graphite outlines. Full variant (5 nodes) for wordmark pairing, simplified variant (3 nodes) for favicons.
+- **nxsflow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
 - **Amplify Overtone:** Hand-drawn tuning fork icon — bold prongs with U-bend, handle, and resonance waves. Lavender (#A78BFA). Full variant (with waves) for large sizes, simplified variant (no waves) for favicons.
 
 ### Logo Rules
@@ -121,7 +129,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 - Minimal UI — every element earns its place
 - Communicates: clarity, craftsmanship, space for your creation
 
-### NexusFlow BP — "Builder's momentum"
+### nxsflow BP — "Builder's momentum"
 
 - Amber for progress indicators, CTAs, highlights
 - Compact type scale — information-dense
@@ -134,7 +142,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 - Documentation-style layouts
 - Communicates: collaboration, community, inviting contributions
 
-### NexusFlow (parent) — "The foundation"
+### nxsflow (parent) — "The foundation"
 
 - Light background, lime accent used sparingly
 - Clean editorial layout
@@ -142,7 +150,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
 ## Tone of Voice
 
-### NexusFlow (parent)
+### nxsflow (parent)
 
 Confident, clear, understated. "We build precise tools" — no hype, no buzzwords.
 
@@ -154,7 +162,7 @@ Warm, personal, conversational. First person ("I've prepared your briefing"). Pl
 
 Direct, concise, technical. Respects user expertise. Status-oriented ("Authentication complete. Starting API routes."). Never "vibe coding" — this is craftsmanship.
 
-### NexusFlow BP
+### nxsflow BP
 
 Encouraging, action-oriented. "Your idea deserves a plan." Progressive, optimistic. Speaks to builders.
 
@@ -166,7 +174,7 @@ Inclusive, technical, community-minded. "We" not "I." Documentation voice. Welco
 
 ### As a Claude Code Plugin
 
-Install the brand skill so it's available in any NexusFlow repo.
+Install the brand skill so it's available in any nxsflow repo.
 
 **User-wide (all projects)** — add to `~/.claude/settings.json`:
 
@@ -193,5 +201,5 @@ Add to any product repo's `CLAUDE.md`:
 ```markdown
 ## Brand
 
-Follow the NexusFlow brand guideline at /path/to/nxsflow/logos/BRAND.md
+Follow the nxsflow brand guideline at /path/to/nxsflow/logos/BRAND.md
 ```
