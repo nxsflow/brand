@@ -1,6 +1,6 @@
 ---
 name: nxsflow-brand
-description: nxsflow brand guideline — colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP, Amplify Overtone). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
+description: nxsflow brand guideline — colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP, Amplify Overtone, beads dashboard). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
 ---
 
 # nxsflow Brand Guideline
@@ -31,6 +31,7 @@ When the nxsflow logotype is displayed, the letter "F" may be set in the brand l
 | manufakt.io      | Flagship    | manufakt.io          | Graphite #1C1C1C + Warm Mist #FAF9F7 |
 | nxsflow BP       | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
 | Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA + Rose #F472B6       |
+| beads dashboard  | Product     | beads.nxsflow.com    | Ember Red #DC2626                    |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
@@ -68,6 +69,14 @@ nexflow.it is the core product. The parent brand shares its lime accent to reinf
 - Gradient: `linear-gradient(135deg, #A78BFA, #F472B6)`
 - Background: `#FFFFFF`
 
+### beads dashboard
+
+- Accent: `#DC2626` (ember red)
+- Accent dark: `#B91C1C` (deep ember) — hover, pressed
+- Light tint: `#FEF2F2` (ember wash)
+- Gradient: `linear-gradient(135deg, #DC2626, #EA580C)` (ember → flame)
+- Background: `#FFFFFF` (light), full dark mode supported
+
 ### nxsflow (parent)
 
 - Accent: `#B9FF66` (lime, shared with nexflow.it)
@@ -82,6 +91,7 @@ When building UI, use the design token variable names:
 --nxs-nexflow-primary, --nxs-nexflow-primary-dark, --nxs-nexflow-tint
 --nxs-manufakt-primary, --nxs-manufakt-bg
 --nxs-bp-accent, --nxs-overtone-accent, --nxs-overtone-accent-secondary
+--nxs-beads-dashboard-accent, --nxs-beads-dashboard-accent-dark, --nxs-beads-dashboard-tint, --nxs-beads-dashboard-gradient
 --nxs-parent-accent
 ```
 
@@ -110,6 +120,8 @@ xs: 13px, sm: 15px, base: 18px, lg: 24px, xl: 32px, 2xl: 42px, 3xl: 56px
 **nxsflow BP — 1.2 ratio:**
 xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
+**beads dashboard — default 1.25 ratio.** Body in Merriweather Sans, headings in Merriweather.
+
 ### CSS Custom Properties
 
 ```
@@ -131,6 +143,7 @@ Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` 
 - **nxsflow:** Organic mesh icon — asymmetric nodes connected by hand-drawn curves. Lime (#B9FF66) fills, graphite outlines. Full variant (5 nodes) for wordmark pairing, simplified variant (3 nodes) for favicons.
 - **nxsflow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
 - **Amplify Overtone:** Hand-drawn tuning fork icon — bold prongs with U-bend, handle, and resonance waves. Lavender (#A78BFA). Full variant (with waves) for large sizes, simplified variant (no waves) for favicons.
+- **beads dashboard:** "db" merged letterform in Merriweather Black — the **d** in graphite (#1C1C1C), the **b** highlighted in ember red (#DC2626). The letters are reversed (db, not bd) so they meet and share a single central stem, the same letter-joining play as the nexflow.it / manufakt.io monograms. Light variant (d in #FAF9F7) for dark backgrounds.
 
 ### Logo Rules
 
@@ -172,6 +185,15 @@ Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` 
 - Documentation-style layouts
 - Communicates: collaboration, community, inviting contributions
 
+### beads dashboard — "Clear the bench"
+
+- A workbench for issues: things come in, get worked, get cleared
+- Ember red as a dominant, decisive accent — CTAs, active states, progress
+- Soft and modern execution: generous rounded corners, plenty of whitespace, calm neutral surfaces
+- Light by default, with full dark mode
+- Status-driven issue lists — colour signals what's open, in progress, done
+- Communicates: momentum, focus, "we get stuff done"
+
 ### nxsflow (parent) — "The foundation"
 
 - Light background, lime accent used sparingly
@@ -199,6 +221,10 @@ Encouraging, action-oriented. "Your idea deserves a plan." Progressive, optimist
 ### Amplify Overtone
 
 Inclusive, technical, community-minded. "We" not "I." Documentation voice. Welcoming to all levels.
+
+### beads dashboard
+
+Direct, motivating, momentum-driven. Short and active. Celebrates progress ("Three issues left. Let's clear them."). No fluff, no hand-holding — speaks to people who want to get things done.
 
 ## How to Apply
 
