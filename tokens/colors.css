@@ -15,8 +15,11 @@
   --nxs-nexflow-bg: #FFFFFF;
 
   /* manufakt.io */
-  --nxs-manufakt-primary: #1C1C1C;
-  --nxs-manufakt-bg: #FAF9F7;
+  --nxs-manufakt-accent: #DC2626;
+  --nxs-manufakt-accent-dark: #B91C1C;
+  --nxs-manufakt-tint: #FEF2F2;
+  --nxs-manufakt-gradient: linear-gradient(135deg, #DC2626, #EA580C);
+  --nxs-manufakt-bg: #FFFFFF;
 
   /* nxsflow BP */
   --nxs-bp-accent: #F59E0B;
@@ -26,13 +29,6 @@
   --nxs-overtone-accent: #A78BFA;
   --nxs-overtone-accent-secondary: #F472B6;
   --nxs-overtone-bg: #FFFFFF;
-
-  /* beads dashboard */
-  --nxs-beads-dashboard-accent: #DC2626;
-  --nxs-beads-dashboard-accent-dark: #B91C1C;
-  --nxs-beads-dashboard-tint: #FEF2F2;
-  --nxs-beads-dashboard-gradient: linear-gradient(135deg, #DC2626, #EA580C);
-  --nxs-beads-dashboard-bg: #FFFFFF;
 
   /* nxsflow (parent) */
   --nxs-parent-accent: #B9FF66;

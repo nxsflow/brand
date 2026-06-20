@@ -26,7 +26,7 @@ See [BRAND.md](BRAND.md) for the full guideline covering colors, typography, log
 | ---------------------- | -------------------- | ---------------------------------------- |
 | **nxsflow** (parent)   | nxsflow.com          | Lime `#B9FF66`                           |
 | **nexflow.it**         | nexflow.it           | Lime `#B9FF66`                           |
-| **manufakt.io**        | manufakt.io          | Graphite `#1C1C1C` + Warm Mist `#FAF9F7` |
+| **manufakt.io**        | manufakt.io          | Ember Red `#DC2626`                      |
 | **nxsflow BP**         | bp.nxsflow.com       | Amber `#F59E0B`                          |
 | **Amplify Overtone**   | overtone.nxsflow.com | Lavender `#A78BFA`                       |
 

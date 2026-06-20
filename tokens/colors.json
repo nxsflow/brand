@@ -12,8 +12,11 @@
     "background": "#FFFFFF"
   },
   "manufakt": {
-    "primary": "#1C1C1C",
-    "background": "#FAF9F7"
+    "accent": "#DC2626",
+    "accentDark": "#B91C1C",
+    "tint": "#FEF2F2",
+    "gradient": "linear-gradient(135deg, #DC2626, #EA580C)",
+    "background": "#FFFFFF"
   },
   "bp": {
     "accent": "#F59E0B",
@@ -22,13 +25,6 @@
   "overtone": {
     "accent": "#A78BFA",
     "accentSecondary": "#F472B6",
-    "background": "#FFFFFF"
-  },
-  "beadsDashboard": {
-    "accent": "#DC2626",
-    "accentDark": "#B91C1C",
-    "tint": "#FEF2F2",
-    "gradient": "linear-gradient(135deg, #DC2626, #EA580C)",
     "background": "#FFFFFF"
   },
   "parent": {
