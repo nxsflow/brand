@@ -97,7 +97,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 ### Flagship Monograms
 
 - **nexflow.it:** "nf" merged letterform in lime (#B9FF66). Works on dark and light backgrounds.
-- **manufakt.io:** "mf" merged letterform in graphite (#1C1C1C). Light variant (#FAF9F7) for dark backgrounds. _Ember-palette redesign pending; the retained `logos/beads-dashboard/` "db" monogram (d in graphite, b in ember red) is the starting point._
+- **manufakt.io:** "mf" merged letterform — the **m** in graphite (#1C1C1C), the **f** highlighted in ember red (#DC2626), sharing a single central stem (the same letter-joining play as the nexflow.it monogram). Light variant (m and strokes in #FAF9F7) for dark backgrounds.
 
 ### Other Brands
 
