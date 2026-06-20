@@ -2,5 +2,6 @@
 .superpowers/
 docs/superpowers/
 node_modules
-scripts
 package*.json
+scripts/.venv/
+scripts/__pycache__/
