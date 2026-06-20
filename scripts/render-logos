@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""Render every nxsflow logo's raster assets (PNG + favicon + .ico) from its SVG.
+
+The SVGs under logos/<family>/svg/ are the single source of truth; this script
+regenerates the derived rasters so a colour tweak or a brand-new logo only needs
+the SVG edited/added and this run.
+
+Convention (matches the existing repo layout):
+
+  logos/<family>/svg/<name>-<variant>.svg
+    -> logos/<family>/png/<name>-<variant>-<size>.png        sizes 128, 256, 512, 1024
+
+  Per family + variant, favicons come from the *simplified* SVG when one exists
+  (a name containing the token "sm" or "simple"), otherwise the base SVG:
+    -> logos/<family>/favicon/<prefix>-favicon-<variant>-<size>.png   sizes 16, 32, 180
+    -> logos/<family>/favicon/<prefix>-favicon-<variant>.ico          (16 + 32)
+
+  <variant> is the last "-" token of the file name (dark / light) and <prefix>
+  is the first "-" token (mf, nf, db, bp, ao, nxs, ...).
+
+Usage:
+  scripts/render-logos                      # rebuild every logo family
+  scripts/render-logos manufakt-io          # rebuild only the given family folder(s)
+  scripts/render-logos -h | --help
+
+All output is transparent-background and square. The first run bootstraps a
+local, git-ignored virtualenv at scripts/.venv with cairosvg + Pillow.
+"""
+
+import glob
+import os
+import subprocess
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOGOS = os.path.join(REPO, "logos")
+VENV = os.path.join(REPO, "scripts", ".venv")
+VENV_PY = os.path.join(VENV, "bin", "python")
+
+PNG_SIZES = [128, 256, 512, 1024]
+FAVICON_SIZES = [16, 32, 180]
+ICO_SIZES = [(16, 16), (32, 32)]
+
+
+def _bootstrap_then_reexec():
+    """Create scripts/.venv with the render deps, then re-run this script in it."""
+    if not os.path.exists(VENV_PY):
+        print("· setting up scripts/.venv (cairosvg + Pillow)…", flush=True)
+        subprocess.check_call([sys.executable, "-m", "venv", VENV])
+        subprocess.check_call(
+            [VENV_PY, "-m", "pip", "install", "-q",
+             "--disable-pip-version-check", "cairosvg", "Pillow"]
+        )
+    os.environ["RENDER_LOGOS_BOOTSTRAPPED"] = "1"
+    os.execv(VENV_PY, [VENV_PY, os.path.abspath(__file__), *sys.argv[1:]])
+
+
+if __name__ == "__main__" and len(sys.argv) > 1 and sys.argv[1] in ("-h", "--help"):
+    print(__doc__)
+    sys.exit(0)
+
+try:
+    import cairosvg
+    from PIL import Image
+except ModuleNotFoundError:
+    if os.environ.get("RENDER_LOGOS_BOOTSTRAPPED") == "1":
+        raise  # already in the venv and still missing — surface the real error
+    _bootstrap_then_reexec()
+
+
+def render(svg_path, size):
+    data = cairosvg.svg2png(url=svg_path, output_width=size, output_height=size)
+    from io import BytesIO
+    return Image.open(BytesIO(data)).convert("RGBA")
+
+
+def variant_of(stem):
+    return stem.rsplit("-", 1)[-1]
+
+
+def is_simplified(stem):
+    tokens = stem.split("-")
+    return "sm" in tokens or "simple" in tokens
+
+
+def render_family(family_dir):
+    family = os.path.basename(family_dir)
+    svg_dir = os.path.join(family_dir, "svg")
+    svgs = sorted(glob.glob(os.path.join(svg_dir, "*.svg")))
+    if not svgs:
+        print(f"  – {family}: no SVGs, skipped")
+        return 0
+
+    png_dir = os.path.join(family_dir, "png")
+    favicon_dir = os.path.join(family_dir, "favicon")
+    os.makedirs(png_dir, exist_ok=True)
+    os.makedirs(favicon_dir, exist_ok=True)
+
+    written = 0
+
+    # 1) full-size PNGs for every SVG
+    for svg in svgs:
+        stem = os.path.splitext(os.path.basename(svg))[0]
+        for size in PNG_SIZES:
+            render(svg, size).save(os.path.join(png_dir, f"{stem}-{size}.png"))
+            written += 1
+
+    # 2) favicons per variant, sourced from the simplified SVG when available
+    by_variant = {}
+    for svg in svgs:
+        stem = os.path.splitext(os.path.basename(svg))[0]
+        by_variant.setdefault(variant_of(stem), []).append((stem, svg))
+
+    for variant, items in sorted(by_variant.items()):
+        simplified = [it for it in items if is_simplified(it[0])]
+        stem, svg = (simplified or items)[0]
+        prefix = stem.split("-")[0]
+        favicons = {}
+        for size in FAVICON_SIZES:
+            img = render(svg, size)
+            img.save(os.path.join(favicon_dir, f"{prefix}-favicon-{variant}-{size}.png"))
+            favicons[size] = img
+            written += 1
+        favicons[32].save(
+            os.path.join(favicon_dir, f"{prefix}-favicon-{variant}.ico"),
+            format="ICO", sizes=ICO_SIZES,
+        )
+        written += 1
+
+    print(f"  ✓ {family}: {written} files")
+    return written
+
+
+def available_families():
+    return [
+        os.path.basename(d)
+        for d in sorted(glob.glob(os.path.join(LOGOS, "*")))
+        if os.path.isdir(d)
+    ]
+
+
+def main():
+    args = sys.argv[1:]
+    if args and args[0] in ("-h", "--help"):
+        print(__doc__)
+        return
+
+    families = available_families()
+    if args:
+        wanted = set(args)
+        unknown = wanted - set(families)
+        if unknown:
+            print(f"unknown logo families: {', '.join(sorted(unknown))}", file=sys.stderr)
+            print(f"available: {', '.join(families)}", file=sys.stderr)
+            sys.exit(1)
+        families = [f for f in families if f in wanted]
+
+    if not families:
+        print("no logo families found under logos/", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Rendering {len(families)} logo family/families from SVG → PNG/favicon/ico")
+    total = sum(render_family(os.path.join(LOGOS, f)) for f in families)
+    print(f"Done. {total} raster files written.")
+
+
+if __name__ == "__main__":
+    main()
