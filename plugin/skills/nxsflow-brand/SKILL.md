@@ -1,6 +1,6 @@
 ---
 name: nxsflow-brand
-description: nxsflow brand guideline — colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP, Amplify Overtone, beads dashboard). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
+description: nxsflow brand guideline — colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP, Amplify Overtone). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
 ---
 
 # nxsflow Brand Guideline
@@ -28,10 +28,9 @@ When the nxsflow logotype is displayed, the letter "F" may be set in the brand l
 | ---------------- | ----------- | -------------------- | ------------------------------------ |
 | nxsflow          | Parent      | nxsflow.com          | Lime #B9FF66                         |
 | nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                         |
-| manufakt.io      | Flagship    | manufakt.io          | Graphite #1C1C1C + Warm Mist #FAF9F7 |
+| manufakt.io      | Flagship    | manufakt.io          | Ember Red #DC2626                    |
 | nxsflow BP       | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
 | Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA + Rose #F472B6       |
-| beads dashboard  | Product     | beads.nxsflow.com    | Ember Red #DC2626                    |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
@@ -53,9 +52,12 @@ nexflow.it is the core product. The parent brand shares its lime accent to reinf
 
 ### manufakt.io
 
-- Primary: `#1C1C1C` (graphite)
-- Background: `#FAF9F7` (warm mist)
-- Two colors only. No accent. The user's creation is the color.
+- Accent: `#DC2626` (ember red)
+- Accent dark: `#B91C1C` (deep ember) — hover, pressed
+- Light tint: `#FEF2F2` (ember wash)
+- Gradient: `linear-gradient(135deg, #DC2626, #EA580C)` (ember → flame)
+- Background: `#FFFFFF` (light), full dark mode supported
+- Text: `#1C1C1C` (graphite)
 
 ### nxsflow BP
 
@@ -69,14 +71,6 @@ nexflow.it is the core product. The parent brand shares its lime accent to reinf
 - Gradient: `linear-gradient(135deg, #A78BFA, #F472B6)`
 - Background: `#FFFFFF`
 
-### beads dashboard
-
-- Accent: `#DC2626` (ember red)
-- Accent dark: `#B91C1C` (deep ember) — hover, pressed
-- Light tint: `#FEF2F2` (ember wash)
-- Gradient: `linear-gradient(135deg, #DC2626, #EA580C)` (ember → flame)
-- Background: `#FFFFFF` (light), full dark mode supported
-
 ### nxsflow (parent)
 
 - Accent: `#B9FF66` (lime, shared with nexflow.it)
@@ -89,9 +83,8 @@ When building UI, use the design token variable names:
 ```
 --nxs-graphite, --nxs-gray, --nxs-border, --nxs-white
 --nxs-nexflow-primary, --nxs-nexflow-primary-dark, --nxs-nexflow-tint
---nxs-manufakt-primary, --nxs-manufakt-bg
+--nxs-manufakt-accent, --nxs-manufakt-accent-dark, --nxs-manufakt-tint, --nxs-manufakt-gradient, --nxs-manufakt-bg
 --nxs-bp-accent, --nxs-overtone-accent, --nxs-overtone-accent-secondary
---nxs-beads-dashboard-accent, --nxs-beads-dashboard-accent-dark, --nxs-beads-dashboard-tint, --nxs-beads-dashboard-gradient
 --nxs-parent-accent
 ```
 
@@ -120,8 +113,6 @@ xs: 13px, sm: 15px, base: 18px, lg: 24px, xl: 32px, 2xl: 42px, 3xl: 56px
 **nxsflow BP — 1.2 ratio:**
 xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
-**beads dashboard — default 1.25 ratio.** Body in Merriweather Sans, headings in Merriweather.
-
 ### CSS Custom Properties
 
 ```
@@ -136,14 +127,13 @@ Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` 
 ### Flagship Monograms
 
 - **nexflow.it:** "nf" merged letterform in lime (#B9FF66). Works on dark and light backgrounds.
-- **manufakt.io:** "mf" merged letterform in graphite (#1C1C1C). Light variant (#FAF9F7) for dark backgrounds.
+- **manufakt.io:** "mf" merged letterform — the **m** in graphite (#1C1C1C), the **f** highlighted in ember red (#DC2626), sharing a single central stem (the same letter-joining play as the nexflow.it monogram). Light variant (m and strokes in #FAF9F7) for dark backgrounds.
 
 ### Other Brands
 
 - **nxsflow:** Organic mesh icon — asymmetric nodes connected by hand-drawn curves. Lime (#B9FF66) fills, graphite outlines. Full variant (5 nodes) for wordmark pairing, simplified variant (3 nodes) for favicons.
 - **nxsflow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
 - **Amplify Overtone:** Hand-drawn tuning fork icon — bold prongs with U-bend, handle, and resonance waves. Lavender (#A78BFA). Full variant (with waves) for large sizes, simplified variant (no waves) for favicons.
-- **beads dashboard:** "db" merged letterform in Merriweather Black — the **d** in graphite (#1C1C1C), the **b** highlighted in ember red (#DC2626). The letters are reversed (db, not bd) so they meet and share a single central stem, the same letter-joining play as the nexflow.it / manufakt.io monograms. Light variant (d in #FAF9F7) for dark backgrounds.
 
 ### Logo Rules
 
@@ -163,14 +153,15 @@ Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` 
 - Generous spacing
 - Communicates: in progress, learning, personal, human
 
-### manufakt.io — "Precision instrument"
+### manufakt.io — "The forge"
 
-- Strict two-color system only
-- Generous whitespace — tool stays out of the way
-- Sharp, clean lines
-- Monospace for code contexts
-- Minimal UI — every element earns its place
-- Communicates: clarity, craftsmanship, space for your creation
+- Ember red as a dominant, decisive accent — CTAs, active states, progress
+- Soft, modern execution: generous rounded corners, plenty of whitespace, calm neutral surfaces
+- Light by default, with full dark mode
+- Sharp, clean lines where precision matters — every element earns its place
+- Monospace (JetBrains Mono) for code and technical contexts
+- Status-driven views — colour signals what's open, in progress, done
+- Communicates: craftsmanship with momentum — precise tools, forged and shipped
 
 ### nxsflow BP — "Builder's momentum"
 
@@ -184,15 +175,6 @@ Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` 
 - Lavender with gradient treatments
 - Documentation-style layouts
 - Communicates: collaboration, community, inviting contributions
-
-### beads dashboard — "Clear the bench"
-
-- A workbench for issues: things come in, get worked, get cleared
-- Ember red as a dominant, decisive accent — CTAs, active states, progress
-- Soft and modern execution: generous rounded corners, plenty of whitespace, calm neutral surfaces
-- Light by default, with full dark mode
-- Status-driven issue lists — colour signals what's open, in progress, done
-- Communicates: momentum, focus, "we get stuff done"
 
 ### nxsflow (parent) — "The foundation"
 
@@ -212,7 +194,7 @@ Warm, personal, conversational. First person ("I've prepared your briefing"). Pl
 
 ### manufakt.io
 
-Direct, concise, technical. Respects user expertise. Status-oriented ("Authentication complete. Starting API routes."). Never "vibe coding" — this is craftsmanship.
+Direct, technical, momentum-driven. Respects user expertise — never patronizing, never "vibe coding." Status-oriented and celebrates progress ("Build complete. Three tasks left — let's ship them."). Concise and active, no fluff. Craftsmanship with forward motion.
 
 ### nxsflow BP
 
@@ -221,10 +203,6 @@ Encouraging, action-oriented. "Your idea deserves a plan." Progressive, optimist
 ### Amplify Overtone
 
 Inclusive, technical, community-minded. "We" not "I." Documentation voice. Welcoming to all levels.
-
-### beads dashboard
-
-Direct, motivating, momentum-driven. Short and active. Celebrates progress ("Three issues left. Let's clear them."). No fluff, no hand-holding — speaks to people who want to get things done.
 
 ## How to Apply
 
