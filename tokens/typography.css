@@ -11,6 +11,11 @@
   --nxs-font-body-nexflow: 'Nunito', system-ui, sans-serif;
   --nxs-font-mono: 'JetBrains Mono', monospace;
 
+  /* Body weight roles (Merriweather Sans default body) */
+  --nxs-weight-body: 300;      /* default body copy */
+  --nxs-weight-emphasis: 400;  /* emphasis — lead paragraphs, callouts */
+  --nxs-weight-strong: 700;    /* strong emphasis / H3–H4 subheadings */
+
   /* Default type scale (1.25 — parent, manufakt.io) */
   --nxs-text-xs: 12px;
   --nxs-text-sm: 14px;

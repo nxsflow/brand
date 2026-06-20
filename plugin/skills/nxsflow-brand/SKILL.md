@@ -95,9 +95,11 @@ These tokens live in the `nxsflow/logos` repo under `tokens/colors.css` and `tok
 ### Fonts
 
 - **Headings (all brands):** Merriweather — weights 700, 900
-- **Body (default):** Merriweather Sans — weights 300, 400, 700
+- **Body (default):** Merriweather Sans — 300 (default), 400 (emphasis), 700 (strong emphasis / H3–H4 subheadings)
 - **Body (nexflow.it):** Nunito — weights 400, 600, 700
 - **Monospace (manufakt.io):** JetBrains Mono
+
+**Merriweather Sans weight usage:** 300 is the default for body copy — Merriweather Sans runs heavy, so the light weight keeps running text calm. Use 400 for emphasis (lead paragraphs, callouts) and 700 for strong emphasis or H3/H4-level subheadings.
 
 ### Type Scales
 
@@ -117,6 +119,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
 ```
 --nxs-font-heading, --nxs-font-body, --nxs-font-body-nexflow, --nxs-font-mono
+--nxs-weight-body (300), --nxs-weight-emphasis (400), --nxs-weight-strong (700)
 --nxs-text-xs through --nxs-text-3xl
 ```
 
