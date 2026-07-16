@@ -182,7 +182,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
 ### Other Brands
 
-- **nxsflow:** Organic mesh icon — asymmetric nodes connected by hand-drawn curves. Lime (#B9FF66) fills, graphite outlines. Full variant (5 nodes) for wordmark pairing, simplified variant (3 nodes) for favicons.
+- **nxsflow:** Wordmark — the lowercase logotype **nxsflow** set in Merriweather Black, each letter outlined (graphite `#1C1C1C` on light, off-white `#FAF9F7` on dark). Nothing is merged; only the **f** is highlighted in the brand lime (`#84CC16` on light, `#B9FF66` on dark). The favicon pairs the **n** and **f**, unmerged.
 - **nxsflow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
 
 ### Logo Rules

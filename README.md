@@ -11,7 +11,7 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | `tokens/`                 | Design tokens (CSS custom properties + JSON)     |
 | `logos/nexflow-it/`       | nexflow.it "nf" monogram (SVG, PNG, favicon)     |
 | `logos/manufakt-io/`      | manufakt.io "mf" monogram (SVG, PNG, favicon)    |
-| `logos/nexflow-parent/`   | nxsflow organic mesh icon (SVG, PNG, favicon)    |
+| `logos/nexflow-parent/`   | nxsflow wordmark logotype (SVG, PNG, favicon)    |
 | `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      || `scripts/`                | Logo render script (SVG → PNG/favicon/ico)       |
 | `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 

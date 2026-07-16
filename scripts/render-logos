@@ -23,7 +23,8 @@ Usage:
   scripts/render-logos manufakt-io          # rebuild only the given family folder(s)
   scripts/render-logos -h | --help
 
-All output is transparent-background and square. The first run bootstraps a
+Output is transparent-background. PNGs preserve each SVG's aspect ratio (so a
+wide wordmark stays wide); favicons are always square. The first run bootstraps a
 local, git-ignored virtualenv at scripts/.venv with cairosvg + Pillow.
 """
 
@@ -68,8 +69,11 @@ except ModuleNotFoundError:
     _bootstrap_then_reexec()
 
 
-def render(svg_path, size):
-    data = cairosvg.svg2png(url=svg_path, output_width=size, output_height=size)
+def render(svg_path, size, square=False):
+    # square=True forces size×size (favicons); otherwise the SVG's aspect ratio is
+    # preserved with the longer side = size (wide wordmarks stay wide, not letterboxed).
+    kwargs = {"output_width": size} if not square else {"output_width": size, "output_height": size}
+    data = cairosvg.svg2png(url=svg_path, **kwargs)
     from io import BytesIO
     return Image.open(BytesIO(data)).convert("RGBA")
 
@@ -117,7 +121,7 @@ def render_family(family_dir):
         prefix = stem.split("-")[0]
         favicons = {}
         for size in FAVICON_SIZES:
-            img = render(svg, size)
+            img = render(svg, size, square=True)
             img.save(os.path.join(favicon_dir, f"{prefix}-favicon-{variant}-{size}.png"))
             favicons[size] = img
             written += 1
