@@ -25,30 +25,30 @@
 
 ## Pillar 1 — "You set the direction." / "Du gibst die Richtung vor."
 
-**Body (EN):** The thinking stays yours — the analyzing, the brainstorming, the calls only you can make. Your agents take it from there. You're the mind; you don't have to be the hands.
+**Body (EN):** The thinking stays yours — the analyzing, the brainstorming, the calls only you can make. Your agents lend a hand and see it through.
 
-**Body (DE):** Das Denken bleibt deins — das Analysieren, das Brainstormen, die Entscheidungen, die nur du treffen kannst. Deine Agenten übernehmen ab da. Du bist der Kopf und musst nicht mehr die Hände sein.
+**Body (DE):** Das Denken bleibt deins — das Analysieren, das Brainstormen, die Entscheidungen, die nur du treffen kannst. Deine Agenten gehen dir zur Hand und ziehen es durch.
 
 **Proof:** You approve and decide; nothing moves without your say. "I've prepared your briefing — here's what I'd start with." / Du gibst frei und entscheidest; nichts läuft ohne dein Wort. „Ich hab dein Briefing vorbereitet — das würde ich zuerst angehen."
 
 ## Pillar 2 — "Your team of agents does the execution." / "Dein Team aus Agenten übernimmt die Ausführung."
 
-**Body (EN):** The follow-through — the mails, the sign-offs, the twenty small steps — moves to your agents, more of it with every release. The project keeps moving while you're already on the next idea.
+**Body (EN):** The follow-through — the mails, the sign-offs, the twenty small steps — moves to your agents, and they get better at it the longer you work together. The project keeps moving while you're already on the next idea.
 
-**Body (DE):** Das Dranbleiben — die Mails, die Abstimmungen, die zwanzig kleinen Schritte — wandert an deine Agenten, mit jedem Release mehr. Das Projekt läuft weiter, während du schon an der nächsten Idee sitzt.
+**Body (DE):** Das Dranbleiben — die Mails, die Abstimmungen, die zwanzig kleinen Schritte — wandert an deine Agenten, und sie werden mit der Zeit immer besser darin. Das Projekt läuft weiter, während du schon an der nächsten Idee sitzt.
 
-**Proof:** Agents prepare briefings, move tasks, and chase the details for you. / Agenten bereiten Briefings vor, bewegen Aufgaben und kümmern sich um die Details für dich.
+**Proof:** They prepare your briefings, move tasks, and chase the details — and grow sharper as your project's data, its connections, and nexus-flow's memory build up. / Sie bereiten deine Briefings vor, bewegen Aufgaben und kümmern sich um die Details — und werden besser, je mehr Projektdaten, Verknüpfungen und Gedächtnis von nexus-flow zusammenkommen.
 
-## Pillar 3 — "Nothing drifts, nothing gets lost." / "Nichts driftet, nichts geht verloren."
+## Pillar 3 — "Nothing drifts, nothing gets lost." / "Nichts entgleitet, nichts geht verloren."
 
 **Body (EN):** Every conversation captured, every thread kept — you and your agents always work from the same plan of what's happening and what's next. Nothing slips.
 
 **Body (DE):** Jedes Gespräch festgehalten, jeder Faden gehalten — du und deine Agenten arbeitet immer aus demselben Plan: was läuft und was als Nächstes kommt. Nichts bleibt liegen.
 
-**Proof:** One shared record of the project, offline-first — built on nexus-flow. / Ein gemeinsamer Record des Projekts, offline-first — auf nexus-flow gebaut.
+**Proof:** One shared record of the project, offline-first — built on nexus-flow. / Alles zum Projekt an einem Ort, offline-first — auf nexus-flow gebaut.
 
 ## Payoff & closing
 
-- **Payoff (EN):** So your full force lands on the ambition, not the busywork.
-- **Payoff (DE):** So fließt deine volle Kraft in die Ambition — nicht in den Kleinkram.
+- **Payoff (EN):** So your energy goes where it matters — not the busywork.
+- **Payoff (DE):** So fließt deine Energie dahin, wo sie zählt — nicht in den Kleinkram.
 - **Closing CTA (EN / DE):** See how it works / So funktioniert's

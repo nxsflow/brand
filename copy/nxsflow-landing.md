@@ -37,7 +37,7 @@
 
 **Proof:** Agents pick up tasks and run them in parallel. / Agenten übernehmen Aufgaben und erledigen sie parallel.
 
-## Pillar 3 — "Nothing drifts, nothing gets lost." / "Nichts driftet, nichts geht verloren."
+## Pillar 3 — "Nothing drifts, nothing gets lost." / "Nichts entgleitet, nichts geht verloren."
 
 **Body (EN):** People and agents work toward the same goal, from one shared picture of what's happening and what's next. Everyone pulls in the same direction.
 

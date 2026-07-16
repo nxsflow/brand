@@ -81,7 +81,7 @@ Humans initiate, coordinate, decide. Agents propose and execute — they never d
 **Pillar 2 — "Your team of agents does the execution."**
 A growing share of the doing moves to your agents — more with every release. Throughput grows without the team burning out. _Proof:_ parallel execution, agents pick up tasks, "more with every release."
 
-**Pillar 3 — "Nothing drifts, nothing gets lost."** _(DE: "Nichts driftet, nichts geht verloren.")_
+**Pillar 3 — "Nothing drifts, nothing gets lost."** _(DE: "Nichts entgleitet, nichts geht verloren.")_
 Your people and your agents work from one shared record of the goal — what exists, what it depends on, what's next. _Proof:_ the nxs platform / nexus-flow engine. _Reusable second line (never leads):_ "Everyone pulls toward the same goal" → DE "Alle ziehen an einem Strang."
 
 **Payoff** _(the result of the three, not a fourth pillar):_ "So your energy goes where it matters — not the busywork."
