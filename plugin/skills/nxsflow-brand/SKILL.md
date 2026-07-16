@@ -44,7 +44,7 @@ Great things get built when people rally behind a goal and go all in. Human ambi
 
 ### Positioning
 
-nxsflow builds tools that keep you in the lead of ambitious work — while a growing share of the execution is carried by your team of agents. So your team's full force lands on the ambition, not the busywork.
+nxsflow builds tools that keep you in the lead of ambitious work — while a growing share of the execution is carried by your team of agents. So your energy goes where it matters, not the busywork.
 
 The human stays the **initiator and coordinator**: sets the direction, makes the calls, holds the vision. A growing share of the execution is carried by a team of agents. This is amplification, not replacement — the human never leaves the loop. (Retired vocabulary: "orchestrator" / "orchestrator partner"; never "we take over / we do it for you.")
 
@@ -84,7 +84,7 @@ A growing share of the doing moves to your agents — more with every release. T
 **Pillar 3 — "Nothing drifts, nothing gets lost."** _(DE: "Nichts driftet, nichts geht verloren.")_
 Your people and your agents work from one shared record of the goal — what exists, what it depends on, what's next. _Proof:_ the nxs platform / nexus-flow engine. _Reusable second line (never leads):_ "Everyone pulls toward the same goal" → DE "Alle ziehen an einem Strang."
 
-**Payoff** _(the result of the three, not a fourth pillar):_ "So your full force lands on the ambition, not the busywork."
+**Payoff** _(the result of the three, not a fourth pillar):_ "So your energy goes where it matters — not the busywork."
 
 ### Per-Product Positioning
 
