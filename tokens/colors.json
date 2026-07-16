@@ -22,11 +22,6 @@
     "accent": "#F59E0B",
     "background": "#FFFFFF"
   },
-  "overtone": {
-    "accent": "#A78BFA",
-    "accentSecondary": "#F472B6",
-    "background": "#FFFFFF"
-  },
   "parent": {
     "accent": "#B9FF66",
     "background": "#FFFFFF"

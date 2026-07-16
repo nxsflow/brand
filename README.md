@@ -11,9 +11,7 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | `logos/nexflow-it/`       | nexflow.it "nf" monogram (SVG, PNG, favicon)     |
 | `logos/manufakt-io/`      | manufakt.io "mf" monogram (SVG, PNG, favicon)    |
 | `logos/nexflow-parent/`   | nxsflow organic mesh icon (SVG, PNG, favicon)    |
-| `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      |
-| `logos/amplify-overtone/` | Amplify Overtone tuning fork (SVG, PNG, favicon) |
-| `scripts/`                | Logo render script (SVG → PNG/favicon/ico)       |
+| `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      || `scripts/`                | Logo render script (SVG → PNG/favicon/ico)       |
 | `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 
 ## Brand Guideline
@@ -28,8 +26,6 @@ See [BRAND.md](BRAND.md) for the full guideline covering colors, typography, log
 | **nexflow.it**         | nexflow.it           | Lime `#B9FF66`                           |
 | **manufakt.io**        | manufakt.io          | Ember Red `#DC2626`                      |
 | **nxsflow BP**         | bp.nxsflow.com       | Amber `#F59E0B`                          |
-| **Amplify Overtone**   | overtone.nxsflow.com | Lavender `#A78BFA`                       |
-
 ## Using the Design Tokens
 
 **CSS** — import directly:

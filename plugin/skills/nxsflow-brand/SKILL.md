@@ -1,6 +1,6 @@
 ---
 name: nxsflow-brand
-description: nxsflow brand guideline — colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP, Amplify Overtone). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
+description: nxsflow brand guideline — colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
 ---
 
 # nxsflow Brand Guideline
@@ -30,7 +30,6 @@ When the nxsflow logotype is displayed, the letter "F" may be set in the brand l
 | nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                         |
 | manufakt.io      | Flagship    | manufakt.io          | Ember Red #DC2626                    |
 | nxsflow BP       | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
-| Amplify Overtone | Open source | overtone.nxsflow.com | Lavender #A78BFA + Rose #F472B6       |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
@@ -64,13 +63,6 @@ nexflow.it is the core product. The parent brand shares its lime accent to reinf
 - Accent: `#F59E0B` (amber)
 - Background: `#FFFFFF`
 
-### Amplify Overtone
-
-- Accent: `#A78BFA` (lavender)
-- Accent secondary: `#F472B6` (rose)
-- Gradient: `linear-gradient(135deg, #A78BFA, #F472B6)`
-- Background: `#FFFFFF`
-
 ### nxsflow (parent)
 
 - Accent: `#B9FF66` (lime, shared with nexflow.it)
@@ -84,7 +76,7 @@ When building UI, use the design token variable names:
 --nxs-graphite, --nxs-gray, --nxs-border, --nxs-white
 --nxs-nexflow-primary, --nxs-nexflow-primary-dark, --nxs-nexflow-tint
 --nxs-manufakt-accent, --nxs-manufakt-accent-dark, --nxs-manufakt-tint, --nxs-manufakt-gradient, --nxs-manufakt-bg
---nxs-bp-accent, --nxs-overtone-accent, --nxs-overtone-accent-secondary
+--nxs-bp-accent
 --nxs-parent-accent
 ```
 
@@ -106,9 +98,6 @@ These tokens live in the `nxsflow/logos` repo under `tokens/colors.css` and `tok
 **Default (parent, manufakt.io) — 1.25 ratio:**
 xs: 12px, sm: 14px, base: 16px, lg: 20px, xl: 25px, 2xl: 31px, 3xl: 39px
 
-**Amplify Overtone — 1.4 ratio:**
-xs: 12px, sm: 14px, base: 16px, lg: 22px, xl: 31px, 2xl: 44px, 3xl: 61px
-
 **nexflow.it — 1.333 ratio:**
 xs: 13px, sm: 15px, base: 18px, lg: 24px, xl: 32px, 2xl: 42px, 3xl: 56px
 
@@ -123,7 +112,7 @@ xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 --nxs-text-xs through --nxs-text-3xl
 ```
 
-Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` on a parent element to activate product-specific type scales.
+Use `[data-brand="nexflow"]` or `[data-brand="bp"]` on a parent element to activate product-specific type scales.
 
 ## Logo System
 
@@ -136,7 +125,6 @@ Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` 
 
 - **nxsflow:** Organic mesh icon — asymmetric nodes connected by hand-drawn curves. Lime (#B9FF66) fills, graphite outlines. Full variant (5 nodes) for wordmark pairing, simplified variant (3 nodes) for favicons.
 - **nxsflow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
-- **Amplify Overtone:** Hand-drawn tuning fork icon — bold prongs with U-bend, handle, and resonance waves. Lavender (#A78BFA). Full variant (with waves) for large sizes, simplified variant (no waves) for favicons.
 
 ### Logo Rules
 
@@ -173,12 +161,6 @@ Use `[data-brand="overtone"]`, `[data-brand="nexflow"]`, or `[data-brand="bp"]` 
 - Card-based Lean Canvas layouts
 - Communicates: progressive, motivated, building something special
 
-### Amplify Overtone — "Open workshop"
-
-- Lavender with gradient treatments
-- Documentation-style layouts
-- Communicates: collaboration, community, inviting contributions
-
 ### nxsflow (parent) — "The foundation"
 
 - Light background, lime accent used sparingly
@@ -202,10 +184,6 @@ Direct, technical, momentum-driven. Respects user expertise — never patronizin
 ### nxsflow BP
 
 Encouraging, action-oriented. "Your idea deserves a plan." Progressive, optimistic. Speaks to builders.
-
-### Amplify Overtone
-
-Inclusive, technical, community-minded. "We" not "I." Documentation voice. Welcoming to all levels.
 
 ## How to Apply
 
