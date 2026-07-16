@@ -5,7 +5,7 @@
 - **Legal name:** NexusFlow UG (haftungsbeschränkt)
 - **Brand name:** nxsflow
 - **Domain:** nxsflow.com
-- **Positioning:** Precise tools for technical professionals
+- **Positioning:** Tools that keep you in the lead while your team of agents carries the execution
 
 ## Brand Name
 
@@ -25,6 +25,96 @@ When the nxsflow logotype is displayed, the letter "F" may be set in the brand l
 | nxsflow BP       | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
+
+## Messaging
+
+The messaging system is the internal, generative source of truth — everything derives from it: presentation, features, marketing, tone. It answers "what do we believe, and how do we decide?" A feature, campaign, or headline is on-brand when it expresses the belief _and_ the mechanic below. (The per-product "Tone of Voice" section covers _how_ we sound; this section covers _what_ we say.)
+
+### Belief
+
+Great things get built when people rally behind a goal and go all in. Human ambition — the thinking, the deciding, the daring — is the scarce resource. Execution should never be the thing that stands in its way.
+
+### Positioning
+
+nxsflow builds tools that keep you in the lead of ambitious work — while a growing share of the execution is carried by your team of agents. So your energy goes where it matters, not the busywork.
+
+The human stays the **initiator and coordinator**: sets the direction, makes the calls, holds the vision. A growing share of the execution is carried by a team of agents. This is amplification, not replacement — the human never leaves the loop. (Retired vocabulary: "orchestrator" / "orchestrator partner"; never "we take over / we do it for you.")
+
+### Core Narrative
+
+> Every worthwhile thing starts the same way: people gather around a goal and decide to go all in. What happens _next_ decides whether it gets built — and too often the energy that should go into thinking bigger and deciding sharper gets swallowed by execution, the endless doing between a decision and a result.
+>
+> We build the tools that change that math. You stay the one who initiates, coordinates, and decides — you set the direction, make the calls, hold the vision. Your team of agents takes on the execution, doing more of it with every release. Not to replace you. To free you — so your full force lands where it counts.
+>
+> **You set the course. Your team of agents does the work. Together.**
+
+### Verb Lexicon
+
+The load-bearing verbs that give copy a consistent direction.
+
+| Human verbs | DE                            | Agent verbs | DE       |
+| ----------- | ----------------------------- | ----------- | -------- |
+| initiate    | initiieren _(auch: anstoßen)_ | execute     | ausführen |
+| analyze     | analysieren                   | build       | bauen    |
+| think big   | groß denken                   | ship        | liefern  |
+| brainstorm  | brainstormen                  |             |          |
+| coordinate  | koordinieren                  |             |          |
+| decide      | entscheiden                   |             |          |
+
+"think big" is one verb among several — never the whole promise. We do not sell a life of pure big-thinking.
+
+### Value Pillars
+
+Three pillars translate the belief into checkable promises that hold across both flagships. They are the feature filter and the backbone of the copy.
+
+**Pillar 1 — "You set the direction."** _(DE: "Du gibst die Richtung vor.")_
+Humans initiate, coordinate, decide. Agents propose and execute — they never decide what matters. _Proof:_ approval and decision points, transparency, always steerable. _Reserve names:_ "You lead" · "You make the calls" · "The big calls are yours".
+
+**Pillar 2 — "Your team of agents does the execution."**
+A growing share of the doing moves to your agents — more with every release. Throughput grows without the team burning out. _Proof:_ parallel execution, agents pick up tasks, "more with every release."
+
+**Pillar 3 — "Nothing drifts, nothing gets lost."** _(DE: "Nichts entgleitet, nichts geht verloren.")_
+Your people and your agents work from one shared record of the goal — what exists, what it depends on, what's next. _Proof:_ the nxs platform / nexus-flow engine. _Reusable second line (never leads):_ "Everyone pulls toward the same goal" → DE "Alle ziehen an einem Strang."
+
+**Payoff** _(the result of the three, not a fourth pillar):_ "So your energy goes where it matters — not the busywork."
+
+### Per-Product Positioning
+
+Same belief, same mechanic — different world of work.
+
+#### nxsflow (parent)
+
+- _For:_ ambitious teams who build something together (technical and knowledge work).
+- _Tagline:_ "Set the direction. Your agents carry it out."
+- _Role:_ the umbrella spanning both flagships — never product-specific.
+
+#### manufakt.io — building software
+
+- _For:_ developers, engineering teams, tech leads.
+- _Positioning:_ "You architect and decide; your team of coding agents builds and ships. manufakt.io turns direction into shipped software."
+- _Leading pillars:_ 2 → 1 → 3.
+- _Tagline (leads):_ "From intent to shipped." _Alternatives:_ "Set the direction. Ship the software." · "You decide. Your agents build."
+- _Tone:_ direct, technical, momentum-driven.
+
+#### nexflow.it — running knowledge-work projects
+
+- _For:_ knowledge workers, project teams, founders, ops/marketing/research — anyone who drives projects (no code).
+- _Positioning:_ "You think, brainstorm, and decide; your agents carry the project forward. nexflow.it turns your thinking into done work."
+- _Leading pillars:_ 1 → 2 → 3.
+- _Tagline (leads):_ "From 'someday' to done." _Subhead:_ "You think it through. Your agents see it through." _Reserve:_ "Decide the what. Your agents handle the how."
+- _Tone:_ warm, personal, conversational, first person ("I've prepared your briefing").
+
+### Voice Guardrails
+
+- Purposeful and big-vision — never lofty (abgehoben). Big words must feel _earned_.
+- No engine jargon in customer copy ("converged / convergence" stays internal).
+- "think big" is one verb among several, never "that's all you do now."
+- Partnership, not replacement. Never "we take over / we do it for you."
+- Anti-busywork ("…minus the busywork") is a supporting line, never the lead.
+
+### Core Lexicon
+
+The load-bearing words — belief, positioning, verb lists, taglines — get a hand-made, equally powerful version per language, **never a literal translation.** Same force beats same vocabulary. Example: "Everyone pulls toward the same goal" → "Alle ziehen an einem Strang."
 
 ## Colors
 

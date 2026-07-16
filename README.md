@@ -7,6 +7,7 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | Path                      | Description                                      |
 | ------------------------- | ------------------------------------------------ |
 | `BRAND.md`                | The brand guideline — single source of truth     |
+| `copy/`                   | Landing copy decks (EN + DE) per product         |
 | `tokens/`                 | Design tokens (CSS custom properties + JSON)     |
 | `logos/nexflow-it/`       | nexflow.it "nf" monogram (SVG, PNG, favicon)     |
 | `logos/manufakt-io/`      | manufakt.io "mf" monogram (SVG, PNG, favicon)    |
@@ -16,7 +17,7 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 
 ## Brand Guideline
 
-See [BRAND.md](BRAND.md) for the full guideline covering colors, typography, logo rules, design language, and tone of voice for all nxsflow products.
+See [BRAND.md](BRAND.md) for the full guideline covering **core messaging & positioning**, colors, typography, logo rules, design language, and tone of voice for all nxsflow products. The `## Messaging` section is the source the copy derives from; the distilled landing copy for each product lives in [`copy/`](copy/).
 
 ## Products
 
