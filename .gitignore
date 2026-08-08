@@ -1,4 +1,7 @@
 .DS_Store
+.nxf/
+.nxs
+.nxs.bak/
 .superpowers/
 docs/superpowers/
 node_modules

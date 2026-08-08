@@ -9,6 +9,8 @@
 
 ## Hero
 
+- **Category line (EN):** We don't build the agents. We build what they work from.
+- **Category line (DE):** Wir bauen nicht die Agenten. Wir bauen das, woran sie sich halten.
 - **Tagline (EN):** Set the direction. Your agents carry it out.
 - **Tagline (DE):** Gib die Richtung vor. Deine Agenten führen sie aus.
 - **Subhead (EN):** Great work happens when people go all in on a shared goal. nxsflow frees them to lead — while a team of agents takes on more and more of the execution.
