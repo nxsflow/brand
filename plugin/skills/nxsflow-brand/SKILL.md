@@ -92,6 +92,7 @@ Same belief, same mechanic — different world of work.
 #### nxsflow (parent)
 
 - _For:_ ambitious teams who build something together (technical and knowledge work).
+- _Category line:_ "We don't build the agents. We build what they work from." _(DE: "Wir bauen nicht die Agenten. Wir bauen das, woran sie sich halten.")_ Sits above the tagline as the eyebrow; it holds for both flagships and says what kind of thing nxsflow is.
 - _Tagline:_ "Set the direction. Your agents carry it out."
 - _Role:_ the umbrella spanning both flagships — never product-specific.
 
@@ -99,8 +100,9 @@ Same belief, same mechanic — different world of work.
 
 - _For:_ developers, engineering teams, tech leads.
 - _Positioning:_ "You architect and decide; your team of coding agents builds and ships. manufakt.io turns direction into shipped software."
-- _Leading pillars:_ 2 → 1 → 3.
-- _Tagline (leads):_ "From intent to shipped." _Alternatives:_ "Set the direction. Ship the software." · "You decide. Your agents build."
+- _Reading of "your team of coding agents":_ the agents the reader already runs, on their own machine. We supply the workshop and the instruments, not the workers — never imply that we furnish the agents or carry out the work.
+- _Leading pillars:_ 1 → 3 → 2. Pillar 2 is carried by the agents the reader already runs, so it supports and never leads.
+- _Tagline (leads):_ "From intent to shipped." _Alternatives:_ "Set the direction. Ship the software." · "You decide. Your agents build." (Taglines rank among themselves; a page headline may still lead the surface.)
 - _Tone:_ direct, technical, momentum-driven.
 
 #### nexflow.it — running knowledge-work projects
