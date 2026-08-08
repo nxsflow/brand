@@ -5,8 +5,8 @@
 > Audience: developers, engineering teams and tech leads who already run coding
 > agents. Pillar order: 1 → 3 → 2. "Your team of coding agents" means the agents
 > the reader already runs — we supply the workshop and the instruments, not the
-> workers. Surface: the waitlist page while manufakt.io is in private
-> exploration; the copy is written to read as one.
+> workers. Surface: the waitlist page for the closed beta; the copy is written
+> to read as one.
 
 ## Hero
 
@@ -15,7 +15,7 @@
 - **Subhead (EN):** Your board, your agents' memory and their coordination in one view — synced, so you can look in and step in from the browser. The agents keep running on your machine.
 - **Subhead (DE):** Brett, Erinnerung und Koordination deiner Agenten in einer Ansicht — synchronisiert, damit du aus dem Browser hineinsehen und eingreifen kannst. Die Agenten laufen weiter auf deiner Maschine.
 - **Tagline (retained, supporting — never the hero line):** From intent to shipped. / Aus dem Plan wird das Release.
-- **Status line (EN / DE):** manufakt.io is in private exploration. / manufakt.io ist in stiller Erprobung.
+- **Status line (EN / DE):** manufakt.io is in closed beta. / manufakt.io ist in geschlossener Beta.
 - **Primary CTA (EN / DE):** Join the waitlist / Auf die Warteliste
 
 ## Positioning
@@ -66,4 +66,4 @@
 
 - **Payoff (EN):** So your energy goes where it matters — not the busywork.
 - **Payoff (DE):** So fließt eure Energie dahin, wo sie zählt — nicht in den Kleinkram.
-- **Closing CTA (EN / DE):** Get an invite when it opens / Einladung bekommen, sobald es losgeht
+- **Closing CTA (EN / DE):** Ask for an invite / Einladung anfragen
