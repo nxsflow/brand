@@ -2,20 +2,88 @@
 
 > Source of truth: `BRAND.md → Messaging`. EN is the original; DE is a crafted
 > adaptation (Core Lexicon), not a literal translation. Structure mirrors the live
-> staging site (hero → pillars → two products → open foundation), re-led by the belief.
+> staging site (hero → trias → pillars → two products → open foundation), re-led by the belief.
 > Register: the parent sells nothing directly, so belief/foundation statements stay
 > in the neutral third person; direct address ("you") appears only where the offer to
 > the reader is described.
 
 ## Hero
 
-- **Category line (EN):** We don't build the agents. We build what they work from.
-- **Category line (DE):** Wir bauen nicht die Agenten. Wir bauen das, woran sie sich halten.
-- **Tagline (EN):** Set the direction. Your agents carry it out.
-- **Tagline (DE):** Gib die Richtung vor. Deine Agenten führen sie aus.
-- **Subhead (EN):** Great work happens when people go all in on a shared goal. nxsflow frees them to lead — while a team of agents takes on more and more of the execution.
-- **Subhead (DE):** Großes entsteht, wenn Menschen mit voller Kraft auf ein gemeinsames Ziel losgehen. nxsflow hält ihnen den Rücken frei — während ein Team aus Agenten immer mehr der Ausführung übernimmt.
-- **Primary CTA (EN / DE):** See how it works / So funktioniert's
+> **The hero is the promise; the three sections under it are the proof** (landing
+> repo `cyb7.s0y5`). It used to carry the whole argument in five sentences. Since
+> 2026-09-07 it carries the hook, and each line of the title is redeemed by its
+> own section below — see "Trias" further down.
+
+- **Category line (EN):** Issue tracker for coding agents — with the memory and the channel
+- **Category line (DE):** Issue-Tracker für Coding-Agenten — mit dem Gedächtnis und dem Kanal
+- **Title (EN):** Set the direction. Assign the ticket. Keep what they learn.
+- **Title (DE):** Gib die Richtung vor. Weise das Ticket zu. Behalte, was sie lernen.
+- **Subhead (EN):** Your agents keep forgetting where the project is going — and which rules it runs by. With nexus-flow, every new session starts knowing what's queued, what the rules are, and what's already been figured out.
+- **Subhead (DE):** Vergessen deine Agenten ständig, wohin die Reise geht und welche Regeln im Projekt gelten? Mit nexus-flow beginnt jede neue Sitzung im Bilde: Sie kennt die anstehende Arbeit, die Regeln — und das schon Herausgefundene.
+- **Own line under it (EN):** Offline-first — fast locally, convergent when connected.
+- **Own line under it (DE):** Offline-first — lokal schnell, konvergent sobald verbunden.
+- **Primary action (both):** the real install one-liner with a copy button — `curl -fsSL https://nxsflow.com/nxs/install.sh | sh`
+- **Button (EN / DE):** Get started / Loslegen — into the documentation
+- **Beside it (EN / DE):** Read the source on GitHub / Den Quellcode auf GitHub lesen
+
+**Three things about this hero are decisions, not wording, and a later edit
+undoes them at a price:**
+
+1. **"Open source ·" is gone from the category line, and it did not go for free.**
+   The Head of Marketing held against dropping it; his condition was that a
+   *visible way to the source* stands above the fold instead, because `curl | sh`
+   shows a free download, not source code. That is the GitHub link. **Remove the
+   link and the word comes back.**
+2. **"Assign the ticket", not "assign the work".** "the work" leaves the category
+   open and hits the competitor's loudest word — CrewAI assigns tasks to agents.
+   The object carries the classification.
+3. **"Keep what THEY learn", not "what you learned".** The second reading turns
+   the product into a notebook for the human, and the competition can say it word
+   for word.
+
+**Barred in the hero and the three sections:** "orchestration", "coordination
+layer", "agent teams", "workflow". The word "workflow" has exactly one allowed
+place on the site and it is not here.
+
+**Not in the copy, on purpose:** "and machines" / "und über Rechner hinweg". The
+persistence claim stops at branch switches until the sync decision is made
+(landing repo `cyb7.hdgg`, carried in by `cyb7.9z4j`). `nxs sync` ships without a
+default endpoint and without a public self-host guide, so on day one the claim
+would not be true.
+
+## Trias — the three sections that redeem the title
+
+Each section carries the title line it answers as its kicker, in the title's own
+order, and nothing stands between the hero and the first of them. The German is
+built, not translated: "file it" is **not** "ablegen" — in a German ticket
+register one *legt Tickets an*.
+
+**1 — "Set the direction." / "Gib die Richtung vor."**
+
+- **EN:** You plan. Your agents file it. — You plan the direction with your agents: it lands on the board as epics and tickets, and it stays there — across sessions and branch switches.
+- **DE:** Du planst. Deine Agenten legen die Tickets an. — Die Richtung planst du mit deinen Agenten – sie steht danach als Epics und Tickets auf dem Board, und dort bleibt sie: über Sitzungen und Branch-Wechsel hinweg.
+
+**2 — "Assign the ticket." / "Weise das Ticket zu."**
+
+- **EN:** You assign. Your agents build. — One message sets them to work through it in order, without you watching.
+- **DE:** Du beauftragst. Deine Agenten bauen. — Eine Nachricht setzt sie darauf an, der Reihe nach abzuarbeiten – die Arbeit läuft, ohne dass du zusiehst.
+
+**3 — "Keep what they learn." / "Behalte, was sie lernen."**
+
+- **EN:** You correct. Your agents remember. — Something goes wrong, you say why once, and the rule outlives the session that earned it.
+- **DE:** Du korrigierst. Deine Agenten merken es sich. — Etwas geht schief, du sagst einmal, warum – und die Regel überlebt die Sitzung, in der sie entstanden ist.
+
+**Two findings of the Head of Marketing that look like defects and are not:**
+
+- Section 1 is the weakest of the three texts — its body does double duty on
+  planning and on persistence. It stays, because the persistence half is the
+  strike against beads, where the board state dissolves into git's
+  last-write-wins.
+- Section 2 is the strongest *promise* and the weakest *exclusive*: "You assign.
+  Your agents build." is the one head CrewAI can say word for word. The
+  consequence is not a copy change but a requirement on the figure beside it — it
+  shows the mechanism (one message, an order derived from the dependency graph,
+  the answers in the same log) instead of illustrating the claim.
 
 ## Positioning
 
