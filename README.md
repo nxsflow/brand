@@ -9,10 +9,11 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | `BRAND.md`                | The brand guideline — single source of truth     |
 | `copy/`                   | Landing copy decks (EN + DE) per product         |
 | `tokens/`                 | Design tokens (CSS custom properties + JSON)     |
-| `logos/nexflow-it/`       | nexflow.it "nf" monogram (SVG, PNG, favicon)     |
-| `logos/manufakt-io/`      | manufakt.io "mf" monogram (SVG, PNG, favicon)    |
+| `logos/nexflow-it/`       | nexflow.it "nf" monogram + wordmark (SVG, PNG, favicon) |
+| `logos/manufakt-io/`      | manufakt.io "mf" monogram + wordmark (SVG, PNG, favicon) |
 | `logos/nexflow-parent/`   | nxsflow wordmark logotype (SVG, PNG, favicon)    |
-| `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      || `scripts/`                | Logo render script (SVG → PNG/favicon/ico)       |
+| `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      |
+| `scripts/`                | Wordmark generator + logo render script          |
 | `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 
 ## Brand Guideline
@@ -43,6 +44,14 @@ const colors = require("path/to/tokens/colors.json");
 ```
 
 ## Regenerating Logo Assets
+
+The wordmarks (`*-wordmark-*.svg`) are generated from the vendored Merriweather
+Black in `scripts/fonts/` (SIL OFL, see `scripts/fonts/OFL.txt`):
+
+```bash
+scripts/build-wordmarks              # rewrite every wordmark SVG
+scripts/build-wordmarks --check      # fail if a committed wordmark is out of date
+```
 
 The SVGs in `logos/<family>/svg/` are the source of truth. After editing an SVG
 (or adding a new logo that follows the naming convention), rebuild all derived
