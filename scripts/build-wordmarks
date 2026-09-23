@@ -1,0 +1,202 @@
+#!/usr/bin/env python3
+"""Build the nxsflow wordmark SVGs from Merriweather Black.
+
+Every wordmark in the family is drawn the same way, so they are generated rather
+than hand-edited:
+
+  - the name is set in Merriweather Black (wght 900) at the default text optical
+    size, from the vendored static font in scripts/fonts/ (Merriweather 2.002 —
+    the cut the nxsflow wordmark was drawn from). Never the display opsz.
+  - glyphs sit on their plain advance widths, no kerning, 25/106 px per unit
+  - each glyph is its own outlined path: fill and a 5px round-joined stroke in
+    the ink colour, so the letters read one weight heavier than the raw outline
+  - only the f carries the product accent — for a product, exactly the colour
+    its monogram's f has; its outline stays in the ink colour
+  - 26px of clear space around the ink box
+
+Outputs (the SVGs are the source of truth; run scripts/render-logos afterwards
+for PNGs and favicons):
+
+  logos/nexflow-parent/svg/nxs-wordmark-{dark,light}.svg     nxsflow
+  logos/nexflow-it/svg/nf-wordmark-{dark,light}.svg          nexflow.it
+  logos/manufakt-io/svg/mf-wordmark-{dark,light}.svg         manufakt.io
+
+  A wordmark never stands next to its monogram: a surface shows one or the
+  other, so there is deliberately no combined lockup.
+
+  <variant> follows the repo convention: "dark" is dark artwork for light
+  backgrounds, "light" is light artwork for dark backgrounds.
+
+Usage:
+  scripts/build-wordmarks          # write all SVGs
+  scripts/build-wordmarks --check  # exit 1 if any committed SVG differs
+"""
+
+import os
+import subprocess
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOGOS = os.path.join(REPO, "logos")
+FONT = os.path.join(REPO, "scripts", "fonts", "merriweather-latin-900-normal.woff")
+VENV = os.path.join(REPO, "scripts", ".venv")
+VENV_PY = os.path.join(VENV, "bin", "python")
+
+SCALE = 25 / 106   # px per font unit (the font has 1000 units per em)
+PAD = 26           # clear space around the ink box
+STROKE = 5         # outline width, in the ink colour
+
+GRAPHITE = "#1C1C1C"
+OFF_WHITE = "#FAF9F7"
+LIME = "#B9FF66"
+DEEP_LIME = "#84CC16"
+EMBER = "#DC2626"
+
+# variant -> ink colour; accents are per brand and per variant
+INK = {"dark": GRAPHITE, "light": OFF_WHITE}
+
+WORDMARKS = [
+    # (family folder, file prefix, text, {variant: accent})
+    ("nexflow-parent", "nxs", "nxsflow", {"dark": DEEP_LIME, "light": LIME}),
+    # product accents are the monogram's, which are binding
+    ("nexflow-it", "nf", "nexflow.it", {"dark": LIME, "light": LIME}),
+    ("manufakt-io", "mf", "manufakt.io", {"dark": EMBER, "light": EMBER}),
+]
+
+
+def _bootstrap_then_reexec():
+    # scripts/.venv is shared with render-logos; only fonttools is added here
+    if not os.path.exists(VENV_PY):
+        print("· setting up scripts/.venv…", flush=True)
+        subprocess.check_call([sys.executable, "-m", "venv", VENV])
+    subprocess.check_call(
+        [VENV_PY, "-m", "pip", "install", "-q", "--disable-pip-version-check",
+         "fonttools"]
+    )
+    os.environ["BUILD_WORDMARKS_BOOTSTRAPPED"] = "1"
+    os.execv(VENV_PY, [VENV_PY, os.path.abspath(__file__), *sys.argv[1:]])
+
+
+try:
+    from fontTools.pens.boundsPen import BoundsPen
+    from fontTools.pens.svgPathPen import SVGPathPen
+    from fontTools.pens.transformPen import TransformPen
+    from fontTools.ttLib import TTFont
+except ModuleNotFoundError:
+    if os.environ.get("BUILD_WORDMARKS_BOOTSTRAPPED") == "1":
+        raise
+    _bootstrap_then_reexec()
+
+
+def _fmt(v):
+    return f"{v:.2f}".rstrip("0").rstrip(".")
+
+
+class _RoundingSVGPathPen(SVGPathPen):
+    def __init__(self, glyphset):
+        super().__init__(glyphset, ntos=_fmt)
+
+
+class Font:
+    def __init__(self, path):
+        self.font = TTFont(path)
+        self.glyphs = self.font.getGlyphSet()
+        self.cmap = self.font.getBestCmap()
+        self.hmtx = self.font["hmtx"]
+        self.x_height = self.font["OS/2"].sxHeight
+
+    def layout(self, text):
+        """[(char, glyph name, x offset in font units)] on plain advances."""
+        x, out = 0, []
+        for ch in text:
+            name = self.cmap[ord(ch)]
+            out.append((ch, name, x))
+            x += self.hmtx[name][0]
+        return out
+
+    def ink_box(self, text):
+        xmin = ymin = float("inf")
+        xmax = ymax = float("-inf")
+        for _, name, x in self.layout(text):
+            pen = BoundsPen(self.glyphs)
+            self.glyphs[name].draw(pen)
+            if pen.bounds is None:
+                continue
+            a, b, c, d = pen.bounds
+            xmin, ymin = min(xmin, x + a), min(ymin, b)
+            xmax, ymax = max(xmax, x + c), max(ymax, d)
+        return xmin, ymin, xmax, ymax
+
+    def paths(self, text, tx, ty):
+        """Glyph paths in px: font unit (u, v) -> (tx + u·s, ty − v·s)."""
+        out = []
+        for ch, name, x in self.layout(text):
+            pen = _RoundingSVGPathPen(self.glyphs)
+            self.glyphs[name].draw(TransformPen(pen, (SCALE, 0, 0, -SCALE, tx + x * SCALE, ty)))
+            d = pen.getCommands()
+            if d:
+                out.append((ch, d))
+        return out
+
+
+def wordmark_body(font, text, ink, accent, tx, ty):
+    lines = []
+    for ch, d in font.paths(text, tx, ty):
+        fill = accent if ch == "f" else ink
+        lines.append(
+            f'  <path fill="{fill}" stroke="{ink}" stroke-width="{STROKE}" '
+            f'stroke-linejoin="round" d="{d}"/>'
+        )
+    return lines
+
+
+def svg_doc(width, height, body):
+    w, h = round(width), round(height)  # whole-pixel canvas, as the nxsflow wordmark has
+    return "\n".join(
+        [f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg">',
+         *body, "</svg>", ""]
+    )
+
+
+def build_wordmark(font, text, variant, accent):
+    xmin, ymin, xmax, ymax = font.ink_box(text)
+    width = (xmax - xmin) * SCALE + 2 * PAD
+    height = (ymax - ymin) * SCALE + 2 * PAD
+    tx = PAD - xmin * SCALE
+    ty = PAD + ymax * SCALE
+    return svg_doc(width, height, wordmark_body(font, text, INK[variant], accent, tx, ty))
+
+
+def outputs():
+    font = Font(FONT)
+    for family, prefix, text, accents in WORDMARKS:
+        svg_dir = os.path.join(LOGOS, family, "svg")
+        for variant, accent in accents.items():
+            yield (os.path.join(svg_dir, f"{prefix}-wordmark-{variant}.svg"),
+                   build_wordmark(font, text, variant, accent))
+
+
+def main():
+    check = "--check" in sys.argv[1:]
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print(__doc__)
+        return
+    stale = []
+    for path, content in outputs():
+        rel = os.path.relpath(path, REPO)
+        current = open(path).read() if os.path.exists(path) else None
+        if current == content:
+            continue
+        if check:
+            stale.append(rel)
+            continue
+        with open(path, "w") as fh:
+            fh.write(content)
+        print(f"  ✓ {rel}")
+    if stale:
+        print("out of date:\n  " + "\n  ".join(stale))
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
