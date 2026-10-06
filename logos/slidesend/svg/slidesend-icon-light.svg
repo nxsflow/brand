@@ -1,0 +1,10 @@
+<svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- slidesend — stage frame with a phone in front (light, for dark backgrounds) -->
+  <g transform="translate(5 -10)">
+    <!-- the stage: its frame stops short of the phone, so the phone stands in front -->
+    <path d="M216 80V64A16 16 0 0 0 200 48H40A16 16 0 0 0 24 64V160A16 16 0 0 0 40 176H124" fill="none" stroke="#FAF9F7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- the phone, in the accent -->
+    <rect x="146" y="102" width="82" height="136" rx="16" fill="#A78BFA" stroke="#FAF9F7" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M177 121H197" stroke="#FAF9F7" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

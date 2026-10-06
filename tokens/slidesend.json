@@ -1,0 +1,122 @@
+{
+  "$comment": "slidesend design tokens — generated from BRAND.md (slidesend). Same values as tokens/slidesend.css. Contrast ratios are WCAG 2.x, measured against the background named in 'on'.",
+  "brand": "slidesend",
+  "name": "slidesend",
+  "colors": {
+    "light": {
+      "background": "#FFFFFF",
+      "surface": "#FAF9F7",
+      "tint": "#F5F3FF",
+      "text": "#1C1C1C",
+      "textMuted": "#6B6B6B",
+      "border": "#E5E5E0",
+      "accent": "#7C3AED",
+      "accentHover": "#6D28D9",
+      "accentPressed": "#5B21B6",
+      "onAccent": "#FFFFFF",
+      "focusRing": "#7C3AED"
+    },
+    "dark": {
+      "background": "#141317",
+      "surface": "#1F1D24",
+      "tint": "#2A2140",
+      "text": "#FAF9F7",
+      "textMuted": "#A1A1AA",
+      "border": "#34313B",
+      "accent": "#A78BFA",
+      "accentHover": "#C4B5FD",
+      "accentPressed": "#DDD6FE",
+      "onAccent": "#1C1C1C",
+      "focusRing": "#C4B5FD"
+    }
+  },
+  "contrast": {
+    "light": [
+      { "fg": "text", "on": "background", "ratio": 17.04 },
+      { "fg": "text", "on": "surface", "ratio": 16.2 },
+      { "fg": "textMuted", "on": "background", "ratio": 5.33 },
+      { "fg": "textMuted", "on": "tint", "ratio": 4.86 },
+      { "fg": "onAccent", "on": "accent", "ratio": 5.7 },
+      { "fg": "onAccent", "on": "accentHover", "ratio": 7.1 },
+      { "fg": "onAccent", "on": "accentPressed", "ratio": 8.98 },
+      { "fg": "accent", "on": "background", "ratio": 5.7 },
+      { "fg": "accent", "on": "tint", "ratio": 5.2 }
+    ],
+    "dark": [
+      { "fg": "text", "on": "background", "ratio": 17.58 },
+      { "fg": "text", "on": "surface", "ratio": 15.85 },
+      { "fg": "textMuted", "on": "background", "ratio": 7.22 },
+      { "fg": "textMuted", "on": "surface", "ratio": 6.51 },
+      { "fg": "onAccent", "on": "accent", "ratio": 6.26 },
+      { "fg": "onAccent", "on": "accentHover", "ratio": 9.23 },
+      { "fg": "onAccent", "on": "accentPressed", "ratio": 12.27 },
+      { "fg": "accent", "on": "background", "ratio": 6.8 },
+      { "fg": "accent", "on": "surface", "ratio": 6.13 },
+      { "fg": "focusRing", "on": "background", "ratio": 10.02 }
+    ]
+  },
+  "focusRing": { "width": "2px", "offset": "2px", "style": "solid" },
+  "fonts": {
+    "heading": {
+      "family": "Merriweather",
+      "fallback": "Georgia, serif",
+      "weights": [700, 900],
+      "package": "@fontsource/merriweather"
+    },
+    "body": {
+      "family": "Merriweather Sans",
+      "fallback": "system-ui, sans-serif",
+      "weights": [300, 400, 700],
+      "roles": { "body": 300, "emphasis": 400, "strong": 700 },
+      "package": "@fontsource/merriweather-sans"
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "fallback": "ui-monospace, monospace",
+      "weights": [400, 700],
+      "package": "@fontsource/jetbrains-mono"
+    },
+    "loading": "Self-hosted from the npm packages named above, latin subset, font-display: swap. No request to a third-party font server."
+  },
+  "typeScale": {
+    "ratio": 1.25,
+    "xs": "12px",
+    "sm": "14px",
+    "base": "16px",
+    "lg": "20px",
+    "xl": "25px",
+    "2xl": "31px",
+    "3xl": "39px",
+    "4xl": "49px",
+    "5xl": "61px"
+  },
+  "radius": {
+    "sm": "6px",
+    "md": "10px",
+    "lg": "16px",
+    "full": "9999px"
+  },
+  "space": {
+    "base": "4px",
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "6": "24px",
+    "8": "32px",
+    "12": "48px",
+    "16": "64px",
+    "24": "96px"
+  },
+  "logos": {
+    "wordmark": { "onLight": "logos/slidesend/svg/slidesend-wordmark-dark.svg", "onDark": "logos/slidesend/svg/slidesend-wordmark-light.svg" },
+    "icon": { "onLight": "logos/slidesend/svg/slidesend-icon-dark.svg", "onDark": "logos/slidesend/svg/slidesend-icon-light.svg" },
+    "favicon": {
+      "svg": "logos/slidesend/favicon/slidesend-favicon.svg",
+      "png32": "logos/slidesend/favicon/slidesend-favicon-dark-32.png",
+      "ico": "logos/slidesend/favicon/slidesend-favicon-dark.ico",
+      "appleTouch180": "logos/slidesend/favicon/slidesend-apple-touch-180.png"
+    },
+    "social": "logos/slidesend/social/slidesend-social.png"
+  }
+}
