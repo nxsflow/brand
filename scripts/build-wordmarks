@@ -10,8 +10,9 @@ than hand-edited:
   - glyphs sit on their plain advance widths, no kerning, 25/106 px per unit
   - each glyph is its own outlined path: fill and a 5px round-joined stroke in
     the ink colour, so the letters read one weight heavier than the raw outline
-  - only the f carries the product accent — for a product, exactly the colour
-    its monogram's f has; its outline stays in the ink colour
+  - only the accent letter carries the product accent — the f for the nxsflow
+    family (for a product, exactly the colour its monogram's f has), both s for
+    slidesend; its outline stays in the ink colour
   - 26px of clear space around the ink box
 
 Outputs (the SVGs are the source of truth; run scripts/render-logos afterwards
@@ -20,6 +21,8 @@ for PNGs and favicons):
   logos/nexflow-parent/svg/nxs-wordmark-{dark,light}.svg     nxsflow
   logos/nexflow-it/svg/nf-wordmark-{dark,light}.svg          nexflow.it
   logos/manufakt-io/svg/mf-wordmark-{dark,light}.svg         manufakt.io
+  logos/slidesend/svg/slidesend-wordmark-{dark,light}.svg    slidesend
+  logos/slidesend/social/slidesend-social.svg                1200×630 link preview
 
   A wordmark never stands next to its monogram: a surface shows one or the
   other, so there is deliberately no combined lockup.
@@ -51,17 +54,34 @@ OFF_WHITE = "#FAF9F7"
 LIME = "#B9FF66"
 DEEP_LIME = "#84CC16"
 EMBER = "#DC2626"
+VIOLET = "#7C3AED"
+VIOLET_ON_DARK = "#A78BFA"
+VIOLET_TINT = "#F5F3FF"
+WHITE = "#FFFFFF"
 
 # variant -> ink colour; accents are per brand and per variant
 INK = {"dark": GRAPHITE, "light": OFF_WHITE}
 
 WORDMARKS = [
-    # (family folder, file prefix, text, {variant: accent})
-    ("nexflow-parent", "nxs", "nxsflow", {"dark": DEEP_LIME, "light": LIME}),
+    # (family folder, file prefix, text, {variant: accent}, accented letter)
+    ("nexflow-parent", "nxs", "nxsflow", {"dark": DEEP_LIME, "light": LIME}, "f"),
     # product accents are the monogram's, which are binding
-    ("nexflow-it", "nf", "nexflow.it", {"dark": LIME, "light": LIME}),
-    ("manufakt-io", "mf", "manufakt.io", {"dark": EMBER, "light": EMBER}),
+    ("nexflow-it", "nf", "nexflow.it", {"dark": LIME, "light": LIME}, "f"),
+    ("manufakt-io", "mf", "manufakt.io", {"dark": EMBER, "light": EMBER}, "f"),
+    # slidesend is its own brand: the two s that open "slide" and "send"
+    ("slidesend", "slidesend", "slidesend", {"dark": VIOLET, "light": VIOLET_ON_DARK}, "s"),
 ]
+
+# The link preview: the wordmark in a pool of light, the hero line beneath it,
+# both set from the same font. No icon — a surface shows one mark, never both.
+SOCIAL = {
+    "path": os.path.join(LOGOS, "slidesend", "social", "slidesend-social.svg"),
+    "size": (1200, 630),
+    "wordmark": ("slidesend", VIOLET, "s"),
+    "wordmark_width": 720,
+    "line": "A talk the room takes part in.",
+    "line_px": 46,   # font size of the hero line, in px
+}
 
 
 def _bootstrap_then_reexec():
@@ -127,22 +147,22 @@ class Font:
             xmax, ymax = max(xmax, x + c), max(ymax, d)
         return xmin, ymin, xmax, ymax
 
-    def paths(self, text, tx, ty):
+    def paths(self, text, tx, ty, scale=SCALE):
         """Glyph paths in px: font unit (u, v) -> (tx + u·s, ty − v·s)."""
         out = []
         for ch, name, x in self.layout(text):
             pen = _RoundingSVGPathPen(self.glyphs)
-            self.glyphs[name].draw(TransformPen(pen, (SCALE, 0, 0, -SCALE, tx + x * SCALE, ty)))
+            self.glyphs[name].draw(TransformPen(pen, (scale, 0, 0, -scale, tx + x * scale, ty)))
             d = pen.getCommands()
             if d:
                 out.append((ch, d))
         return out
 
 
-def wordmark_body(font, text, ink, accent, tx, ty):
+def wordmark_body(font, text, ink, accent, tx, ty, letter="f", scale=SCALE):
     lines = []
-    for ch, d in font.paths(text, tx, ty):
-        fill = accent if ch == "f" else ink
+    for ch, d in font.paths(text, tx, ty, scale):
+        fill = accent if ch == letter else ink
         lines.append(
             f'  <path fill="{fill}" stroke="{ink}" stroke-width="{STROKE}" '
             f'stroke-linejoin="round" d="{d}"/>'
@@ -158,22 +178,63 @@ def svg_doc(width, height, body):
     )
 
 
-def build_wordmark(font, text, variant, accent):
+def build_wordmark(font, text, variant, accent, letter):
     xmin, ymin, xmax, ymax = font.ink_box(text)
     width = (xmax - xmin) * SCALE + 2 * PAD
     height = (ymax - ymin) * SCALE + 2 * PAD
     tx = PAD - xmin * SCALE
     ty = PAD + ymax * SCALE
-    return svg_doc(width, height, wordmark_body(font, text, INK[variant], accent, tx, ty))
+    return svg_doc(width, height, wordmark_body(font, text, INK[variant], accent, tx, ty, letter))
+
+
+def build_social(font, spec):
+    w, h = spec["size"]
+    text, accent, letter = spec["wordmark"]
+
+    # the wordmark, scaled as a whole so its stroke stays in proportion
+    xmin, ymin, xmax, ymax = font.ink_box(text)
+    k = spec["wordmark_width"] / ((xmax - xmin) * SCALE)
+    mark_h = (ymax - ymin) * SCALE * k
+
+    # the hero line: plain glyphs, no outline, no accent
+    line = spec["line"]
+    s = spec["line_px"] / 1000
+    lxmin, lymin, lxmax, lymax = font.ink_box(line)
+    line_w = (lxmax - lxmin) * s
+    gap = 64
+    block_h = mark_h + gap + (lymax - lymin) * s
+    top = (h - block_h) / 2 - 8
+
+    mark_tx = (w - spec["wordmark_width"]) / 2 - xmin * SCALE * k
+    mark_ty = top + ymax * SCALE * k
+    mark = wordmark_body(font, text, GRAPHITE, accent, 0, 0, letter)
+    line_tx = (w - line_w) / 2 - lxmin * s
+    line_ty = top + mark_h + gap + lymax * s
+
+    body = [
+        f'  <rect width="{w}" height="{h}" fill="{WHITE}"/>',
+        f'  <ellipse cx="{w / 2:g}" cy="{_fmt(top + mark_h / 2)}" rx="500" ry="124" fill="{VIOLET_TINT}"/>',
+        f'  <g transform="translate({_fmt(mark_tx)} {_fmt(mark_ty)}) scale({_fmt_k(k)})">',
+        *["  " + l for l in mark],
+        "  </g>",
+    ]
+    for _, d in font.paths(line, line_tx, line_ty, s):
+        body.append(f'  <path fill="{GRAPHITE}" d="{d}"/>')
+    return svg_doc(w, h, body)
+
+
+def _fmt_k(v):
+    return f"{v:.4f}".rstrip("0").rstrip(".")
 
 
 def outputs():
     font = Font(FONT)
-    for family, prefix, text, accents in WORDMARKS:
+    for family, prefix, text, accents, letter in WORDMARKS:
         svg_dir = os.path.join(LOGOS, family, "svg")
         for variant, accent in accents.items():
             yield (os.path.join(svg_dir, f"{prefix}-wordmark-{variant}.svg"),
-                   build_wordmark(font, text, variant, accent))
+                   build_wordmark(font, text, variant, accent, letter))
+    yield SOCIAL["path"], build_social(font, SOCIAL)
 
 
 def main():
@@ -190,6 +251,7 @@ def main():
         if check:
             stale.append(rel)
             continue
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w") as fh:
             fh.write(content)
         print(f"  ✓ {rel}")

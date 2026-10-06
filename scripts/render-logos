@@ -15,8 +15,18 @@ Convention (matches the existing repo layout):
     -> logos/<family>/favicon/<prefix>-favicon-<variant>-<size>.png   sizes 16, 32, 180
     -> logos/<family>/favicon/<prefix>-favicon-<variant>.ico          (16 + 32)
 
+  A family that ships an adaptive favicon (logos/<family>/favicon/<prefix>-favicon.svg,
+  one file that follows the browser's colour scheme) also gets an apple-touch
+  icon: its light-scheme rendering on an opaque white square, because iOS fills
+  transparency with black.
+    -> logos/<family>/favicon/<prefix>-apple-touch-180.png
+
   <variant> is the last "-" token of the file name (dark / light) and <prefix>
-  is the first "-" token (mf, nf, db, bp, ao, nxs, ...).
+  is the first "-" token (mf, nf, db, bp, ao, nxs, slidesend, ...).
+
+  Link previews live apart from the logos, since they are pictures at one fixed
+  size rather than marks:
+    logos/<family>/social/<name>.svg -> logos/<family>/social/<name>.png  at the SVG's own size
 
 Usage:
   scripts/render-logos                      # rebuild every logo family
@@ -78,6 +88,12 @@ def render(svg_path, size, square=False):
     return Image.open(BytesIO(data)).convert("RGBA")
 
 
+def render_native(svg_path):
+    data = cairosvg.svg2png(url=svg_path)
+    from io import BytesIO
+    return Image.open(BytesIO(data)).convert("RGB")
+
+
 def variant_of(stem):
     return stem.rsplit("-", 1)[-1]
 
@@ -129,6 +145,20 @@ def render_family(family_dir):
             os.path.join(favicon_dir, f"{prefix}-favicon-{variant}.ico"),
             format="ICO", sizes=ICO_SIZES,
         )
+        written += 1
+
+    # 3) apple-touch icon, for a family with an adaptive favicon
+    for svg in sorted(glob.glob(os.path.join(favicon_dir, "*-favicon.svg"))):
+        prefix = os.path.basename(svg).split("-")[0]
+        inset = 144  # the mark at 80% of the tile, as iOS rounds the corners
+        tile = Image.new("RGBA", (180, 180), "#FFFFFF")
+        tile.alpha_composite(render(svg, inset, square=True), ((180 - inset) // 2,) * 2)
+        tile.convert("RGB").save(os.path.join(favicon_dir, f"{prefix}-apple-touch-180.png"))
+        written += 1
+
+    # 4) link previews, at the size the SVG declares
+    for svg in sorted(glob.glob(os.path.join(family_dir, "social", "*.svg"))):
+        render_native(svg).save(os.path.splitext(svg)[0] + ".png", optimize=True)
         written += 1
 
     print(f"  ✓ {family}: {written} files")

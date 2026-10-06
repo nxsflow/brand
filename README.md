@@ -13,6 +13,7 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | `logos/manufakt-io/`      | manufakt.io "mf" monogram + wordmark (SVG, PNG, favicon) |
 | `logos/nexflow-parent/`   | nxsflow wordmark logotype (SVG, PNG, favicon)    |
 | `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      |
+| `logos/slidesend/`        | slidesend wordmark + icon (SVG, PNG, favicon, link preview) |
 | `scripts/`                | Wordmark generator + logo render script          |
 | `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 
@@ -28,6 +29,7 @@ See [BRAND.md](BRAND.md) for the full guideline covering **core messaging & posi
 | **nexflow.it**         | nexflow.it           | Lime `#B9FF66`                           |
 | **manufakt.io**        | manufakt.io          | Ember Red `#DC2626`                      |
 | **nxsflow BP**         | bp.nxsflow.com       | Amber `#F59E0B`                          |
+| **slidesend**          | nxsflow.com/slidesend | Spotlight Violet `#7C3AED`              |
 ## Using the Design Tokens
 
 **CSS** — import directly:
@@ -36,6 +38,9 @@ See [BRAND.md](BRAND.md) for the full guideline covering **core messaging & posi
 @import url("path/to/tokens/colors.css");
 @import url("path/to/tokens/typography.css");
 ```
+
+slidesend has a complete light/dark theme of its own in `tokens/slidesend.css`
+(and `tokens/slidesend.json`, with the measured contrast ratios).
 
 **Tailwind / JS frameworks** — use the JSON:
 
@@ -65,7 +70,9 @@ scripts/render-logos manufakt-io     # rebuild only the given family folder(s)
 The first run bootstraps a local, git-ignored virtualenv at `scripts/.venv`
 (cairosvg + Pillow); it needs Python 3 and a system Cairo library. Favicons are
 generated from the simplified variant (`*-sm-*` / `*-simple-*`) when one exists,
-otherwise the base SVG.
+otherwise the base SVG. A family with an adaptive `favicon/<prefix>-favicon.svg`
+also gets an opaque apple-touch icon, and `social/*.svg` link previews are
+rendered to PNG at their own size.
 
 ## Claude Code Plugin
 
