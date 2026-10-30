@@ -35,7 +35,7 @@ An endorsed brand is initiated by nxsflow but carries an identity of its own: it
 
 | Brand       | Type     | Domain                          | Accent                     | Section                   |
 | ----------- | -------- | ------------------------------- | -------------------------- | ------------------------- |
-| NoCentralDB | Endorsed | nocentraldb.com, nocentraldb.io | Safety yellow #F2DC4B (dark theme only) | "NoCentralDB (endorsed)" |
+| NoCentralDB | Endorsed | nocentraldb.io (nocentraldb.com redirects) | Safety yellow #F2DC4B (dark theme only) | "NoCentralDB (endorsed)" |
 
 ## Messaging
 

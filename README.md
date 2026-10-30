@@ -30,7 +30,7 @@ See [BRAND.md](BRAND.md) for the full guideline covering **core messaging & posi
 | **manufakt.io**        | manufakt.io          | Ember Red `#DC2626`                      |
 | **nxsflow BP**         | bp.nxsflow.com       | Amber `#F59E0B`                          |
 | **slidesend**          | nxsflow.com/slidesend | Spotlight `#F04E23`                      |
-| **NoCentralDB** (endorsed, own identity) | nocentraldb.com, nocentraldb.io | Safety yellow `#F2DC4B`, dark theme only |
+| **NoCentralDB** (endorsed, own identity) | nocentraldb.io (nocentraldb.com redirects) | Safety yellow `#F2DC4B`, dark theme only |
 ## Using the Design Tokens
 
 **CSS** — import directly:
