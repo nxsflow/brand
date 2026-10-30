@@ -360,6 +360,8 @@ The kinship with NoSQL lies in the gesture (refusing a default), not in the data
 
 Images from collaborative manufacturing, where people and robots share a cell without colliding, name only the building blocks that are new. Established database terms stay as they are: collection, field, index, view, query, snapshot, op.
 
+Naming rule: generic words every developer already knows stay, even where another sync database also uses them (space, group, the roles reader, writer and admin). Terms another database coined for itself are never adopted.
+
 | Term                  | What it names                                                                 |
 | --------------------- | ----------------------------------------------------------------------------- |
 | space                 | The unit of sharing, membership and keys; every object belongs to exactly one |
