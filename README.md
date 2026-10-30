@@ -8,7 +8,7 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | ------------------------- | ------------------------------------------------ |
 | `BRAND.md`                | The brand guideline — single source of truth     |
 | `copy/`                   | Landing copy decks (EN + DE) per product, and the long-form brand stories (`*-story.md`: why a brand exists) |
-| `tokens/`                 | Design tokens (CSS custom properties + JSON)     |
+| `tokens/`                 | Design tokens (CSS custom properties + JSON); `tokens/nocentraldb.css` for NoCentralDB |
 | `logos/nexflow-it/`       | nexflow.it "nf" monogram + wordmark (SVG, PNG, favicon) |
 | `logos/manufakt-io/`      | manufakt.io "mf" monogram + wordmark (SVG, PNG, favicon) |
 | `logos/nexflow-parent/`   | nxsflow wordmark logotype (SVG, PNG, favicon)    |
@@ -30,6 +30,7 @@ See [BRAND.md](BRAND.md) for the full guideline covering **core messaging & posi
 | **manufakt.io**        | manufakt.io          | Ember Red `#DC2626`                      |
 | **nxsflow BP**         | bp.nxsflow.com       | Amber `#F59E0B`                          |
 | **slidesend**          | nxsflow.com/slidesend | Spotlight `#F04E23`                      |
+| **NoCentralDB** (endorsed, own identity) | nocentraldb.com, nocentraldb.io | Safety yellow `#F2DC4B`, dark theme only |
 ## Using the Design Tokens
 
 **CSS** — import directly:

@@ -1,6 +1,6 @@
 ---
 name: nxsflow-brand
-description: nxsflow brand guideline — core messaging, positioning, colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP, slidesend). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use for core messaging, positioning, value propositions, taglines, and landing-page copy — the belief that people set the direction while a team of agents carries the execution. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
+description: nxsflow brand guideline — core messaging, positioning, colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP, slidesend) and the endorsed brand NoCentralDB, which has an identity of its own. Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use for core messaging, positioning, value propositions, taglines, and landing-page copy — the belief that people set the direction while a team of agents carries the execution. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
 ---
 
 # nxsflow Brand Guideline
@@ -35,6 +35,14 @@ When the nxsflow logotype is displayed, the letter "F" may be set in the brand l
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
 slidesend is a brand of its own, not a module of nexflow.it. It serves speakers and their audience, who are different people from the knowledge workers nexflow.it serves. Its name is always lowercase, also at the start of a sentence and in headings. It has no f-highlight; in its wordmark only the dot of the i carries the accent, so neither s is ever set apart. The name is open to two readings on purpose, slide·send and slides·end, so the mark, the copy and the code never split it. Never accent, capitalise or hyphenate a part of it. Why slidesend exists is told at length in `copy/slidesend-story.md`; its complete logo kit, with the mark in context, is in `logos/slidesend/`.
+
+### Endorsed Brands
+
+An endorsed brand is initiated by nxsflow but carries an identity of its own: its own name rules, messaging, colours, type and logo. It is never blended with the family above, does not use the F-highlight, and the family's rules (lowercase names, Merriweather, the wordmark blueprint) do not apply to it. Everything that holds for it is in its own section.
+
+| Brand       | Type     | Domain                          | Accent                     | Section                   |
+| ----------- | -------- | ------------------------------- | -------------------------- | ------------------------- |
+| NoCentralDB | Endorsed | nocentraldb.com, nocentraldb.io | Safety yellow #F2DC4B (dark theme only) | "NoCentralDB (endorsed)" |
 
 ## Messaging
 
@@ -339,11 +347,135 @@ Clear, practical, calm. Speaks to speakers as peers and to developers as develop
 
 Encouraging, action-oriented. "Your idea deserves a plan." Progressive, optimistic. Speaks to builders.
 
+## NoCentralDB (endorsed)
+
+NoCentralDB is a local-first database for teams of people and agents. It is its own brand, endorsed by nxsflow (see "Endorsed Brands"). Nothing in the sections above applies to it unless this section says so.
+
+### Name
+
+- **NoCentralDB** in prose, headings and titles. Never "NCDB", "Nocentraldb", "noCentralDb" or "No Central DB". The capital N and the capital "DB" are deliberate: the name is built like "NoSQL".
+- **`ncdb`** in code, CLI, crates and packages (`@nocentraldb/sdk`, `ncdb`). Set in the code face when it appears in running text as a command.
+- **Endorsement line:** "Initiated by nxsflow." Used in footers, the README and the about section, never next to the logo and never in a headline.
+
+### Messaging
+
+**Belief**
+
+> Sometimes you don't need SQL. Sometimes you don't need a central database. Your data should live where the work happens: on every device and with every agent you trust, under your own keys. The cloud carries it. It never owns it.
+
+The kinship with NoSQL lies in the gesture (refusing a default), not in the data model: NoCentralDB has a strict schema, declared indexes only and guaranteed convergence. Never imply it is schemaless.
+
+**For:** developers building apps in which people and agents work on the same personal or otherwise sensitive data, and who believe that data should live where the work happens, under the keys of the people and agents who do it, not on a server in the middle.
+
+**Positioning (source, never set verbatim on a page):** "NoCentralDB is a local-first database for teams of people and agents. Everyone works on their own copy, under their own keys, and nobody in the middle can read it."
+
+**Proof points** (never lead; each backs a claim):
+
+- Reads are local; writes converge.
+- The relay holds no keys and only carries encrypted changes.
+- Data-privacy duties are designed in: a person's data can be shredded on request by destroying their key.
+
+**Not for:** apps that need queries on the server, analytics across all users' data, or one global truth enforced at write time (unique names, transactions across everyone). For those, a central database is exactly right. Say so plainly; never belittle the central database.
+
+**Visible lines:**
+
+| Line     | Text                                                                                              |
+| -------- | ------------------------------------------------------------------------------------------------- |
+| Eyebrow  | A local-first database for people and agents.                                                     |
+| Headline | For when a central database is the wrong place.                                                   |
+| Subline  | Everyone works on their own copy, under their own keys. The relay in the middle can't read a thing. |
+| Tagline  | No center. No collisions.                                                                         |
+
+**Claims rule, privacy:** We describe the mechanism, not a legal outcome. We may say "a person's data can be shredded by destroying their key" and "retention duties are modelled too". We never say "compliant", "GDPR-ready", "ensures compliance", "data privacy is built in" or "erased everywhere". Every public statement about erasure either names its limits or links to the page that does.
+
+**Claims rule, status:** Until the first release, nothing is described as built. Public texts say "designed to", and a status line says that the product does not exist yet. Never invent users, benchmarks or partners.
+
+### Vocabulary
+
+Images from collaborative manufacturing, where people and robots share a cell without colliding, name only the building blocks that are new. Established database terms stay as they are: collection, field, index, view, query, snapshot, op.
+
+| Term                  | What it names                                                                 |
+| --------------------- | ----------------------------------------------------------------------------- |
+| space                 | The unit of sharing, membership and keys; every object belongs to exactly one |
+| relay                 | Stores and forwards encrypted changes; holds no key and folds nothing         |
+| island mode           | Working with no relay at all; on rejoin every copy converges                  |
+| work order            | Work one member performs and a second one checks (compaction, erasure, audit) |
+| tag                   | Who currently holds a work order; a stale tag cannot submit a result          |
+| cross-check           | A second device confirms a result                                             |
+| sign-off              | A second account approves what cannot be undone                               |
+| time-lock             | A sign-off by the same account, effective only after a waiting period         |
+| break-glass           | The emergency account for sign-offs and recovery                              |
+| seal                  | A record that can no longer be changed (e.g. an issued invoice)               |
+| shred                 | Erasing a person by destroying their key                                      |
+| interlock             | A rule that refuses a write locally                                           |
+| collision-free edits  | Anchored, targeted text edits that let people and agents write side by side   |
+
+Never use "safety" language for things that are not guarantees: no "emergency stop" for agents, because rights bind third parties, not processes on the same device.
+
+### Tone of Voice
+
+Solid, precise, protective. Speaks like infrastructure that has to hold: it keeps running, loses nothing, stays fast and stays steady when the network is gone. States guarantees and their limits in the same breath. No hype, no fear, no compliance theatre.
+
+The readers are developers, so engine terms such as converge, op and fold are allowed here (the family's guardrail against engine jargon does not apply), as long as each is explained once where it first appears.
+
+| Sounds like                                                                    | Does not sound like                                           |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------- |
+| "Network gone? Your writes are stored locally and sync when the relay is back." | "Never lose data again!" (hype)                              |
+| "Erasure destroys the key. It does not reach devices that never come back online." | "Is your data safe? Most databases put it at risk." (fear) |
+
+### Colors (dark theme only)
+
+NoCentralDB has no light theme. Use the roles, never raw values in components. Tokens: `tokens/nocentraldb.css` (`--ncdb-*`) and the `nocentraldb` key in `tokens/colors.json`; never mix them with the family's `--nxs-*` tokens.
+
+| Role         | Value     | Use                                                                      |
+| ------------ | --------- | ------------------------------------------------------------------------ |
+| `bg`         | `#111110` | The ground; 70 to 90 % of every screen                                   |
+| `surface`    | `#1B1B19` | One step up: panels, cards, code blocks, form fields                     |
+| `surface-2`  | `#26261F` | Secondary buttons, the dark ground of the mark                           |
+| `ink`        | `#ECEBE4` | Text and headings (15.8:1 on `bg`)                                       |
+| `muted`      | `#A3A299` | Secondary text, captions, code comments (7.4:1 on `bg`)                  |
+| `accent`     | `#F2DC4B` | Safety yellow: the primary action, live state, link underlines, focus (13.6:1 on `bg`) |
+| `accent-ink` | `#111110` | Text on the accent (13.6:1 on `accent`)                                  |
+
+- The accent takes under 5 % of any screen. It marks the action and at most one recurring thing (the "connected" state). Never for headings, icons, bullets or borders.
+- **Warning states are never yellow.** With a yellow accent, a yellow warning reads as a button. Status colours for app surfaces are still to be defined; until then use `ink` and wording, not colour.
+- No gradient fills, no gradient text, no glows at rest.
+- Code blocks use `ink` and `muted` only; no yellow in syntax highlighting.
+- Hover glow: `0 12px 40px rgba(242, 220, 75, 0.28)` with a `0 0 0 1px rgba(242, 220, 75, 0.12)` ring and a 2px lift; never at rest.
+
+### Typography
+
+| Role          | Face                       | Weights                         | Note                                                                 |
+| ------------- | -------------------------- | ------------------------------- | -------------------------------------------------------------------- |
+| Product name  | Love Ya Like A Sister      | 400                             | **Provisional** (see below). Only for the name and the mark, never for running text or headings |
+| Headings      | Encode Sans Semi Expanded  | 700                             | Tracking -0.015em; leading 1.05                                      |
+| Text          | Commissioner               | 350 body, 500 emphasis, 700 strong | Variable face; light weight because light text on dark looks heavier |
+| Code          | Syne Mono                  | 400                             | Code, CLI, terms of the vocabulary, the eyebrow; never bold           |
+
+**The provisional name face.** Love Ya Like A Sister shows that NoCentralDB is a draft. It is replaced by a final face, and the mark redrawn with it, at the first release. Until then, do not invest in further logo work set in it.
+
+**Type scale (fluid):** small 13 to 14 px · body 17 to 19 px · lead 20 to 26 px · heading 32 to 56 px · name display 48 to 120 px. Five steps, nothing in between: section headings (H2) take the heading step, sub-headings (H3) take the lead step in the heading face at 700.
+
+### Logo (provisional)
+
+- **Mark:** "nc" turned 90° anticlockwise on the left, "db" turned 90° clockwise on the right, facing each other as if across a mirror, set in the provisional name face. Letter size 54 % of the tile height; "db" letter-spaced by 0.12em and shifted 0.06em left and 0.08em down so the pair sits optically centred; tile corner radius 18 %.
+- **Accent version** (`#111110` letters on `#F2DC4B`): app icon, avatar, social profile.
+- **Dark version** (`#ECEBE4` letters on `#26261F`): favicon, header.
+- **Wordmark:** the name "NoCentralDB" in the provisional name face, `ink` on `bg`. `scripts/build-wordmarks` does not cover it.
+- **Open:** the mark does not read at 16 px. A simplified favicon is still to be drawn. Logo files are not in `logos/` yet.
+
+### Design Language: "The marked floor"
+
+- Dark, near-black ground; one safety-yellow accent, used like the floor marking of a shared work cell: rare, deliberate, meaning "here".
+- Cards and panels are neutral at rest and separated by tone, not lines; emphasis only on hover, as a soft accent glow with a slight lift. No coloured edges or accent bars, at rest or on hover.
+- Headings are broad and steady; code and terms are set in mono; the name is the only hand-made element.
+- Communicates: solid, protective, built to hold.
+
 ## How to Apply
 
 When working on an nxsflow product:
 
-1. **Identify which product** you're working on from the brand hierarchy
+1. **Identify which product** you're working on from the brand hierarchy. If it is an endorsed brand (NoCentralDB), use only its own section: none of the family rules below apply to it
 2. **Use that product's colors** — never mix colors between products
 3. **Use that product's type scale** — set `data-brand` attribute if using CSS tokens
 4. **Follow that product's design language** — nexflow.it is hand-drawn and playful, manufakt.io is minimal and precise
