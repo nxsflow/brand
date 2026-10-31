@@ -14,7 +14,8 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | `logos/nexflow-parent/`   | nxsflow wordmark logotype (SVG, PNG, favicon)    |
 | `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      |
 | `logos/slidesend/`        | slidesend's complete logo kit: symbol, wordmark, one-colour, app icon, favicons, link preview, the mark in context, and its guide (`README.md`) |
-| `scripts/`                | Wordmark generators (`build-wordmarks`, `build-slidesend`) + logo render script |
+| `logos/nocentraldb/`      | NoCentralDB provisional mark + wordmark (SVG, PNG, favicon) |
+| `scripts/`                | Wordmark generators (`build-wordmarks`, `build-slidesend`, `build-ncdb-logos`) + logo render script |
 | `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 
 ## Brand Guideline
@@ -66,6 +67,15 @@ versions, app icon, favicon and link preview all come from one script.
 ```bash
 scripts/build-slidesend              # rewrite every slidesend logo SVG
 scripts/build-slidesend --check      # fail if a committed one is out of date
+```
+
+The provisional NoCentralDB mark and wordmark (`logos/nocentraldb/svg/`) are
+generated from the vendored Love Ya Like A Sister in `scripts/fonts/` (SIL OFL,
+see `scripts/fonts/OFL-LoveYaLikeASister.txt`):
+
+```bash
+scripts/build-ncdb-logos             # rewrite the NoCentralDB SVGs
+scripts/build-ncdb-logos --check     # fail if a committed SVG is out of date
 ```
 
 The SVGs in `logos/<family>/svg/` are the source of truth. After editing an SVG
