@@ -22,10 +22,12 @@
   --nxs-manufakt-bg: #FFFFFF;
 
   /* slidesend — full light/dark theme in tokens/slidesend.css */
-  --nxs-slidesend-accent: #7C3AED;
-  --nxs-slidesend-accent-dark: #6D28D9;
-  --nxs-slidesend-tint: #F5F3FF;
-  --nxs-slidesend-accent-on-dark: #A78BFA;
+  --nxs-slidesend-accent: #CC3510;
+  --nxs-slidesend-accent-dark: #B02E0D;
+  --nxs-slidesend-tint: #FFF5F1;
+  --nxs-slidesend-accent-on-dark: #F04E23;
+  --nxs-slidesend-spotlight: #F04E23;
+  --nxs-slidesend-ink: #17151F;
   --nxs-slidesend-bg: #FFFFFF;
 
   /* nxsflow BP */

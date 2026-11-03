@@ -19,10 +19,12 @@
     "background": "#FFFFFF"
   },
   "slidesend": {
-    "accent": "#7C3AED",
-    "accentDark": "#6D28D9",
-    "tint": "#F5F3FF",
-    "accentOnDark": "#A78BFA",
+    "accent": "#CC3510",
+    "accentDark": "#B02E0D",
+    "tint": "#FFF5F1",
+    "accentOnDark": "#F04E23",
+    "spotlight": "#F04E23",
+    "ink": "#17151F",
     "background": "#FFFFFF"
   },
   "bp": {

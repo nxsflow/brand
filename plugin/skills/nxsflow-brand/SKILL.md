@@ -30,11 +30,11 @@ When the nxsflow logotype is displayed, the letter "F" may be set in the brand l
 | nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                         |
 | manufakt.io      | Flagship    | manufakt.io          | Ember Red #DC2626                    |
 | nxsflow BP       | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
-| slidesend        | Product     | nxsflow.com/slidesend | Spotlight Violet #7C3AED            |
+| slidesend        | Product     | nxsflow.com/slidesend | Spotlight #F04E23                   |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
-slidesend is a brand of its own, not a module of nexflow.it. It serves speakers and their audience, who are different people from the knowledge workers nexflow.it serves. Its name is always lowercase, also at the start of a sentence and in headings. It has no f-highlight, and only its first letter carries the accent. The name is open to two readings on purpose, slide·send and slides·end, so the mark, the copy and the code never split it. Never accent, capitalise or hyphenate a second part.
+slidesend is a brand of its own, not a module of nexflow.it. It serves speakers and their audience, who are different people from the knowledge workers nexflow.it serves. Its name is always lowercase, also at the start of a sentence and in headings. It has no f-highlight; in its wordmark only the dot of the i carries the accent, so neither s is ever set apart. The name is open to two readings on purpose, slide·send and slides·end, so the mark, the copy and the code never split it. Never accent, capitalise or hyphenate a part of it. Why slidesend exists is told at length in `copy/slidesend-story.md`; its complete logo kit, with the mark in context, is in `logos/slidesend/`.
 
 ## Messaging
 
@@ -166,12 +166,12 @@ The load-bearing words — belief, positioning, verb lists, taglines — get a h
 
 ### slidesend
 
-- Accent: `#7C3AED` (spotlight violet)
-- Accent dark: `#6D28D9` — hover; pressed `#5B21B6`
-- Light tint: `#F5F3FF` (violet wash)
-- Accent on dark backgrounds: `#A78BFA` — lighter on hover (`#C4B5FD`) and pressed (`#DDD6FE`), with graphite text on it
-- Background: `#FFFFFF` (light), full dark mode (`#141317`, surface `#1F1D24`)
-- Text: `#1C1C1C` (graphite); white on the accent (5.7:1)
+- Logo colours: ink `#17151F`, spotlight `#F04E23`, paper `#F7F5F2`. Spotlight is for graphics only (3.6:1 on white), never for text
+- Accent (text and controls): `#CC3510` — hover `#B02E0D`, pressed `#93260B`; white on it (5.1:1)
+- Light tint: `#FFF5F1` (spotlight wash)
+- Accent on dark backgrounds: `#F04E23` — lighter on hover (`#FF6B4A`) and pressed (`#FF8D73`), with ink text on it
+- Background: `#FFFFFF` (light), surface `#F7F5F2`; full dark mode (`#17151F`, surface `#211E2B`)
+- Text: `#17151F` (ink)
 - The whole light and dark theme, with its contrast ratios, is in `tokens/slidesend.css` and `tokens/slidesend.json`.
 
 ### nxsflow BP
@@ -238,7 +238,7 @@ Use `[data-brand="nexflow"]` or `[data-brand="bp"]` on a parent element to activ
 
 ## Logo System
 
-Each flagship has two marks: a **monogram** and a **wordmark**; slidesend has an **icon** in the monogram's place. A surface shows one or the other — **never both**. There is no combined lockup, and a monogram is never paired with the product name set as text.
+Each flagship has two marks: a **monogram** and a **wordmark**; slidesend has a **symbol** in the monogram's place. A surface shows one or the other — **never both**. There is no combined lockup, and a monogram is never paired with the product name set as text.
 
 ### Which mark where
 
@@ -252,18 +252,19 @@ Each flagship has two marks: a **monogram** and a **wordmark**; slidesend has an
 
 ### Wordmarks
 
-All wordmarks follow one blueprint, the one the nxsflow wordmark set: the lowercase name in Merriweather Black (default text optical size, never the display cut), each letter outlined in the ink colour — graphite `#1C1C1C` on light, off-white `#FAF9F7` on dark. Nothing is merged; only the **f** carries the accent (see "The F-highlight") — on slidesend, which has no f, its first letter does. A product wordmark takes its colours from its monogram, which are binding: same ink, same accent, on light and on dark. The domain is the name, so the dot and the top-level domain are set like every other letter: same weight, same ink, no emphasis.
+All wordmarks follow one blueprint, the one the nxsflow wordmark set: the lowercase name in Merriweather Black (default text optical size, never the display cut), each letter outlined in the ink colour — graphite `#1C1C1C` on light, off-white `#FAF9F7` on dark. Nothing is merged; only the **f** carries the accent (see "The F-highlight"). A product wordmark takes its colours from its monogram, which are binding: same ink, same accent, on light and on dark. The domain is the name, so the dot and the top-level domain are set like every other letter: same weight, same ink, no emphasis.
 
 - **nxsflow:** **nxsflow**, the f in brand lime (`#84CC16` on light, `#B9FF66` on dark). The favicon pairs the **n** and **f**, unmerged.
 - **nexflow.it:** **nexflow.it**, the f in lime `#B9FF66` on light and dark, outlined in the ink colour — exactly as in the "nf" monogram.
 - **manufakt.io:** **manufakt.io**, the f in ember red `#DC2626` on light and dark, outlined in the ink colour — exactly as in the "mf" monogram.
-- **slidesend:** **slidesend**, the first s alone in spotlight violet — `#7C3AED` on light, `#A78BFA` on dark, the same colours as the icon's phone — outlined in the ink colour.
 
 The wordmark SVGs are generated by `scripts/build-wordmarks` — never redraw one by hand or retype the name in a font.
 
+**slidesend is the one exception to the blueprint.** It is a brand of its own with its own constructed wordmark: a monoline lowercase (stroke 18, round caps, bowls of radius 36), in ink `#17151F` on light and paper `#F7F5F2` on dark. Its only coloured element is the dot of the i, a small slide in spotlight `#F04E23`. Both s look the same. It is generated, with every other slidesend logo file, by `scripts/build-slidesend`.
+
 ### Other Brands
 
-- **slidesend:** icon of a stage frame with a phone standing in front of it — the frame in the ink colour and open where the phone overlaps it, the phone filled in the accent (`#7C3AED` on light, `#A78BFA` on dark) and outlined in the ink colour. A simplified cut with heavier strokes serves the favicons, and `slidesend-favicon.svg` follows the browser's colour scheme. The link preview shows the wordmark, never the icon.
+- **slidesend:** "the wave" — a 16:9 slide split by a stepped wave into two halves: the desk (upper, ink `#17151F`; paper `#F7F5F2` on dark), where a person steers, and the stage (lower, spotlight `#F04E23`), which the room sees. The wave is the connection over the network, its step the send. A small cut with an opened gap serves 16–32 px, the favicons and the app icon (on an ink tile); `slidesend-favicon.svg` follows the browser's colour scheme. Never put the full-colour mark on ink or on spotlight; use the `-light` artwork or one colour. The link preview shows the wordmark, never the symbol. Files, clear space, sizes and the mark in context: `logos/slidesend/README.md`.
 - **nxsflow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
 
 ### Logo Rules
@@ -297,8 +298,8 @@ The wordmark SVGs are generated by `scripts/build-wordmarks` — never redraw on
 ### slidesend — "The stage"
 
 - Light for marketing; dark where the speaker works (the desk is dark for a dark room)
-- Violet is the spotlight: one lit thing per view — the primary action, the current step — never a fill for whole sections
-- A pool of violet wash (`#F5F3FF`) may sit behind the one element that should draw the eye
+- Spotlight is the one lit thing per view — the primary action, the current step — never a fill for whole sections
+- A pool of spotlight wash (`#FFF5F1`) may sit behind the one element that should draw the eye
 - Commands and code in JetBrains Mono, ready to copy
 - Calm surfaces, generous whitespace, rounded corners (6 / 10 / 16px)
 - Communicates: a room paying attention — prepared, calm, and live

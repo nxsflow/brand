@@ -7,14 +7,14 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | Path                      | Description                                      |
 | ------------------------- | ------------------------------------------------ |
 | `BRAND.md`                | The brand guideline — single source of truth     |
-| `copy/`                   | Landing copy decks (EN + DE) per product         |
+| `copy/`                   | Landing copy decks (EN + DE) per product, and the long-form brand stories (`*-story.md`: why a brand exists) |
 | `tokens/`                 | Design tokens (CSS custom properties + JSON)     |
 | `logos/nexflow-it/`       | nexflow.it "nf" monogram + wordmark (SVG, PNG, favicon) |
 | `logos/manufakt-io/`      | manufakt.io "mf" monogram + wordmark (SVG, PNG, favicon) |
 | `logos/nexflow-parent/`   | nxsflow wordmark logotype (SVG, PNG, favicon)    |
 | `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      |
-| `logos/slidesend/`        | slidesend wordmark + icon (SVG, PNG, favicon, link preview) |
-| `scripts/`                | Wordmark generator + logo render script          |
+| `logos/slidesend/`        | slidesend's complete logo kit: symbol, wordmark, one-colour, app icon, favicons, link preview, the mark in context, and its guide (`README.md`) |
+| `scripts/`                | Wordmark generators (`build-wordmarks`, `build-slidesend`) + logo render script |
 | `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 
 ## Brand Guideline
@@ -29,7 +29,7 @@ See [BRAND.md](BRAND.md) for the full guideline covering **core messaging & posi
 | **nexflow.it**         | nexflow.it           | Lime `#B9FF66`                           |
 | **manufakt.io**        | manufakt.io          | Ember Red `#DC2626`                      |
 | **nxsflow BP**         | bp.nxsflow.com       | Amber `#F59E0B`                          |
-| **slidesend**          | nxsflow.com/slidesend | Spotlight Violet `#7C3AED`              |
+| **slidesend**          | nxsflow.com/slidesend | Spotlight `#F04E23`                      |
 ## Using the Design Tokens
 
 **CSS** — import directly:
@@ -56,6 +56,15 @@ Black in `scripts/fonts/` (SIL OFL, see `scripts/fonts/OFL.txt`):
 ```bash
 scripts/build-wordmarks              # rewrite every wordmark SVG
 scripts/build-wordmarks --check      # fail if a committed wordmark is out of date
+```
+
+slidesend is the exception: its symbol, constructed wordmark, one-colour
+versions, app icon, favicon and link preview all come from one script.
+`logos/slidesend/README.md` is its logo guide.
+
+```bash
+scripts/build-slidesend              # rewrite every slidesend logo SVG
+scripts/build-slidesend --check      # fail if a committed one is out of date
 ```
 
 The SVGs in `logos/<family>/svg/` are the source of truth. After editing an SVG
