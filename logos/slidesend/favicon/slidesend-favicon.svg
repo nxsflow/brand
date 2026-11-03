@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="slidesend">
+  <style>.desk{fill:#17151F}.stage{fill:#F04E23}@media (prefers-color-scheme:dark){.desk{fill:#F7F5F2}}</style>
+  <path class="desk" d="M6 141V78A26 26 0 0 1 32 52H224A26 26 0 0 1 250 78V81H158A47 47 0 0 0 111 128A13 13 0 0 1 98 141Z"/>
+  <path class="stage" d="M6 175H98A47 47 0 0 0 145 128A13 13 0 0 1 158 115H250V178A26 26 0 0 1 224 204H32A26 26 0 0 1 6 178Z"/>
+</svg>

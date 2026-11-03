@@ -18,6 +18,15 @@
     "gradient": "linear-gradient(135deg, #DC2626, #EA580C)",
     "background": "#FFFFFF"
   },
+  "slidesend": {
+    "accent": "#CC3510",
+    "accentDark": "#B02E0D",
+    "tint": "#FFF5F1",
+    "accentOnDark": "#F04E23",
+    "spotlight": "#F04E23",
+    "ink": "#17151F",
+    "background": "#FFFFFF"
+  },
   "bp": {
     "accent": "#F59E0B",
     "background": "#FFFFFF"

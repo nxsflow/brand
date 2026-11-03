@@ -1,0 +1,157 @@
+{
+  "$comment": "slidesend design tokens — generated from BRAND.md (slidesend). Same values as tokens/slidesend.css. Contrast ratios are WCAG 2.x, measured against the background named in 'on'.",
+  "brand": "slidesend",
+  "name": "slidesend",
+  "colors": {
+    "light": {
+      "background": "#FFFFFF",
+      "surface": "#F7F5F2",
+      "tint": "#FFF5F1",
+      "text": "#17151F",
+      "textMuted": "#6B6B6B",
+      "border": "#E7E3DE",
+      "accent": "#CC3510",
+      "accentHover": "#B02E0D",
+      "accentPressed": "#93260B",
+      "onAccent": "#FFFFFF",
+      "focusRing": "#CC3510"
+    },
+    "dark": {
+      "background": "#17151F",
+      "surface": "#211E2B",
+      "tint": "#3A1F1A",
+      "text": "#F7F5F2",
+      "textMuted": "#A1A1AA",
+      "border": "#36323F",
+      "accent": "#F04E23",
+      "accentHover": "#FF6B4A",
+      "accentPressed": "#FF8D73",
+      "onAccent": "#17151F",
+      "focusRing": "#FF8D73"
+    }
+  },
+  "contrast": {
+    "light": [
+      { "fg": "text", "on": "background", "ratio": 18.05 },
+      { "fg": "text", "on": "surface", "ratio": 16.59 },
+      { "fg": "textMuted", "on": "background", "ratio": 5.33 },
+      { "fg": "textMuted", "on": "tint", "ratio": 4.97 },
+      { "fg": "onAccent", "on": "accent", "ratio": 5.14 },
+      { "fg": "onAccent", "on": "accentHover", "ratio": 6.48 },
+      { "fg": "onAccent", "on": "accentPressed", "ratio": 8.32 },
+      { "fg": "accent", "on": "background", "ratio": 5.14 },
+      { "fg": "accent", "on": "tint", "ratio": 4.79 }
+    ],
+    "dark": [
+      { "fg": "text", "on": "background", "ratio": 16.59 },
+      { "fg": "text", "on": "surface", "ratio": 15.01 },
+      { "fg": "textMuted", "on": "background", "ratio": 7.04 },
+      { "fg": "textMuted", "on": "surface", "ratio": 6.38 },
+      { "fg": "onAccent", "on": "accent", "ratio": 5.0 },
+      { "fg": "onAccent", "on": "accentHover", "ratio": 6.41 },
+      { "fg": "onAccent", "on": "accentPressed", "ratio": 8.0 },
+      { "fg": "accent", "on": "background", "ratio": 5.0 },
+      { "fg": "accent", "on": "surface", "ratio": 4.53 },
+      { "fg": "focusRing", "on": "background", "ratio": 8.0 }
+    ]
+  },
+  "focusRing": {
+    "width": "2px",
+    "offset": "2px",
+    "style": "solid"
+  },
+  "fonts": {
+    "heading": {
+      "family": "Merriweather",
+      "fallback": "Georgia, serif",
+      "weights": [
+        700,
+        900
+      ],
+      "package": "@fontsource/merriweather"
+    },
+    "body": {
+      "family": "Merriweather Sans",
+      "fallback": "system-ui, sans-serif",
+      "weights": [
+        300,
+        400,
+        700
+      ],
+      "roles": {
+        "body": 300,
+        "emphasis": 400,
+        "strong": 700
+      },
+      "package": "@fontsource/merriweather-sans"
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "fallback": "ui-monospace, monospace",
+      "weights": [
+        400,
+        700
+      ],
+      "package": "@fontsource/jetbrains-mono"
+    },
+    "loading": "Self-hosted from the npm packages named above, latin subset, font-display: swap. No request to a third-party font server."
+  },
+  "typeScale": {
+    "ratio": 1.25,
+    "xs": "12px",
+    "sm": "14px",
+    "base": "16px",
+    "lg": "20px",
+    "xl": "25px",
+    "2xl": "31px",
+    "3xl": "39px",
+    "4xl": "49px",
+    "5xl": "61px"
+  },
+  "radius": {
+    "sm": "6px",
+    "md": "10px",
+    "lg": "16px",
+    "full": "9999px"
+  },
+  "space": {
+    "base": "4px",
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "6": "24px",
+    "8": "32px",
+    "12": "48px",
+    "16": "64px",
+    "24": "96px"
+  },
+  "logos": {
+    "symbol": {
+      "onLight": "logos/slidesend/svg/slidesend-symbol-dark.svg",
+      "onDark": "logos/slidesend/svg/slidesend-symbol-light.svg",
+      "smallOnLight": "logos/slidesend/svg/slidesend-symbol-sm-dark.svg",
+      "smallOnDark": "logos/slidesend/svg/slidesend-symbol-sm-light.svg"
+    },
+    "wordmark": {
+      "onLight": "logos/slidesend/svg/slidesend-wordmark-dark.svg",
+      "onDark": "logos/slidesend/svg/slidesend-wordmark-light.svg"
+    },
+    "mono": "logos/slidesend/mono/",
+    "appIcon": "logos/slidesend/app-icon/slidesend-app-icon.svg",
+    "favicon": {
+      "svg": "logos/slidesend/favicon/slidesend-favicon.svg",
+      "png32": "logos/slidesend/favicon/slidesend-favicon-dark-32.png",
+      "ico": "logos/slidesend/favicon/slidesend-favicon-dark.ico",
+      "appleTouch180": "logos/slidesend/favicon/slidesend-apple-touch-180.png"
+    },
+    "social": "logos/slidesend/social/slidesend-social.png",
+    "guide": "logos/slidesend/README.md"
+  },
+  "logoColors": {
+    "ink": "#17151F",
+    "paper": "#F7F5F2",
+    "spotlight": "#F04E23",
+    "$comment": "The logo's own colours: the desk half in ink (paper on dark), the stage half and the i-dot in spotlight. Spotlight is for graphics (3.6:1 on white); text and controls use colors.*.accent."
+  }
+}

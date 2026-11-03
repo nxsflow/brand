@@ -1,6 +1,6 @@
 ---
 name: nxsflow-brand
-description: nxsflow brand guideline — core messaging, positioning, colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use for core messaging, positioning, value propositions, taglines, and landing-page copy — the belief that people set the direction while a team of agents carries the execution. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
+description: nxsflow brand guideline — core messaging, positioning, colors, typography, tone of voice, logo rules, and per-product design language for all nxsflow products (nexflow.it, manufakt.io, nxsflow BP, slidesend). Use this skill whenever building UI, writing copy, choosing colors or fonts, designing layouts, or making any design/style/tone decision for any nxsflow product. Also use for core messaging, positioning, value propositions, taglines, and landing-page copy — the belief that people set the direction while a team of agents carries the execution. Also use when creating marketing materials, landing pages, email templates, or documentation styling. Even if the user doesn't mention "brand", if they're working on an nxsflow product and making visual or tone choices, this skill applies.
 ---
 
 # nxsflow Brand Guideline
@@ -30,8 +30,11 @@ When the nxsflow logotype is displayed, the letter "F" may be set in the brand l
 | nexflow.it       | Flagship    | nexflow.it           | Lime #B9FF66                         |
 | manufakt.io      | Flagship    | manufakt.io          | Ember Red #DC2626                    |
 | nxsflow BP       | Product     | bp.nxsflow.com       | Amber #F59E0B                        |
+| slidesend        | Product     | nxsflow.com/slidesend | Spotlight #F04E23                   |
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
+
+slidesend is a brand of its own, not a module of nexflow.it. It serves speakers and their audience, who are different people from the knowledge workers nexflow.it serves. Its name is always lowercase, also at the start of a sentence and in headings. It has no f-highlight; in its wordmark only the dot of the i carries the accent, so neither s is ever set apart. The name is open to two readings on purpose, slide·send and slides·end, so the mark, the copy and the code never split it. Never accent, capitalise or hyphenate a part of it. Why slidesend exists is told at length in `copy/slidesend-story.md`; its complete logo kit, with the mark in context, is in `logos/slidesend/`.
 
 ## Messaging
 
@@ -113,6 +116,17 @@ Same belief, same mechanic — different world of work.
 - _Tagline (leads):_ "From 'someday' to done." _Subhead:_ "You think it through. Your agents see it through." _Reserve:_ "Decide the what. Your agents handle the how."
 - _Tone:_ warm, personal, conversational, first person ("I've prepared your briefing").
 
+#### slidesend — giving talks
+
+- _For:_ speakers and the audience in the room with them. The speakers give talks at conferences, in classrooms, in workshops and in team meetings.
+- _Positioning:_ "You decide what the talk says. Your AI agent builds it with you. Your audience takes part on their phones. slidesend is open source under Apache-2.0, and each talk is a TypeScript project on your own machine."
+- _Leads with its own promise:_ the room takes part. The pillars explain how a talk gets made, in the order 1, 3, 2:
+  - Pillar 1. The agent asks the speaker for the decisions only they can make, and it never invents facts.
+  - Pillar 3. The agent writes those decisions into the talk, and `slidesend check` reports each mistake with its slide and field.
+  - Pillar 2. The agent writes the slides, one idea per slide, with the spoken words as speaker notes.
+- _Tagline (leads):_ "A talk the room takes part in." _Alternative:_ "Write it with your agent. Present it to every phone in the room."
+- _Tone:_ clear, practical and calm, like someone who has stood on a stage. Prefer a command, a number or a price to a clever line.
+
 ### Voice Guardrails
 
 - Purposeful and big-vision — never lofty (abgehoben). Big words must feel _earned_.
@@ -150,6 +164,16 @@ The load-bearing words — belief, positioning, verb lists, taglines — get a h
 - Background: `#FFFFFF` (light), full dark mode supported
 - Text: `#1C1C1C` (graphite)
 
+### slidesend
+
+- Logo colours: ink `#17151F`, spotlight `#F04E23`, paper `#F7F5F2`. Spotlight is for graphics only (3.6:1 on white), never for text
+- Accent (text and controls): `#CC3510` — hover `#B02E0D`, pressed `#93260B`; white on it (5.1:1)
+- Light tint: `#FFF5F1` (spotlight wash)
+- Accent on dark backgrounds: `#F04E23` — lighter on hover (`#FF6B4A`) and pressed (`#FF8D73`), with ink text on it
+- Background: `#FFFFFF` (light), surface `#F7F5F2`; full dark mode (`#17151F`, surface `#211E2B`)
+- Text: `#17151F` (ink)
+- The whole light and dark theme, with its contrast ratios, is in `tokens/slidesend.css` and `tokens/slidesend.json`.
+
 ### nxsflow BP
 
 - Accent: `#F59E0B` (amber)
@@ -170,7 +194,10 @@ When building UI, use the design token variable names:
 --nxs-manufakt-accent, --nxs-manufakt-accent-dark, --nxs-manufakt-tint, --nxs-manufakt-gradient, --nxs-manufakt-bg
 --nxs-bp-accent
 --nxs-parent-accent
+--nxs-slidesend-accent, --nxs-slidesend-accent-dark, --nxs-slidesend-tint, --nxs-slidesend-accent-on-dark
 ```
+
+slidesend has a full light/dark theme of its own: `--slidesend-*` in `tokens/slidesend.css` (bg, surface, tint, text, text-muted, border, accent, accent-hover, accent-pressed, on-accent, focus-ring, fonts, type scale, radii, spacing), mirrored in `tokens/slidesend.json`.
 
 These tokens live in the `nxsflow/logos` repo under `tokens/colors.css` and `tokens/colors.json`. Copy them into your project or reference them via a shared path.
 
@@ -181,7 +208,7 @@ These tokens live in the `nxsflow/logos` repo under `tokens/colors.css` and `tok
 - **Headings (all brands):** Merriweather — weights 700, 900
 - **Body (default):** Merriweather Sans — 300 (default), 400 (emphasis), 700 (strong emphasis / H3–H4 subheadings)
 - **Body (nexflow.it):** Nunito — weights 400, 600, 700
-- **Monospace (manufakt.io):** JetBrains Mono
+- **Monospace (manufakt.io, slidesend):** JetBrains Mono — on slidesend for commands and code
 
 **Merriweather Sans weight usage:** 300 is the default for body copy — Merriweather Sans runs heavy, so the light weight keeps running text calm. Use 400 for emphasis (lead paragraphs, callouts) and 700 for strong emphasis or H3/H4-level subheadings.
 
@@ -196,6 +223,9 @@ xs: 13px, sm: 15px, base: 18px, lg: 24px, xl: 32px, 2xl: 42px, 3xl: 56px
 **nxsflow BP — 1.2 ratio:**
 xs: 11px, sm: 13px, base: 15px, lg: 18px, xl: 22px, 2xl: 26px, 3xl: 31px
 
+**slidesend — the default 1.25 scale, extended for the hero:**
+xs: 12px, sm: 14px, base: 16px, lg: 20px, xl: 25px, 2xl: 31px, 3xl: 39px, 4xl: 49px, 5xl: 61px
+
 ### CSS Custom Properties
 
 ```
@@ -208,7 +238,7 @@ Use `[data-brand="nexflow"]` or `[data-brand="bp"]` on a parent element to activ
 
 ## Logo System
 
-Each flagship has two marks: a **monogram** and a **wordmark**. A surface shows one or the other — **never both**. There is no combined lockup, and a monogram is never paired with the product name set as text.
+Each flagship has two marks: a **monogram** and a **wordmark**; slidesend has a **symbol** in the monogram's place. A surface shows one or the other — **never both**. There is no combined lockup, and a monogram is never paired with the product name set as text.
 
 ### Which mark where
 
@@ -230,8 +260,11 @@ All wordmarks follow one blueprint, the one the nxsflow wordmark set: the lowerc
 
 The wordmark SVGs are generated by `scripts/build-wordmarks` — never redraw one by hand or retype the name in a font.
 
+**slidesend is the one exception to the blueprint.** It is a brand of its own with its own constructed wordmark: a monoline lowercase (stroke 18, round caps, bowls of radius 36), in ink `#17151F` on light and paper `#F7F5F2` on dark. Its only coloured element is the dot of the i, a small slide in spotlight `#F04E23`. Both s look the same. It is generated, with every other slidesend logo file, by `scripts/build-slidesend`.
+
 ### Other Brands
 
+- **slidesend:** "the wave" — a 16:9 slide split by a stepped wave into two halves: the desk (upper, ink `#17151F`; paper `#F7F5F2` on dark), where a person steers, and the stage (lower, spotlight `#F04E23`), which the room sees. The wave is the connection over the network, its step the send. A small cut with an opened gap serves 16–32 px, the favicons and the app icon (on an ink tile); `slidesend-favicon.svg` follows the browser's colour scheme. Never put the full-colour mark on ink or on spotlight; use the `-light` artwork or one colour. The link preview shows the wordmark, never the symbol. Files, clear space, sizes and the mark in context: `logos/slidesend/README.md`.
 - **nxsflow BP:** Hand-drawn compass icon — wobbly ring with draft stroke underneath, north needle solid amber (#F59E0B), south needle faded outline. Single design for all sizes.
 
 ### Logo Rules
@@ -262,6 +295,15 @@ The wordmark SVGs are generated by `scripts/build-wordmarks` — never redraw on
 - Status-driven views — colour signals what's open, in progress, done
 - Communicates: craftsmanship with momentum — precise tools, forged and shipped
 
+### slidesend — "The stage"
+
+- Light for marketing; dark where the speaker works (the desk is dark for a dark room)
+- Spotlight is the one lit thing per view — the primary action, the current step — never a fill for whole sections
+- A pool of spotlight wash (`#FFF5F1`) may sit behind the one element that should draw the eye
+- Commands and code in JetBrains Mono, ready to copy
+- Calm surfaces, generous whitespace, rounded corners (6 / 10 / 16px)
+- Communicates: a room paying attention — prepared, calm, and live
+
 ### nxsflow BP — "Builder's momentum"
 
 - Amber for progress indicators, CTAs, highlights
@@ -288,6 +330,10 @@ Warm, personal, conversational. First person ("I've prepared your briefing"). Pl
 ### manufakt.io
 
 Direct, technical, momentum-driven. Respects user expertise — never patronizing, never "vibe coding." Status-oriented and celebrates progress ("Build complete. Three tasks left — let's ship them."). Concise and active, no fluff. Craftsmanship with forward motion.
+
+### slidesend
+
+Clear, practical, calm. Speaks to speakers as peers and to developers as developers: a command, a number, a price rather than a promise. Never hype, never "wow your audience." Short sentences that could be read aloud from a stage.
 
 ### nxsflow BP
 

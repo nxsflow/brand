@@ -1,0 +1,272 @@
+#!/usr/bin/env python3
+"""Build the slidesend logo masters: "the wave".
+
+The mark is a 16:9 slide split by a stepped wave into two halves: the upper
+half is the desk, where a person steers the talk, the lower half is the stage
+the room sees. The wave is the connection over the network, its step the send.
+Everything is built from one rounded rectangle, one gap and two quarter arcs;
+the mark is point-symmetric (turned 180° it is the same mark).
+
+The wordmark is constructed, not typeset: a monoline lowercase (stroke 18,
+round caps, bowls of radius 36). Its only coloured element is the dot of the i,
+a small slide in the spotlight colour. Both s look the same; the name is never
+split.
+
+Outputs (the SVGs are the source of truth; run scripts/render-logos slidesend
+afterwards for the PNGs, favicons and the apple-touch icon):
+
+  logos/slidesend/svg/slidesend-symbol-{dark,light}.svg        the mark, from 48 px up
+  logos/slidesend/svg/slidesend-symbol-sm-{dark,light}.svg     small cut, 16–32 px
+  logos/slidesend/svg/slidesend-wordmark-{dark,light}.svg      the wordmark
+  logos/slidesend/mono/slidesend-*-{black,white}.svg           one-colour versions
+  logos/slidesend/app-icon/slidesend-app-icon.svg              small cut on an ink tile
+  logos/slidesend/favicon/slidesend-favicon.svg                adaptive favicon
+  logos/slidesend/social/slidesend-social.svg                  1200×630 link preview
+
+  "dark" is dark artwork for light backgrounds, "light" is light artwork for
+  dark backgrounds (the repo convention). A surface shows the symbol OR the
+  wordmark, never both: there is deliberately no combined lockup.
+
+Usage:
+  scripts/build-slidesend          # write all SVGs
+  scripts/build-slidesend --check  # exit 1 if any committed SVG differs
+"""
+
+import importlib.machinery
+import importlib.util
+import os
+import subprocess
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FAMILY = os.path.join(REPO, "logos", "slidesend")
+VENV = os.path.join(REPO, "scripts", ".venv")
+VENV_PY = os.path.join(VENV, "bin", "python")
+
+INK = "#17151F"         # the desk half, the wordmark, dark backgrounds
+PAPER = "#F7F5F2"       # the desk half on dark, light backgrounds
+SPOTLIGHT = "#F04E23"   # the stage half, the i-dot
+BLACK, WHITE = "#000000", "#FFFFFF"
+
+# the symbol on its 256 canvas: 216 × 122 (16:9), corner 20, gap 18, wave radius 18
+SYMBOL = dict(x0=20, y0=67, x1=236, y1=189, r=20, g=18, rc=18)
+# the small cut (≤ 32 px): wider, with the gap and the radii opened up
+SMALL = dict(x0=6, y0=52, x1=250, y1=204, r=26, g=34, rc=30)
+
+SOCIAL_LINE = "A talk the room takes part in."
+
+
+def _bootstrap_then_reexec():
+    # scripts/.venv is shared with render-logos and build-wordmarks
+    if not os.path.exists(VENV_PY):
+        print("· setting up scripts/.venv…", flush=True)
+        subprocess.check_call([sys.executable, "-m", "venv", VENV])
+    subprocess.check_call(
+        [VENV_PY, "-m", "pip", "install", "-q", "--disable-pip-version-check", "fonttools"]
+    )
+    os.environ["BUILD_SLIDESEND_BOOTSTRAPPED"] = "1"
+    os.execv(VENV_PY, [VENV_PY, os.path.abspath(__file__), *sys.argv[1:]])
+
+
+try:
+    import fontTools  # noqa: F401  (the social line is set from the vendored font)
+except ModuleNotFoundError:
+    if os.environ.get("BUILD_SLIDESEND_BOOTSTRAPPED") == "1":
+        raise
+    _bootstrap_then_reexec()
+
+
+def _wordmarks_module():
+    """scripts/build-wordmarks has no .py suffix; load it for its Font class."""
+    path = os.path.join(REPO, "scripts", "build-wordmarks")
+    loader = importlib.machinery.SourceFileLoader("build_wordmarks", path)
+    spec = importlib.util.spec_from_loader("build_wordmarks", loader)
+    mod = importlib.util.module_from_spec(spec)
+    loader.exec_module(mod)
+    return mod
+
+
+def fmt(v):
+    return f"{v:.2f}".rstrip("0").rstrip(".")
+
+
+def doc(w, h, body, label="slidesend"):
+    return "\n".join(
+        [f'<svg xmlns="http://www.w3.org/2000/svg" width="{fmt(w)}" height="{fmt(h)}" '
+         f'viewBox="0 0 {fmt(w)} {fmt(h)}" role="img" aria-label="{label}">',
+         *body, "</svg>", ""]
+    )
+
+
+# ---------------------------------------------------------------- the symbol
+
+def halves(x0, y0, x1, y1, r, g, rc):
+    """The two halves of the slide. The wave's centre line runs low on the left
+    and high on the right, turning through two quarter arcs of radius rc around
+    (cx − rc, cy) and (cx + rc, cy); each half is offset from it by g/2."""
+    f = fmt
+    cx, cy, h = (x0 + x1) / 2, (y0 + y1) / 2, g / 2
+    lo, hi = cy + rc, cy - rc
+    desk = (f"M{f(x0)} {f(lo - h)}V{f(y0 + r)}A{f(r)} {f(r)} 0 0 1 {f(x0 + r)} {f(y0)}"
+            f"H{f(x1 - r)}A{f(r)} {f(r)} 0 0 1 {f(x1)} {f(y0 + r)}V{f(hi - h)}H{f(cx + rc)}"
+            f"A{f(rc + h)} {f(rc + h)} 0 0 0 {f(cx - h)} {f(cy)}"
+            f"A{f(rc - h)} {f(rc - h)} 0 0 1 {f(cx - rc)} {f(lo - h)}Z")
+    stage = (f"M{f(x0)} {f(lo + h)}H{f(cx - rc)}A{f(rc + h)} {f(rc + h)} 0 0 0 {f(cx + h)} {f(cy)}"
+             f"A{f(rc - h)} {f(rc - h)} 0 0 1 {f(cx + rc)} {f(hi + h)}H{f(x1)}V{f(y1 - r)}"
+             f"A{f(r)} {f(r)} 0 0 1 {f(x1 - r)} {f(y1)}H{f(x0 + r)}"
+             f"A{f(r)} {f(r)} 0 0 1 {f(x0)} {f(y1 - r)}Z")
+    return desk, stage
+
+
+def symbol(geo, desk_fill, stage_fill):
+    desk, stage = halves(**geo)
+    return doc(256, 256, [f'  <path fill="{desk_fill}" d="{desk}"/>',
+                          f'  <path fill="{stage_fill}" d="{stage}"/>'])
+
+
+def app_icon():
+    desk, stage = halves(**SMALL)
+    return doc(1024, 1024, [
+        f'  <rect width="1024" height="1024" rx="224" fill="{INK}"/>',
+        '  <g transform="translate(192 186) scale(2.5)">',
+        f'    <path fill="{PAPER}" d="{desk}"/>',
+        f'    <path fill="{SPOTLIGHT}" d="{stage}"/>',
+        "  </g>",
+    ])
+
+
+def favicon():
+    desk, stage = halves(**SMALL)
+    return "\n".join([
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="slidesend">',
+        f"  <style>.desk{{fill:{INK}}}.stage{{fill:{SPOTLIGHT}}}"
+        f"@media (prefers-color-scheme:dark){{.desk{{fill:{PAPER}}}}}</style>",
+        f'  <path class="desk" d="{desk}"/>',
+        f'  <path class="stage" d="{stage}"/>',
+        "</svg>", ""])
+
+
+# -------------------------------------------------------------- the wordmark
+
+SW, X_TOP, X_MID, BASE, ASC, BOWL = 18, 119, 155, 191, 52, 36   # centre-line metrics
+GAP = 34                 # between letters, centre line to centre line
+STEM_EXTRA = 8           # straight-to-straight pairs (l·i, i·d) get a little more
+I_DOT = (32, 22, 5, 79)  # width, height, radius, centre y of the slide on the i
+
+
+def glyph(ch, x):
+    """(advance width, stroke paths, i-dot centres) for one letter at x."""
+    t, m, b, a, r = X_TOP, X_MID, BASE, ASC, BOWL
+    if ch == "s":
+        q = 18
+        return 50, [f"M{x + 48} {t}H{x + q}A{q} {q} 0 0 0 {x + q} {m}H{x + 50 - q}"
+                    f"A{q} {q} 0 0 1 {x + 50 - q} {b}H{x + 2}"], []
+    if ch == "l":
+        return 0, [f"M{x} {a}V{b}"], []
+    if ch == "i":
+        return 0, [f"M{x} {t}V{b}"], [x]
+    if ch == "d":
+        return 72, [f"M{x + 72} {a}V{b}",
+                    f"M{x + 72} {m}A{r} {r} 0 1 0 {x} {m}A{r} {r} 0 1 0 {x + 72} {m}"], []
+    if ch == "e":
+        k = r * 0.7071  # the e's terminal ends at 45° below the bar
+        return 72, [f"M{x} {m}H{x + 72}A{r} {r} 0 1 0 {fmt(x + 36 + k)} {fmt(m + k)}"], []
+    if ch == "n":
+        return 72, [f"M{x} {t}V{b}", f"M{x} {b}V{m}A{r} {r} 0 0 1 {x + 72} {m}V{b}"], []
+    raise ValueError(ch)
+
+
+def wordmark_parts(ink, dot):
+    x, strokes, dots = 0, [], []
+    for ch in "slidesend":
+        w, ds, idots = glyph(ch, x)
+        strokes += ds
+        dots += idots
+        x += w + GAP + (STEM_EXTRA if ch in "li" else 0)
+    width = x - GAP
+    dw, dh, dr, dy = I_DOT
+    body = [f'    <g fill="none" stroke="{ink}" stroke-width="{SW}" stroke-linecap="round" stroke-linejoin="round">',
+            *[f'      <path d="{d}"/>' for d in strokes], "    </g>"]
+    body += [f'    <rect x="{fmt(cx - dw / 2)}" y="{fmt(dy - dh / 2 - 4)}" width="{dw}" height="{dh}" '
+             f'rx="{dr}" fill="{dot}"/>' for cx in dots]
+    return width, body
+
+
+def wordmark(ink, dot, pad=30):
+    width, body = wordmark_parts(ink, dot)
+    w = int(width + SW + 2 * pad)
+    h = int(BASE - ASC + SW + 2 * pad)
+    tx, ty = pad + SW / 2, pad + SW / 2 - ASC
+    return doc(w, h, [f'  <g transform="translate({fmt(tx)} {fmt(ty)})">', *body, "  </g>"])
+
+
+def social(font):
+    """1200×630 link preview: the wordmark on paper, the hero line beneath it."""
+    W, H = 1200, 630
+    width, body = wordmark_parts(INK, SPOTLIGHT)
+    k = 640 / (width + SW)                         # wordmark 640 px wide
+    mark_h = (BASE - ASC + SW) * k
+    line_px = 44
+    s = line_px / 1000
+    lxmin, lymin, lxmax, lymax = font.ink_box(SOCIAL_LINE)
+    line_w, line_h = (lxmax - lxmin) * s, (lymax - lymin) * s
+    gap = 70
+    top = (H - (mark_h + gap + line_h)) / 2
+    mx = (W - (width + SW) * k) / 2 + SW / 2 * k
+    my = top + SW / 2 * k - ASC * k
+    out = [f'  <rect width="{W}" height="{H}" fill="{PAPER}"/>',
+           f'  <g transform="translate({fmt(mx)} {fmt(my)}) scale({k:.4f})">',
+           *["  " + line for line in body], "  </g>"]
+    line_tx = (W - line_w) / 2 - lxmin * s
+    line_ty = top + mark_h + gap + lymax * s
+    for _, d in font.paths(SOCIAL_LINE, line_tx, line_ty, s):
+        out.append(f'  <path fill="{INK}" d="{d}"/>')
+    return doc(W, H, out, label="slidesend — A talk the room takes part in.")
+
+
+# ------------------------------------------------------------------- outputs
+
+def outputs():
+    svg = os.path.join(FAMILY, "svg")
+    mono = os.path.join(FAMILY, "mono")
+    yield os.path.join(svg, "slidesend-symbol-dark.svg"), symbol(SYMBOL, INK, SPOTLIGHT)
+    yield os.path.join(svg, "slidesend-symbol-light.svg"), symbol(SYMBOL, PAPER, SPOTLIGHT)
+    yield os.path.join(svg, "slidesend-symbol-sm-dark.svg"), symbol(SMALL, INK, SPOTLIGHT)
+    yield os.path.join(svg, "slidesend-symbol-sm-light.svg"), symbol(SMALL, PAPER, SPOTLIGHT)
+    yield os.path.join(svg, "slidesend-wordmark-dark.svg"), wordmark(INK, SPOTLIGHT)
+    yield os.path.join(svg, "slidesend-wordmark-light.svg"), wordmark(PAPER, SPOTLIGHT)
+    for name, colour in (("black", BLACK), ("white", WHITE)):
+        yield os.path.join(mono, f"slidesend-symbol-{name}.svg"), symbol(SYMBOL, colour, colour)
+        yield os.path.join(mono, f"slidesend-symbol-sm-{name}.svg"), symbol(SMALL, colour, colour)
+        yield os.path.join(mono, f"slidesend-wordmark-{name}.svg"), wordmark(colour, colour)
+    yield os.path.join(FAMILY, "app-icon", "slidesend-app-icon.svg"), app_icon()
+    yield os.path.join(FAMILY, "favicon", "slidesend-favicon.svg"), favicon()
+    wm = _wordmarks_module()
+    yield os.path.join(FAMILY, "social", "slidesend-social.svg"), social(wm.Font(wm.FONT))
+
+
+def main():
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print(__doc__)
+        return
+    check = "--check" in sys.argv[1:]
+    stale = []
+    for path, content in outputs():
+        rel = os.path.relpath(path, REPO)
+        current = open(path).read() if os.path.exists(path) else None
+        if current == content:
+            continue
+        if check:
+            stale.append(rel)
+            continue
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as fh:
+            fh.write(content)
+        print(f"  ✓ {rel}")
+    if stale:
+        print("out of date:\n  " + "\n  ".join(stale))
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

@@ -21,6 +21,15 @@
   --nxs-manufakt-gradient: linear-gradient(135deg, #DC2626, #EA580C);
   --nxs-manufakt-bg: #FFFFFF;
 
+  /* slidesend — full light/dark theme in tokens/slidesend.css */
+  --nxs-slidesend-accent: #CC3510;
+  --nxs-slidesend-accent-dark: #B02E0D;
+  --nxs-slidesend-tint: #FFF5F1;
+  --nxs-slidesend-accent-on-dark: #F04E23;
+  --nxs-slidesend-spotlight: #F04E23;
+  --nxs-slidesend-ink: #17151F;
+  --nxs-slidesend-bg: #FFFFFF;
+
   /* nxsflow BP */
   --nxs-bp-accent: #F59E0B;
   --nxs-bp-bg: #FFFFFF;

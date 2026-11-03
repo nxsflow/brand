@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="826" height="217" viewBox="0 0 826 217" role="img" aria-label="slidesend">
+  <g transform="translate(39 -13)">
+    <g fill="none" stroke="#17151F" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M48 119H18A18 18 0 0 0 18 155H32A18 18 0 0 1 32 191H2"/>
+      <path d="M84 52V191"/>
+      <path d="M126 119V191"/>
+      <path d="M240 52V191"/>
+      <path d="M240 155A36 36 0 1 0 168 155A36 36 0 1 0 240 155"/>
+      <path d="M274 155H346A36 36 0 1 0 335.46 180.46"/>
+      <path d="M428 119H398A18 18 0 0 0 398 155H412A18 18 0 0 1 412 191H382"/>
+      <path d="M464 155H536A36 36 0 1 0 525.46 180.46"/>
+      <path d="M570 119V191"/>
+      <path d="M570 191V155A36 36 0 0 1 642 155V191"/>
+      <path d="M748 52V191"/>
+      <path d="M748 155A36 36 0 1 0 676 155A36 36 0 1 0 748 155"/>
+    </g>
+    <rect x="110" y="64" width="32" height="22" rx="5" fill="#F04E23"/>
+  </g>
+</svg>
