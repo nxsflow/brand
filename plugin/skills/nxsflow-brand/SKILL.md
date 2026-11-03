@@ -34,7 +34,7 @@ When the nxsflow logotype is displayed, the letter "F" may be set in the brand l
 
 nexflow.it is the core product. The parent brand shares its lime accent to reinforce this.
 
-slidesend is a brand of its own, not a module of nexflow.it: it serves speakers and their audience, a different person from the knowledge worker nexflow.it serves. Its name is always lowercase — **slidesend**, also at the start of a sentence and in headings — and it carries no f-highlight; its accent sits on its first letter alone. The name is deliberately open to two readings — slide·send and slides·end — so nothing in the mark, the copy or the code splits it: never accent, capitalise or hyphenate a second part.
+slidesend is a brand of its own, not a module of nexflow.it. It serves speakers and their audience, who are different people from the knowledge workers nexflow.it serves. Its name is always lowercase, also at the start of a sentence and in headings. It has no f-highlight, and only its first letter carries the accent. The name is open to two readings on purpose, slide·send and slides·end, so the mark, the copy and the code never split it. Never accent, capitalise or hyphenate a second part.
 
 ## Messaging
 
@@ -118,11 +118,14 @@ Same belief, same mechanic — different world of work.
 
 #### slidesend — giving talks
 
-- _For:_ people who give talks — at conferences, in classrooms, in workshops and team meetings — and the audience in the room with them.
-- _Positioning:_ "You decide what the talk says; your AI agent builds it with you, and your audience takes part on their phones. slidesend is open source (Apache-2.0), and a talk is a TypeScript project you own."
-- _Leads with its own promise:_ the room takes part. The pillars carry how a talk gets made, in the order 1 → 3 → 2: the agent asks the speaker for the decisions only they can make and never invents facts (1); those decisions are written into the talk, and `slidesend check` names every mistake by slide and field (3); the agent writes the slides, one idea each, with the spoken words as notes (2).
+- _For:_ speakers and the audience in the room with them. The speakers give talks at conferences, in classrooms, in workshops and in team meetings.
+- _Positioning:_ "You decide what the talk says. Your AI agent builds it with you. Your audience takes part on their phones. slidesend is open source under Apache-2.0, and each talk is a TypeScript project on your own machine."
+- _Leads with its own promise:_ the room takes part. The pillars explain how a talk gets made, in the order 1, 3, 2:
+  - Pillar 1. The agent asks the speaker for the decisions only they can make, and it never invents facts.
+  - Pillar 3. The agent writes those decisions into the talk, and `slidesend check` reports each mistake with its slide and field.
+  - Pillar 2. The agent writes the slides, one idea per slide, with the spoken words as speaker notes.
 - _Tagline (leads):_ "A talk the room takes part in." _Alternative:_ "Write it with your agent. Present it to every phone in the room."
-- _Tone:_ clear, practical, calm — the voice of someone who has stood on a stage. Concrete over clever: a command, a number, a price.
+- _Tone:_ clear, practical and calm, like someone who has stood on a stage. Prefer a command, a number or a price to a clever line.
 
 ### Voice Guardrails
 
