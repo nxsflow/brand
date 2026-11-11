@@ -8,13 +8,14 @@ Brand guideline, design tokens, and logos for nxsflow and its products.
 | ------------------------- | ------------------------------------------------ |
 | `BRAND.md`                | The brand guideline — single source of truth     |
 | `copy/`                   | Landing copy decks (EN + DE) per product, and the long-form brand stories (`*-story.md`: why a brand exists) |
-| `tokens/`                 | Design tokens (CSS custom properties + JSON)     |
+| `tokens/`                 | Design tokens (CSS custom properties + JSON); `tokens/nocentraldb.css` for NoCentralDB |
 | `logos/nexflow-it/`       | nexflow.it "nf" monogram + wordmark (SVG, PNG, favicon) |
 | `logos/manufakt-io/`      | manufakt.io "mf" monogram + wordmark (SVG, PNG, favicon) |
 | `logos/nexflow-parent/`   | nxsflow wordmark logotype (SVG, PNG, favicon)    |
 | `logos/nexflow-bp/`       | nxsflow BP compass icon (SVG, PNG, favicon)      |
 | `logos/slidesend/`        | slidesend's complete logo kit: symbol, wordmark, one-colour, app icon, favicons, link preview, the mark in context, and its guide (`README.md`) |
-| `scripts/`                | Wordmark generators (`build-wordmarks`, `build-slidesend`) + logo render script |
+| `logos/nocentraldb/`      | NoCentralDB provisional mark + wordmark (SVG, PNG, favicon) |
+| `scripts/`                | Wordmark generators (`build-wordmarks`, `build-slidesend`, `build-ncdb-logos`) + logo render script |
 | `plugin/`                 | Claude Code plugin for brand-aware AI assistance |
 
 ## Brand Guideline
@@ -30,6 +31,7 @@ See [BRAND.md](BRAND.md) for the full guideline covering **core messaging & posi
 | **manufakt.io**        | manufakt.io          | Ember Red `#DC2626`                      |
 | **nxsflow BP**         | bp.nxsflow.com       | Amber `#F59E0B`                          |
 | **slidesend**          | nxsflow.com/slidesend | Spotlight `#F04E23`                      |
+| **NoCentralDB** (endorsed, own identity) | nocentraldb.io (nocentraldb.com redirects) | Safety yellow `#F2DC4B`, dark theme only |
 ## Using the Design Tokens
 
 **CSS** — import directly:
@@ -65,6 +67,15 @@ versions, app icon, favicon and link preview all come from one script.
 ```bash
 scripts/build-slidesend              # rewrite every slidesend logo SVG
 scripts/build-slidesend --check      # fail if a committed one is out of date
+```
+
+The provisional NoCentralDB mark and wordmark (`logos/nocentraldb/svg/`) are
+generated from the vendored Love Ya Like A Sister in `scripts/fonts/` (SIL OFL,
+see `scripts/fonts/OFL-LoveYaLikeASister.txt`):
+
+```bash
+scripts/build-ncdb-logos             # rewrite the NoCentralDB SVGs
+scripts/build-ncdb-logos --check     # fail if a committed SVG is out of date
 ```
 
 The SVGs in `logos/<family>/svg/` are the source of truth. After editing an SVG

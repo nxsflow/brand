@@ -1,0 +1,246 @@
+#!/usr/bin/env python3
+"""Build the provisional NoCentralDB logo SVGs from Love Ya Like A Sister.
+
+NoCentralDB is an endorsed brand with its own identity, so none of the family
+rules of scripts/build-wordmarks apply here. The mark follows BRAND.md,
+"NoCentralDB (endorsed)" -> "Logo (provisional)":
+
+  - "nc" turned 90° anticlockwise on the left, "db" turned 90° clockwise on the
+    right, facing each other as if across a mirror (baselines towards the axis)
+  - set in the provisional name face, vendored in scripts/fonts/ (SIL OFL, see
+    scripts/fonts/OFL-LoveYaLikeASister.txt), outlined so no font is needed
+  - letter size 54 % of the tile height; "db" letter-spaced by 0.12em and
+    shifted 0.06em left and 0.08em down so the pair sits optically centred
+  - the baselines sit 0.16em apart before that shift, so the words never touch
+  - tile corner radius 18 %
+  - accent version: #111110 letters on #F2DC4B (app icon, avatar, profile)
+  - dark version:   #ECEBE4 letters on #26261F (favicon, header)
+
+The wordmark is the name "NoCentralDB" in the same face, ink on bg. It carries
+its ground, because NoCentralDB has no light theme.
+
+Outputs (the SVGs are the source of truth; run scripts/render-logos nocentraldb
+afterwards for PNGs and favicons):
+
+  logos/nocentraldb/svg/ncdb-mark-accent.svg
+  logos/nocentraldb/svg/ncdb-mark-dark.svg
+  logos/nocentraldb/svg/ncdb-wordmark-dark.svg
+
+  <variant> names the ground, as BRAND.md does for NoCentralDB ("accent" and
+  "dark" version); it does not follow the family's light/dark artwork rule.
+
+The name face is provisional: at the first release the face is replaced and
+the mark redrawn with it. Until then, do not invest in further logo work here.
+
+Usage:
+  scripts/build-ncdb-logos          # write all SVGs
+  scripts/build-ncdb-logos --check  # exit 1 if any committed SVG differs
+"""
+
+import os
+import subprocess
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(REPO, "logos", "nocentraldb", "svg")
+FONT = os.path.join(REPO, "scripts", "fonts", "LoveYaLikeASister.ttf")
+VENV = os.path.join(REPO, "scripts", ".venv")
+VENV_PY = os.path.join(VENV, "bin", "python")
+
+TILE = 256            # px, square tile
+RADIUS = 0.18         # corner radius, share of the tile
+LETTER = 0.54         # letter size (em), share of the tile height
+DB_TRACKING = 0.12    # em, letter-spacing of "db"
+DB_SHIFT = (-0.06, 0.08)  # em, optical shift of "db" (x right, y down)
+AXIS_GAP = 0.16       # em, space between the two words' baselines before the shift
+
+WORD_PX = 120         # wordmark letter size (em) in px
+WORD_PAD = 32         # clear space around the wordmark's ink box
+
+BG = "#111110"
+SURFACE_2 = "#26261F"
+INK = "#ECEBE4"
+ACCENT = "#F2DC4B"
+ACCENT_INK = "#111110"
+
+MARKS = [
+    # (variant, letters, tile)
+    ("accent", ACCENT_INK, ACCENT),
+    ("dark", INK, SURFACE_2),
+]
+
+
+def _bootstrap_then_reexec():
+    # scripts/.venv is shared with render-logos; only fonttools is added here
+    if not os.path.exists(VENV_PY):
+        print("· setting up scripts/.venv…", flush=True)
+        subprocess.check_call([sys.executable, "-m", "venv", VENV])
+    subprocess.check_call(
+        [VENV_PY, "-m", "pip", "install", "-q", "--disable-pip-version-check",
+         "fonttools"]
+    )
+    os.environ["BUILD_NCDB_LOGOS_BOOTSTRAPPED"] = "1"
+    os.execv(VENV_PY, [VENV_PY, os.path.abspath(__file__), *sys.argv[1:]])
+
+
+try:
+    from fontTools.pens.boundsPen import BoundsPen
+    from fontTools.pens.svgPathPen import SVGPathPen
+    from fontTools.pens.transformPen import TransformPen
+    from fontTools.ttLib import TTFont
+except ModuleNotFoundError:
+    if os.environ.get("BUILD_NCDB_LOGOS_BOOTSTRAPPED") == "1":
+        raise
+    _bootstrap_then_reexec()
+
+
+def _fmt(v):
+    return f"{v:.2f}".rstrip("0").rstrip(".")
+
+
+class _RoundingSVGPathPen(SVGPathPen):
+    def __init__(self, glyphset):
+        super().__init__(glyphset, ntos=_fmt)
+
+
+class Font:
+    def __init__(self, path):
+        self.font = TTFont(path)
+        self.glyphs = self.font.getGlyphSet()
+        self.cmap = self.font.getBestCmap()
+        self.hmtx = self.font["hmtx"]
+        self.upm = self.font["head"].unitsPerEm
+
+    def layout(self, text, tracking=0.0):
+        """[(glyph name, x offset in font units)] on plain advances + tracking (em)."""
+        x, out = 0, []
+        for ch in text:
+            name = self.cmap[ord(ch)]
+            out.append((name, x))
+            x += self.hmtx[name][0] + tracking * self.upm
+        return out
+
+    def ink_box(self, text, tracking=0.0):
+        """Ink box in font units, y up: (xmin, ymin, xmax, ymax)."""
+        xmin = ymin = float("inf")
+        xmax = ymax = float("-inf")
+        for name, x in self.layout(text, tracking):
+            pen = BoundsPen(self.glyphs)
+            self.glyphs[name].draw(pen)
+            if pen.bounds is None:
+                continue
+            a, b, c, d = pen.bounds
+            xmin, ymin = min(xmin, x + a), min(ymin, b)
+            xmax, ymax = max(xmax, x + c), max(ymax, d)
+        return xmin, ymin, xmax, ymax
+
+    def path(self, text, matrix, tracking=0.0):
+        """One SVG path for the text; matrix maps font units (u, v up) to px."""
+        a, b, c, d, e, f = matrix
+        parts = []
+        for name, x in self.layout(text, tracking):
+            pen = _RoundingSVGPathPen(self.glyphs)
+            # pre-translate by the glyph's x offset in font units
+            glyph_matrix = (a, b, c, d, e + a * x, f + b * x)
+            self.glyphs[name].draw(TransformPen(pen, glyph_matrix))
+            cmd = pen.getCommands()
+            if cmd:
+                parts.append(cmd)
+        return "".join(parts)
+
+
+def svg_doc(width, height, body):
+    w, h = round(width), round(height)
+    return "\n".join(
+        [f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg">',
+         *body, "</svg>", ""]
+    )
+
+
+def mark_paths(font):
+    """The two rotated words as (nc path, db path) in tile px."""
+    em = LETTER * TILE
+    s = em / font.upm
+    mid = TILE / 2
+
+    nc = font.ink_box("nc")
+    db = font.ink_box("db", DB_TRACKING)
+
+    # Turned 90° anticlockwise: the text runs upwards, the letters' tops face
+    # left. Font (u, v) -> screen (X, Y) = (tx - v·s, ty - u·s).
+    # Turned 90° clockwise:     the text runs downwards, tops face right.
+    # Font (u, v) -> screen (X, Y) = (tx + v·s, ty + u·s).
+    # Both baselines face the vertical axis; each word is centred vertically
+    # on its ink and the pair is centred horizontally on its joint ink.
+    nc_w = (nc[3] - nc[1]) * s   # on-screen width = the word's ink height
+    db_w = (db[3] - db[1]) * s
+    gap = AXIS_GAP * em
+    left = mid - (nc_w + gap + db_w) / 2
+
+    nc_tx = left + nc[3] * s                       # ink top (v = ymax) at `left`
+    nc_ty = mid + (nc[0] + nc[2]) / 2 * s
+    db_tx = left + nc_w + gap - db[1] * s + DB_SHIFT[0] * em
+    db_ty = mid - (db[0] + db[2]) / 2 * s + DB_SHIFT[1] * em
+
+    nc_path = font.path("nc", (0, -s, -s, 0, nc_tx, nc_ty))
+    db_path = font.path("db", (0, s, s, 0, db_tx, db_ty), DB_TRACKING)
+    return nc_path, db_path
+
+
+def build_mark(font, letters, tile):
+    r = _fmt(RADIUS * TILE)
+    nc_path, db_path = mark_paths(font)
+    return svg_doc(TILE, TILE, [
+        f'  <rect width="{TILE}" height="{TILE}" rx="{r}" ry="{r}" fill="{tile}"/>',
+        f'  <path fill="{letters}" d="{nc_path}"/>',
+        f'  <path fill="{letters}" d="{db_path}"/>',
+    ])
+
+
+def build_wordmark(font, text="NoCentralDB"):
+    s = WORD_PX / font.upm
+    xmin, ymin, xmax, ymax = font.ink_box(text)
+    width = (xmax - xmin) * s + 2 * WORD_PAD
+    height = (ymax - ymin) * s + 2 * WORD_PAD
+    tx = WORD_PAD - xmin * s
+    ty = WORD_PAD + ymax * s
+    w, h = round(width), round(height)
+    return svg_doc(w, h, [
+        f'  <rect width="{w}" height="{h}" fill="{BG}"/>',
+        f'  <path fill="{INK}" d="{font.path(text, (s, 0, 0, -s, tx, ty))}"/>',
+    ])
+
+
+def outputs():
+    font = Font(FONT)
+    for variant, letters, tile in MARKS:
+        yield (os.path.join(OUT, f"ncdb-mark-{variant}.svg"),
+               build_mark(font, letters, tile))
+    yield os.path.join(OUT, "ncdb-wordmark-dark.svg"), build_wordmark(font)
+
+
+def main():
+    check = "--check" in sys.argv[1:]
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print(__doc__)
+        return
+    os.makedirs(OUT, exist_ok=True)
+    stale = []
+    for path, content in outputs():
+        rel = os.path.relpath(path, REPO)
+        current = open(path).read() if os.path.exists(path) else None
+        if current == content:
+            continue
+        if check:
+            stale.append(rel)
+            continue
+        with open(path, "w") as fh:
+            fh.write(content)
+        print(f"  ✓ {rel}")
+    if stale:
+        print("out of date:\n  " + "\n  ".join(stale))
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
