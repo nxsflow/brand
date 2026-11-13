@@ -43,6 +43,7 @@
     "ink": "#ECEBE4",
     "muted": "#A3A299",
     "accent": "#F2DC4B",
-    "accentInk": "#111110"
+    "accentInk": "#111110",
+    "loud": "#FF3D8B"
   }
 }

@@ -369,22 +369,27 @@ The kinship with NoSQL lies in the gesture (refusing a default), not in the data
 
 **Positioning (source, never set verbatim on a page):** "NoCentralDB is a local-first database for teams of people and agents. Everyone works on their own copy, under their own keys, and nobody in the middle can read it."
 
-**Proof points** (never lead; each backs a claim):
+**Message order (public pages):** speed leads, confidentiality follows. The first thing a reader learns is that people and agents work on shared data at local speed, because each of them holds a full copy. The second is that the copies sync through a server that cannot read them. That work goes on without a connection follows from the first and gets a sentence, not a section.
+
+**Proof points** (each backs a claim; the first backs the lead):
 
 - Reads are local; writes converge.
 - The relay holds no keys and only carries encrypted changes.
 - Data-privacy duties are designed in: a person's data can be shredded on request by destroying their key.
 
-**Not for:** apps that need queries on the server, analytics across all users' data, or one global truth enforced at write time (unique names, transactions across everyone). For those, a central database is exactly right. Say so plainly; never belittle the central database.
+**Not for:** apps that need queries on the server, analytics across all users' data, or one global truth enforced at write time (unique names, transactions across everyone). For those, a central database is exactly right. Say so plainly; never belittle the central database. The limits live in the docs and, once it exists, in an FAQ; the landing page does not carry a limits section.
 
 **Visible lines:**
 
-| Line     | Text                                                                                              |
-| -------- | ------------------------------------------------------------------------------------------------- |
-| Eyebrow  | A local-first database for people and agents.                                                     |
-| Headline | For when a central database is the wrong place.                                                   |
-| Subline  | Everyone works on their own copy, under their own keys. The relay in the middle can't read a thing. |
-| Tagline  | No center. No collisions.                                                                         |
+| Line        | Text                                                                                                                                          |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Eyebrow     | A local-first database for people and agents                                                                                                  |
+| Headline    | A database that reads like a local file and syncs like a shared doc                                                                           |
+| Subline     | Each person and each agent reads and writes a full copy on their own machine. The changes sync encrypted through a server that can't read them. |
+| Status line | NoCentralDB does not exist yet. This page shows what it is designed to do; the design is open in the RFCs.                                     |
+| Tagline     | No center. No collisions.                                                                                                                     |
+
+**First contact in plain words:** the headline, the subline and the first explanation of the mechanism use only words a developer used before meeting the product: database, local file, shared doc, copy, server, sync, encrypted. The vocabulary below (relay, space, island mode) appears after that, each term explained once where it first shows. A line that defines the product by what it is not, or that needs the vocabulary to be understood, does not lead.
 
 **Claims rule, privacy:** We describe the mechanism, not a legal outcome. We may say "a person's data can be shredded by destroying their key" and "retention duties are modelled too". We never say "compliant", "GDPR-ready", "ensures compliance", "data privacy is built in" or "erased everywhere". Every public statement about erasure either names its limits or links to the page that does.
 
@@ -436,10 +441,13 @@ NoCentralDB has no light theme. Use the roles, never raw values in components. T
 | `surface-2`  | `#26261F` | Secondary buttons, the dark ground of the mark                           |
 | `ink`        | `#ECEBE4` | Text and headings (15.8:1 on `bg`)                                       |
 | `muted`      | `#A3A299` | Secondary text, captions, code comments (7.4:1 on `bg`)                  |
-| `accent`     | `#F2DC4B` | Safety yellow: the primary action, live state, link underlines, focus (13.6:1 on `bg`) |
+| `accent`     | `#F2DC4B` | Safety yellow: the primary action, link underlines, focus; in a drawing, data that changes (13.6:1 on `bg`) |
 | `accent-ink` | `#111110` | Text on the accent (13.6:1 on `accent`)                                  |
+| `loud`       | `#FF3D8B` | Hot magenta, only inside an animated drawing: the mark of a live connection (5.7:1 on `bg`) |
 
-- The accent takes under 5 % of any screen. It marks the action and at most one recurring thing (the "connected" state). Never for headings, icons, bullets or borders.
+- The accent takes under 5 % of a screen. It marks the action and, in a drawing, the data that changes. Never for headings, icons, bullets or borders.
+- **One flooded section.** A public page may set one section, in its second half, on the accent as its ground: the close. Text on it is `accent-ink`, cards on it are `bg` or `surface`, and its primary button is `bg` with `ink` text. Never two such sections on one page, and never the hero.
+- **The loud colour stays inside drawings.** `loud` marks a live connection in an animated drawing or diagram, next to the accent, which marks data that changes there. It is never a button, a link, a ground, a text colour or a focus ring, and it never sits on the accent (2.4:1). A page without a drawing has two colours.
 - **Warning states are never yellow.** With a yellow accent, a yellow warning reads as a button. Status colours for app surfaces are still to be defined; until then use `ink` and wording, not colour.
 - No gradient fills, no gradient text, no glows at rest.
 - Code blocks use `ink` and `muted` only; no yellow in syntax highlighting.
@@ -469,7 +477,8 @@ NoCentralDB has no light theme. Use the roles, never raw values in components. T
 
 ### Design Language: "The marked floor"
 
-- Dark, near-black ground; one safety-yellow accent, used like the floor marking of a shared work cell: rare, deliberate, meaning "here".
+- Dark, near-black ground; one safety-yellow accent, used like the floor marking of a shared work cell: rare, deliberate, meaning "here". One section of a public page may be flooded in it.
+- The mechanism is explained in a drawing of places a stranger knows (a laptop on a train, a desk at home, an agent on its own machine, a server in the cloud), in a few states the reader steps through. In a drawing, yellow is data that changes and magenta is a live connection; a member that is offline shows a hollow mark in `muted`. Drawings rest under reduced motion.
 - Cards and panels are neutral at rest and separated by tone, not lines; emphasis only on hover, as a soft accent glow with a slight lift. No coloured edges or accent bars, at rest or on hover.
 - Headings are broad and steady; code and terms are set in mono; the name is the only hand-made element.
 - Communicates: solid, protective, built to hold.

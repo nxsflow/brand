@@ -15,8 +15,9 @@
   --ncdb-surface-2: #26261F;
   --ncdb-ink: #ECEBE4;
   --ncdb-muted: #A3A299;
-  --ncdb-accent: #F2DC4B;       /* safety yellow: primary action, live state, focus; under 5 % of a screen */
+  --ncdb-accent: #F2DC4B;       /* safety yellow: primary action, focus, data that changes in a drawing; under 5 % of a screen, or the ground of one flooded section */
   --ncdb-accent-ink: #111110;
+  --ncdb-loud: #FF3D8B;         /* hot magenta: only inside an animated drawing, the mark of a live connection */
   --ncdb-glow-1: rgba(242, 220, 75, 0.28);  /* hover only */
   --ncdb-glow-2: rgba(242, 220, 75, 0.12);  /* hover only */
 
